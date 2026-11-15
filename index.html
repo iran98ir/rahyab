@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F5F9FF">
-<meta name="description" content="ردیاب؛ راهی هوشمند برای آگاهی از موقعیت عزیزان، با اطلاع و رضایت آن‌ها.">
-<title>ردیاب | موقعیت عزیزانت همیشه روشن</title>
+<meta name="theme-color" content="#F3F0E7">
+<meta name="description" content="ردیاب؛ سامانه هوشمند مشاهده موقعیت مکانی افراد با اطلاع و رضایت آن‌ها.">
+<title>ردیاب | موقعیت، دقیق‌تر از همیشه</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,819 +14,1398 @@
 
 <style>
 :root{
-  --ink:#102443;
-  --muted:#60738E;
-  --blue:#246BFD;
-  --blue2:#1454E8;
-  --cyan:#20C9CE;
-  --coral:#FF765F;
-  --paper:#F5F9FF;
-  --white:#FFFFFF;
-  --line:#E5EDF8;
-  --soft-blue:#EAF1FF;
-  --shadow:0 18px 50px rgba(35,83,157,.11);
-  --shadow2:0 9px 26px rgba(35,83,157,.09);
-  --radius:28px;
+  --paper:#F3F0E7;
+  --paper2:#EAE6DA;
+  --white:#FFFEFA;
+  --ink:#202B25;
+  --muted:#777D70;
+  --green:#28483A;
+  --green2:#385F4D;
+  --green-soft:#E2E9DF;
+  --orange:#D95F37;
+  --orange-soft:#F8E4D9;
+  --yellow:#D6B96D;
+  --line:#DCD9CD;
+  --shadow:0 22px 55px rgba(42,55,42,.10);
+  --shadow2:0 10px 28px rgba(42,55,42,.08);
+  --nav-height:82px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:"Vazirmatn",sans-serif;
+  background:var(--paper);
   color:var(--ink);
-  background:
-    radial-gradient(ellipse at 90% 0%,rgba(53,122,255,.09),transparent 32%),
-    radial-gradient(ellipse at 5% 35%,rgba(32,201,206,.07),transparent 30%),
-    var(--paper);
-  overflow-x:hidden;
+  font-family:"Vazirmatn",sans-serif;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-a{color:inherit;text-decoration:none}
+a{text-decoration:none;color:inherit}
 button{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
+svg{display:block}
 .page{
-  width:min(100% - 34px,1120px);
+  width:min(100% - 44px,1160px);
   margin:auto;
 }
-.topbar{
-  height:82px;
+
+/* HEADER */
+.header{
+  height:94px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:14px;
+  position:relative;
+  z-index:5;
 }
 .brand{
   display:flex;
   align-items:center;
-  gap:11px;
+  gap:13px;
 }
-.brand-mark{
-  width:48px;height:48px;
-  border-radius:17px;
-  display:grid;place-items:center;
-  color:#fff;
-  background:linear-gradient(145deg,#3985FF,#1454E8);
-  box-shadow:0 9px 20px rgba(36,107,253,.27);
+.brand-symbol{
+  width:49px;
+  height:49px;
+  display:grid;
+  place-items:center;
   position:relative;
-  overflow:hidden;
+  background:var(--green);
+  color:#F5F1E6;
+  border-radius:15px 15px 15px 4px;
+  transform:rotate(-4deg);
+  box-shadow:0 8px 17px rgba(40,72,58,.18);
 }
-.brand-mark:after{
-  content:"";
-  position:absolute;
-  width:38px;height:38px;
-  border:1px solid rgba(255,255,255,.36);
-  border-radius:50%;
-  transform:translate(13px,-13px);
+.brand-symbol svg{
+  width:27px;
+  height:27px;
+  transform:rotate(4deg);
 }
-.brand-mark svg{width:28px;height:28px;position:relative;z-index:1}
-.brand-name{
-  font-size:23px;
+.brand-title{
+  font-size:25px;
   font-weight:900;
   letter-spacing:-1px;
+  line-height:1.25;
 }
-.brand-caption{
+.brand-subtitle{
+  font-size:13px;
   color:var(--muted);
-  font-size:14px;
-  font-weight:600;
-  margin-top:-3px;
+  font-weight:700;
+  margin-top:3px;
 }
-.top-pill{
-  display:flex;align-items:center;gap:8px;
-  border:1px solid #DDE8FA;
-  background:rgba(255,255,255,.8);
-  padding:10px 15px;
-  border-radius:30px;
-  font-size:14px;
+.header-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.header-index{
+  color:#777D70;
+  font-size:13px;
   font-weight:800;
-  color:#31547D;
+  letter-spacing:1px;
 }
-.pulse-dot{
-  width:9px;height:9px;border-radius:50%;
-  background:#20C9A0;
-  box-shadow:0 0 0 5px rgba(32,201,160,.13);
+.header-line{
+  width:40px;
+  height:1px;
+  background:#A9AA9C;
+}
+.header-status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border:1px solid #D9D8CA;
+  border-radius:5px;
+  background:rgba(255,254,250,.56);
+  font-size:13px;
+  font-weight:800;
+  color:var(--green);
+}
+.status-point{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 4px rgba(217,95,55,.12);
 }
 
 /* HERO */
 .hero{
-  position:relative;
-  isolation:isolate;
+  min-height:570px;
   display:grid;
-  grid-template-columns:1.02fr .98fr;
-  align-items:center;
-  min-height:490px;
-  padding:44px 48px 40px;
-  border-radius:36px;
+  grid-template-columns:1fr 1fr;
+  background:var(--green);
+  color:#F7F3E8;
+  position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(circle at 78% 45%,rgba(50,117,255,.13),transparent 32%),
-    linear-gradient(125deg,#FFFFFF 0%,#F1F6FF 58%,#EAF8FC 100%);
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:var(--shadow);
+  isolation:isolate;
 }
 .hero:before{
   content:"";
   position:absolute;
   z-index:-1;
-  width:450px;height:450px;
-  border:1px solid rgba(36,107,253,.09);
+  width:650px;
+  height:650px;
+  border:1px solid rgba(255,255,255,.10);
   border-radius:50%;
-  right:28%;top:50%;
-  transform:translate(50%,-50%);
-  box-shadow:0 0 0 35px rgba(36,107,253,.025),0 0 0 75px rgba(36,107,253,.018);
+  left:-250px;
+  top:-270px;
+  box-shadow:
+    0 0 0 45px rgba(255,255,255,.025),
+    0 0 0 95px rgba(255,255,255,.02),
+    0 0 0 150px rgba(255,255,255,.015);
 }
-.hero-copy{position:relative;z-index:2}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  color:#245CCB;
-  background:#E8F0FF;
-  border:1px solid #D8E6FF;
-  border-radius:30px;
-  padding:9px 14px;
-  font-size:14px;font-weight:800;
-  margin-bottom:22px;
-}
-.eyebrow i{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--coral);
-  box-shadow:0 0 0 4px rgba(255,118,95,.13);
-}
-.hero h1{
-  font-size:clamp(37px,5.2vw,64px);
-  line-height:1.35;
-  letter-spacing:-2.4px;
-  margin:0;
-  font-weight:900;
-}
-.hero h1 .highlight{
-  color:var(--blue);
-  position:relative;
-  display:inline-block;
-  white-space:nowrap;
-}
-.hero h1 .highlight:after{
+.hero:after{
   content:"";
   position:absolute;
-  right:2px;left:2px;bottom:2px;
-  height:9px;
-  background:rgba(32,201,206,.28);
-  border-radius:10px;
-  z-index:-1;
+  width:1px;
+  height:100%;
+  background:rgba(255,255,255,.12);
+  right:50%;
+  top:0;
 }
-.hero-desc{
-  color:#536A88;
+.hero-copy{
+  padding:75px 65px 66px 35px;
+  position:relative;
+  z-index:2;
+}
+.hero-overline{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#D6B96D;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.2px;
+  margin-bottom:28px;
+}
+.hero-overline:before{
+  content:"";
+  width:31px;
+  height:2px;
+  background:var(--orange);
+}
+.hero h1{
+  font-size:clamp(43px,5.2vw,68px);
+  line-height:1.38;
+  letter-spacing:-2.5px;
+  font-weight:900;
+  margin:0;
+}
+.hero h1 span{
+  color:#E5B47C;
+  display:block;
+}
+.hero-description{
+  color:#D2D8CE;
   font-size:18px;
   font-weight:600;
-  line-height:2.05;
-  max-width:470px;
-  margin:19px 0 25px;
+  line-height:2.15;
+  max-width:480px;
+  margin:23px 0 29px;
 }
 .hero-actions{
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  display:flex;
+  align-items:center;
+  gap:17px;
+  flex-wrap:wrap;
 }
-.primary-btn{
-  min-height:57px;
+.hero-button{
+  min-height:59px;
   padding:0 23px;
-  border:0;border-radius:18px;
-  display:inline-flex;align-items:center;justify-content:center;gap:11px;
-  background:linear-gradient(115deg,#347EFF,#1755E8);
-  color:#fff;font-size:17px;font-weight:900;
-  box-shadow:0 12px 24px rgba(36,107,253,.25);
-  transition:.25s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  color:#202B25;
+  background:#E8BD86;
+  font-size:17px;
+  font-weight:900;
+  border-radius:4px 17px 4px 17px;
+  transition:.25s;
 }
-.primary-btn:hover{transform:translateY(-3px);box-shadow:0 16px 28px rgba(36,107,253,.3)}
-.primary-btn svg{width:20px;height:20px}
-.secondary-note{
-  font-size:14px;font-weight:700;color:#637994;
+.hero-button:hover{
+  background:#F0CCA0;
+  transform:translateY(-3px);
 }
+.hero-button svg{width:20px;height:20px}
+.hero-secondary{
+  color:#E0E3D9;
+  font-size:14px;
+  font-weight:700;
+}
+.hero-secondary:hover{color:#E8BD86}
 
-/* SIGNATURE VISUAL */
-.visual-stage{
+/* CUSTOM TRACKING INSTRUMENT */
+.hero-art{
+  min-height:570px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   position:relative;
-  min-height:380px;
-  display:grid;place-items:center;
+  overflow:hidden;
 }
-.orbit{
+.instrument{
+  width:min(410px,85%);
+  aspect-ratio:1;
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+.instrument-ring{
   position:absolute;
-  width:310px;height:310px;
   border-radius:50%;
-  border:1px solid rgba(36,107,253,.15);
-  animation:orbit 24s linear infinite;
+  border:1px solid rgba(230,220,194,.22);
 }
-.orbit:before,.orbit:after{
-  content:"";position:absolute;border-radius:50%;
-  border:1px dashed rgba(32,201,206,.33);
+.ring-a{inset:0}
+.ring-b{inset:35px;border-style:dashed;opacity:.65}
+.ring-c{inset:76px;border-color:rgba(230,220,194,.30)}
+.ring-d{inset:116px;border-color:rgba(230,220,194,.20)}
+.instrument-cross{
+  position:absolute;
+  width:100%;
+  height:1px;
+  background:rgba(255,255,255,.14);
 }
-.orbit:before{inset:25px}
-.orbit:after{inset:52px}
-@keyframes orbit{to{transform:rotate(360deg)}}
-.visual-halo{
-  position:absolute;width:245px;height:245px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(36,107,253,.17),rgba(32,201,206,.08) 48%,transparent 72%);
-  filter:blur(4px);
+.instrument-cross.vertical{
+  width:1px;
+  height:100%;
 }
-.person-card{
-  position:relative;z-index:2;
-  width:218px;
-  padding:17px;
-  background:rgba(255,255,255,.91);
-  border:1px solid rgba(255,255,255,.95);
-  border-radius:27px;
-  box-shadow:0 24px 60px rgba(27,75,151,.19);
-  transform:rotate(-3deg);
-  animation:float 5s ease-in-out infinite;
-  backdrop-filter:blur(12px);
+.instrument-cross.diagonal-a{
+  transform:rotate(45deg);
+  opacity:.5;
 }
-@keyframes float{0%,100%{translate:0 0}50%{translate:0 -10px}}
-.person-top{display:flex;align-items:center;gap:11px}
-.avatar{
-  width:49px;height:49px;border-radius:17px;
-  display:grid;place-items:center;
-  background:linear-gradient(145deg,#C7F5F1,#DCE8FF);
-  color:#1765CF;
-}
-.avatar svg{width:26px;height:26px}
-.person-info strong{font-size:16px;font-weight:900;display:block}
-.person-info span{font-size:13px;color:#71849D;font-weight:700}
-.live-tag{
-  margin-right:auto;
-  color:#079D79;background:#E4FBF4;
-  border-radius:20px;padding:5px 8px;
-  font-size:12px;font-weight:900;
-  display:flex;align-items:center;gap:5px;
-}
-.live-tag:before{content:"";width:6px;height:6px;background:#16BC91;border-radius:50%}
-.mini-map{
-  height:140px;margin-top:15px;border-radius:18px;
-  position:relative;overflow:hidden;
-  background:
-    linear-gradient(30deg,transparent 48%,rgba(255,255,255,.95) 49%,rgba(255,255,255,.95) 52%,transparent 53%),
-    linear-gradient(115deg,transparent 42%,rgba(255,255,255,.95) 43%,rgba(255,255,255,.95) 46%,transparent 47%),
-    linear-gradient(0deg,transparent 46%,rgba(255,255,255,.95) 47%,rgba(255,255,255,.95) 50%,transparent 51%),
-    #E5F1F7;
-}
-.mini-map:before{
-  content:"";position:absolute;inset:0;
-  background:
-    linear-gradient(90deg,rgba(39,176,166,.09) 1px,transparent 1px),
-    linear-gradient(rgba(39,176,166,.09) 1px,transparent 1px);
-  background-size:23px 23px;
-}
-.map-park{
-  position:absolute;width:63px;height:42px;
-  border-radius:15px;background:#C9EEDC;
-  right:15px;top:13px;transform:rotate(-12deg);
-}
-.map-water{
-  position:absolute;width:95px;height:35px;
-  border-radius:50%;background:#C9E7FA;
-  left:-17px;bottom:13px;transform:rotate(-25deg);
-}
-.map-road{
-  position:absolute;width:160px;height:4px;
-  border-radius:9px;background:#fff;
-  left:7px;top:69px;transform:rotate(-25deg);
-}
-.map-pin{
-  position:absolute;left:48%;top:35%;
-  width:37px;height:37px;
-  border-radius:50% 50% 50% 5px;
+.instrument-cross.diagonal-b{
   transform:rotate(-45deg);
-  background:linear-gradient(145deg,#3E8CFF,#1454E8);
-  box-shadow:0 7px 15px rgba(36,107,253,.28);
-  display:grid;place-items:center;
+  opacity:.5;
 }
-.map-pin:after{
-  content:"";width:11px;height:11px;border-radius:50%;background:#fff;
+.instrument-center{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  position:relative;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 35% 30%,#52745E,#28483A 65%);
+  border:1px solid rgba(236,217,175,.5);
+  box-shadow:
+    0 0 0 13px rgba(232,189,134,.055),
+    0 0 0 28px rgba(232,189,134,.035),
+    0 18px 45px rgba(0,0,0,.16);
 }
-.pin-ripple{
-  position:absolute;left:calc(48% - 9px);top:calc(35% - 9px);
-  width:55px;height:55px;border-radius:50%;
-  border:2px solid rgba(36,107,253,.3);
-  animation:ripple 2s ease-out infinite;
+.center-mark{
+  width:65px;
+  height:65px;
+  border:1px solid #E6BD83;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  position:relative;
 }
-@keyframes ripple{0%{transform:scale(.55);opacity:1}100%{transform:scale(1.7);opacity:0}}
-.person-bottom{
-  display:flex;justify-content:space-between;align-items:center;
-  padding-top:13px;
+.center-mark:before,.center-mark:after{
+  content:"";
+  position:absolute;
+  background:#E6BD83;
 }
-.person-bottom span{font-size:13px;color:#6C8099;font-weight:700}
-.person-bottom strong{font-size:14px;color:#1D5BC6;font-weight:900}
-.float-chip{
-  position:absolute;z-index:3;
-  display:flex;align-items:center;gap:9px;
-  padding:12px 15px;border-radius:16px;
-  background:#fff;box-shadow:var(--shadow2);
-  border:1px solid #EDF2FA;
-  font-size:13px;font-weight:900;
-  animation:float 5.5s ease-in-out infinite;
+.center-mark:before{width:88px;height:1px}
+.center-mark:after{height:88px;width:1px}
+.center-mark svg{
+  width:28px;height:28px;
+  color:#F2C48F;
+  position:relative;
+  z-index:2;
 }
-.float-chip svg{width:19px;height:19px}
-.chip-one{top:38px;right:0;color:#1C9E85}
-.chip-two{bottom:43px;left:0;color:#E66D58;animation-delay:-2s}
-.chip-one svg{color:#19B998}
-.chip-two svg{color:#FF8067}
+.instrument-node{
+  position:absolute;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:#E8BD86;
+  border:3px solid #28483A;
+  box-shadow:0 0 0 4px rgba(232,189,134,.15);
+}
+.node-a{top:11%;right:23%}
+.node-b{bottom:19%;left:14%;width:9px;height:9px}
+.node-c{top:42%;left:0;width:8px;height:8px}
+.node-d{bottom:4%;right:41%;width:8px;height:8px}
+.instrument-sweep{
+  position:absolute;
+  width:50%;
+  height:50%;
+  top:0;
+  right:50%;
+  transform-origin:bottom right;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(232,189,134,.18) 40deg,transparent 75deg);
+  border-radius:100% 0 0 0;
+  animation:sweep 9s linear infinite;
+  opacity:.8;
+}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.instrument-label{
+  position:absolute;
+  color:#E9D7B5;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+.label-top{top:5%;left:50%;transform:translateX(-50%)}
+.label-bottom{bottom:5%;left:50%;transform:translateX(-50%)}
+.label-right{right:-7%;top:50%;transform:translateY(-50%)}
+.label-left{left:-7%;top:50%;transform:translateY(-50%)}
+.art-caption{
+  position:absolute;
+  bottom:47px;
+  right:50%;
+  transform:translateX(50%);
+  color:#D9D9C9;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.art-caption b{
+  color:#E8BD86;
+  margin-left:7px;
+}
 
-/* TRUST STRIP */
-.trust-strip{
-  margin:21px 0 0;
+/* SIGNAL RIBBON */
+.signal-ribbon{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  background:#E7E3D8;
+  border-bottom:1px solid #D8D4C8;
 }
-.trust-item{
-  min-height:83px;
-  padding:15px 17px;
-  display:flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,.78);
-  border:1px solid #E8EFF9;
-  border-radius:21px;
+.signal-cell{
+  min-height:103px;
+  padding:20px 25px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  border-left:1px solid #D5D1C5;
 }
-.trust-icon{
-  width:43px;height:43px;flex:0 0 43px;
-  border-radius:14px;display:grid;place-items:center;
-  background:#EAF1FF;color:#2869E8;
+.signal-cell:last-child{border-left:0}
+.signal-number{
+  font-size:34px;
+  font-weight:900;
+  color:var(--orange);
+  line-height:1;
 }
-.trust-icon svg{width:22px;height:22px}
-.trust-item:nth-child(2) .trust-icon{background:#E5FAF6;color:#0D9D83}
-.trust-item:nth-child(3) .trust-icon{background:#FFF0EB;color:#ED765E}
-.trust-item strong{display:block;font-size:15px;font-weight:900}
-.trust-item span{display:block;font-size:13px;font-weight:600;color:#73859B;margin-top:2px}
+.signal-cell strong{
+  display:block;
+  font-size:16px;
+  font-weight:900;
+}
+.signal-cell span{
+  display:block;
+  color:#777D70;
+  font-size:13px;
+  font-weight:700;
+  margin-top:4px;
+}
 
-/* SECTION */
-.section{padding:62px 0 0}
-.section-heading{
-  display:flex;justify-content:space-between;align-items:end;
-  gap:20px;margin-bottom:22px;
-}
-.section-kicker{
-  font-size:14px;color:var(--blue);font-weight:900;
-  display:flex;align-items:center;gap:8px;margin-bottom:8px;
-}
-.section-kicker:before{content:"";width:21px;height:3px;background:var(--cyan);border-radius:5px}
-.section-heading h2{
-  font-size:clamp(25px,3vw,36px);
-  line-height:1.5;margin:0;font-weight:900;letter-spacing:-1px;
-}
-.section-heading p{
-  color:#6A7E98;font-size:15px;font-weight:600;
-  margin:0;max-width:340px;line-height:1.9;
-}
-.feature-grid{
+/* INTRO */
+.intro{
+  padding:105px 0 80px;
   display:grid;
-  grid-template-columns:1.15fr .85fr .85fr;
-  gap:14px;
+  grid-template-columns:.75fr 1.25fr;
+  gap:80px;
+  align-items:start;
 }
-.feature{
-  min-height:205px;
-  border-radius:26px;
-  padding:23px;
-  background:#fff;
-  border:1px solid #E8EFF8;
-  box-shadow:0 9px 28px rgba(35,83,157,.055);
-  position:relative;overflow:hidden;
-  transition:.25s ease;
+.section-tag{
+  color:var(--orange);
+  font-size:14px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:18px;
 }
-.feature:hover{transform:translateY(-5px);box-shadow:var(--shadow2)}
-.feature-main{
-  background:linear-gradient(145deg,#246BFD,#174DCB);
-  color:#fff;border:0;
+.section-tag:before{
+  content:"";
+  width:27px;height:2px;background:var(--orange);
 }
-.feature-main:after{
-  content:"";position:absolute;width:170px;height:170px;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:50%;left:-40px;bottom:-85px;
-  box-shadow:0 0 0 22px rgba(255,255,255,.045),0 0 0 48px rgba(255,255,255,.035);
+.intro-heading{
+  font-size:39px;
+  line-height:1.55;
+  font-weight:900;
+  margin:0;
+  letter-spacing:-1.2px;
 }
-.feature-icon{
-  width:48px;height:48px;border-radius:16px;
-  display:grid;place-items:center;
-  background:#EAF1FF;color:#246BFD;margin-bottom:18px;
+.intro-heading span{color:var(--green2)}
+.intro-copy{
+  font-size:18px;
+  line-height:2.2;
+  font-weight:600;
+  color:#626B5F;
+  margin:0;
+  max-width:680px;
 }
-.feature-icon svg{width:25px;height:25px}
-.feature-main .feature-icon{background:rgba(255,255,255,.17);color:#fff}
-.feature h3{font-size:19px;font-weight:900;margin:0 0 8px}
-.feature p{
-  font-size:14px;line-height:1.9;
-  color:#6A7D96;font-weight:600;margin:0;max-width:310px;
+.intro-copy strong{
+  color:var(--green);
+  font-weight:900;
 }
-.feature-main p{color:rgba(255,255,255,.83)}
-.feature-index{
-  position:absolute;left:20px;top:18px;
-  font-size:13px;font-weight:900;color:#A6B5C9;
-}
-.feature-main .feature-index{color:rgba(255,255,255,.55)}
 
-/* PRIVACY */
-.privacy-band{
-  margin-top:18px;
-  border-radius:26px;
-  padding:21px 24px;
-  display:flex;align-items:center;gap:17px;
-  background:linear-gradient(100deg,#E6FAF7,#F0F9FF);
-  border:1px solid #DDF2F0;
+/* FEATURE ARCHITECTURE */
+.features-section{
+  padding:75px 0 85px;
+  background:#E8E4D9;
+  position:relative;
+  overflow:hidden;
 }
-.privacy-symbol{
-  flex:0 0 49px;width:49px;height:49px;
-  display:grid;place-items:center;
-  border-radius:16px;background:#fff;color:#0B9F88;
-  box-shadow:0 6px 15px rgba(16,145,128,.09);
-}
-.privacy-symbol svg{width:25px;height:25px}
-.privacy-band strong{font-size:17px;font-weight:900;display:block}
-.privacy-band p{font-size:14px;line-height:1.8;color:#557A7C;font-weight:600;margin:3px 0 0}
-
-/* GUIDE CARD */
-.guide-card{
-  margin:58px 0 35px;
-  padding:27px 30px;
-  border-radius:30px;
-  background:linear-gradient(110deg,#FFF2EC 0%,#FFF9F4 52%,#F0F7FF 100%);
-  border:1px solid #F6E7E0;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  position:relative;overflow:hidden;
-}
-.guide-card:after{
-  content:"؟";
-  position:absolute;left:28%;top:-55px;
-  font-size:190px;line-height:1;
-  font-weight:900;color:rgba(255,126,94,.055);
+.features-section:before{
+  content:"R";
+  position:absolute;
+  left:3%;
+  top:-130px;
+  font-size:450px;
+  line-height:1;
+  color:rgba(40,72,58,.035);
+  font-weight:900;
   pointer-events:none;
 }
-.guide-content{position:relative;z-index:1}
-.guide-label{
-  color:#E8755B;font-size:14px;font-weight:900;
-  display:flex;align-items:center;gap:8px;margin-bottom:7px;
+.section-title-row{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:25px;
+  margin-bottom:35px;
+  position:relative;
+  z-index:1;
 }
-.guide-label:before{content:"";width:8px;height:8px;background:var(--coral);border-radius:50%}
-.guide-card h2{font-size:25px;font-weight:900;margin:0 0 6px}
-.guide-card p{font-size:15px;color:#6C788B;font-weight:600;margin:0;line-height:1.9}
-.guide-btn{
-  flex:0 0 auto;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  padding:15px 20px;border-radius:17px;
-  background:#fff;color:#1D5CCB;
-  border:1px solid #E5EAF3;
-  box-shadow:0 8px 20px rgba(40,80,130,.08);
-  font-size:16px;font-weight:900;
-  position:relative;z-index:1;
-  transition:.2s;
+.section-title-row h2{
+  font-size:38px;
+  line-height:1.5;
+  font-weight:900;
+  margin:0;
 }
-.guide-btn:hover{transform:translateY(-3px);box-shadow:0 13px 24px rgba(40,80,130,.12)}
-.guide-btn svg{width:19px;height:19px}
+.section-title-row p{
+  font-size:15px;
+  line-height:2;
+  font-weight:600;
+  color:#70786C;
+  max-width:360px;
+  margin:0;
+}
+.capability-layout{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+  position:relative;
+  z-index:1;
+}
+.capability-main{
+  min-height:390px;
+  background:var(--green);
+  color:#F7F3E8;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.capability-main:before{
+  content:"";
+  position:absolute;
+  width:320px;height:320px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  left:-110px;bottom:-140px;
+  box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 62px rgba(255,255,255,.02);
+}
+.capability-main-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.capability-code{
+  font-size:13px;
+  color:#D9C28D;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.capability-icon{
+  width:60px;height:60px;
+  border:1px solid rgba(255,255,255,.3);
+  display:grid;place-items:center;
+  border-radius:50%;
+}
+.capability-icon svg{width:29px;height:29px;color:#E8BD86}
+.capability-main h3{
+  font-size:31px;
+  line-height:1.55;
+  font-weight:900;
+  margin:0 0 12px;
+  max-width:400px;
+}
+.capability-main p{
+  color:#D5DCD2;
+  font-size:16px;
+  line-height:2;
+  font-weight:600;
+  max-width:430px;
+  margin:0;
+}
+.capability-foot{
+  margin-top:30px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.19);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#D9C28D;
+  font-size:13px;
+  font-weight:800;
+}
+.capability-foot span:last-child{font-size:22px}
+.capability-side{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:18px;
+}
+.capability-item{
+  background:var(--white);
+  padding:25px 27px;
+  display:grid;
+  grid-template-columns:55px 1fr;
+  gap:18px;
+  align-items:start;
+  border:1px solid #E3DFD4;
+  min-height:185px;
+  position:relative;
+  overflow:hidden;
+}
+.capability-item:after{
+  content:"";
+  position:absolute;
+  bottom:-32px;left:-25px;
+  width:100px;height:100px;
+  border:1px solid #E8E4D9;
+  border-radius:50%;
+}
+.capability-item-icon{
+  width:54px;height:54px;
+  display:grid;place-items:center;
+  background:var(--orange-soft);
+  color:var(--orange);
+  border-radius:4px 17px 4px 17px;
+}
+.capability-item-icon svg{width:26px;height:26px}
+.capability-item h3{
+  font-size:19px;
+  font-weight:900;
+  margin:1px 0 8px;
+}
+.capability-item p{
+  font-size:14px;
+  line-height:1.95;
+  color:#70786C;
+  font-weight:600;
+  margin:0;
+}
+
+/* HOW IT WORKS */
+.process-section{
+  padding:100px 0 95px;
+}
+.process-head{
+  max-width:700px;
+  margin-bottom:45px;
+}
+.process-head h2{
+  font-size:39px;
+  font-weight:900;
+  line-height:1.5;
+  margin:0;
+}
+.process-head p{
+  font-size:16px;
+  color:#70786C;
+  line-height:2;
+  font-weight:600;
+  margin:12px 0 0;
+}
+.process-track{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-top:1px solid #C9C8BA;
+}
+.process-step{
+  padding:26px 23px 10px 35px;
+  position:relative;
+  border-left:1px solid #D8D5C9;
+}
+.process-step:last-child{border-left:0}
+.process-step:before{
+  content:"";
+  position:absolute;
+  top:-5px;
+  right:23px;
+  width:9px;height:9px;
+  background:var(--orange);
+  border:2px solid var(--paper);
+  border-radius:50%;
+}
+.process-number{
+  font-size:14px;
+  color:var(--orange);
+  font-weight:900;
+  letter-spacing:1px;
+}
+.process-step h3{
+  font-size:20px;
+  font-weight:900;
+  margin:13px 0 8px;
+}
+.process-step p{
+  font-size:14px;
+  line-height:2;
+  font-weight:600;
+  color:#72796E;
+  margin:0;
+}
+
+/* RESPONSIBLE USE */
+.responsible{
+  background:#DDE6DA;
+  padding:37px 40px;
+  display:grid;
+  grid-template-columns:65px 1fr auto;
+  align-items:center;
+  gap:22px;
+  border-right:5px solid var(--green);
+}
+.responsible-symbol{
+  width:62px;height:62px;
+  background:var(--green);
+  color:#F3F0E7;
+  display:grid;place-items:center;
+  border-radius:50%;
+}
+.responsible-symbol svg{width:29px;height:29px}
+.responsible h3{
+  font-size:20px;
+  font-weight:900;
+  margin:0 0 6px;
+}
+.responsible p{
+  font-size:14px;
+  line-height:2;
+  color:#596A5D;
+  font-weight:600;
+  margin:0;
+}
+.responsible-mark{
+  font-size:13px;
+  font-weight:900;
+  color:var(--green);
+  border:1px solid #B8C9B8;
+  padding:11px 15px;
+  white-space:nowrap;
+}
+
+/* GUIDE FEATURE */
+.guide-feature{
+  margin:95px 0 90px;
+  min-height:255px;
+  background:#E7D7C5;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  padding:38px 48px;
+  position:relative;
+  overflow:hidden;
+}
+.guide-feature:before{
+  content:"?";
+  position:absolute;
+  left:7%;
+  top:-90px;
+  font-size:350px;
+  line-height:1;
+  font-weight:900;
+  color:rgba(217,95,55,.09);
+}
+.guide-feature-copy{position:relative;z-index:1}
+.guide-overline{
+  color:var(--orange);
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:11px;
+}
+.guide-feature h2{
+  font-size:32px;
+  font-weight:900;
+  line-height:1.5;
+  margin:0 0 9px;
+}
+.guide-feature p{
+  font-size:15px;
+  color:#70695F;
+  line-height:2;
+  font-weight:600;
+  margin:0;
+}
+.guide-action{
+  min-width:205px;
+  min-height:62px;
+  background:var(--green);
+  color:#F7F3E8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:0 20px;
+  font-size:16px;
+  font-weight:900;
+  position:relative;
+  z-index:1;
+  transition:.25s;
+}
+.guide-action:hover{
+  background:#385F4D;
+  transform:translateY(-3px);
+}
+.guide-action svg{width:20px;height:20px}
+
+/* LAST NOTE */
+.last-note{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding:0 0 35px;
+}
+.last-note strong{
+  font-size:20px;
+  font-weight:900;
+}
+.last-note span{
+  font-size:14px;
+  color:#777D70;
+  font-weight:700;
+}
 
 /* FOOTER */
 .footer{
-  padding:18px 0 28px;
-  border-top:1px solid #E5EDF7;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  color:#71839A;font-size:13px;font-weight:700;
+  border-top:1px solid #D9D6CB;
+  min-height:83px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  color:#777D70;
+  font-size:13px;
+  font-weight:700;
+  padding-bottom:var(--nav-height);
 }
-.footer-brand{display:flex;align-items:center;gap:8px;color:#29466D;font-size:15px;font-weight:900}
-.footer-mini{
-  width:27px;height:27px;border-radius:9px;
-  display:grid;place-items:center;color:#fff;
-  background:var(--blue);
+.footer-brand{
+  color:var(--green);
+  font-size:18px;
+  font-weight:900;
 }
-.footer-mini svg{width:16px;height:16px}
 
-/* ENTRANCE */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* FIXED FOUR-ITEM NAV */
+.bottom-nav-wrap{
+  position:fixed;
+  z-index:50;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:10px 15px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(243,240,231,0),rgba(243,240,231,.95) 28%);
+}
+.bottom-nav{
+  width:min(100%,560px);
+  min-height:70px;
+  margin:auto;
+  background:#263F34;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:7px;
+  box-shadow:0 12px 35px rgba(31,53,41,.25);
+  border:1px solid rgba(255,255,255,.12);
+}
+.nav-item{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  color:#C2CFC2;
+  font-size:12px;
+  font-weight:800;
+  position:relative;
+  transition:.2s;
+}
+.nav-item svg{
+  width:22px;height:22px;
+  stroke-width:1.8;
+}
+.nav-item.active{
+  background:#E7BD87;
+  color:#263F34;
+}
+.nav-item.active:after{
+  content:"";
+  position:absolute;
+  width:20px;height:2px;
+  bottom:4px;
+  background:var(--orange);
+}
+.nav-item:active{transform:scale(.96)}
+
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
   .reveal{opacity:1;transform:none}
 }
 
-/* MOBILE */
-@media(max-width:760px){
-  .page{width:min(100% - 24px,560px)}
-  .topbar{height:72px}
-  .brand-mark{width:43px;height:43px;border-radius:15px}
-  .brand-name{font-size:21px}
-  .brand-caption{font-size:13px}
-  .top-pill{font-size:13px;padding:9px 11px}
-  .hero{
-    display:flex;flex-direction:column;
-    padding:29px 22px 24px;
-    border-radius:29px;
-    min-height:unset;
-    text-align:center;
-  }
-  .hero-copy{width:100%}
-  .eyebrow{font-size:13px;margin-bottom:17px}
-  .hero h1{font-size:clamp(35px,9vw,48px);line-height:1.42;letter-spacing:-1.6px}
-  .hero-desc{font-size:16px;line-height:1.95;margin:14px auto 20px;max-width:440px}
-  .hero-actions{justify-content:center}
-  .primary-btn{width:100%;min-height:57px;font-size:17px}
-  .secondary-note{font-size:13px}
-  .visual-stage{width:100%;min-height:320px;margin-top:12px}
-  .orbit{width:260px;height:260px}
-  .visual-halo{width:215px;height:215px}
-  .person-card{width:205px}
-  .mini-map{height:126px}
-  .chip-one{right:0;top:26px}
-  .chip-two{left:0;bottom:28px}
-  .float-chip{font-size:12px;padding:10px 12px}
-  .trust-strip{grid-template-columns:1fr;gap:9px;margin-top:13px}
-  .trust-item{min-height:70px;padding:12px 15px}
-  .trust-icon{width:41px;height:41px;flex-basis:41px}
-  .trust-item strong{font-size:15px}
-  .trust-item span{font-size:13px}
-  .section{padding-top:43px}
-  .section-heading{display:block;margin-bottom:17px}
-  .section-heading h2{font-size:27px}
-  .section-heading p{font-size:14px;margin-top:7px}
-  .feature-grid{grid-template-columns:1fr;gap:10px}
-  .feature{min-height:unset;padding:19px 20px}
-  .feature-main{min-height:175px}
-  .feature-icon{width:44px;height:44px;margin-bottom:12px}
-  .feature h3{font-size:18px}
-  .feature p{font-size:14px;max-width:100%}
-  .privacy-band{padding:17px 16px;gap:12px;align-items:flex-start}
-  .privacy-symbol{width:43px;height:43px;flex-basis:43px}
-  .privacy-band strong{font-size:16px}
-  .privacy-band p{font-size:13px}
-  .guide-card{
-    margin:40px 0 25px;
-    padding:22px 19px;
-    display:block;
-    text-align:center;
-  }
-  .guide-label{justify-content:center}
-  .guide-card h2{font-size:23px}
-  .guide-card p{font-size:14px}
-  .guide-btn{width:100%;margin-top:17px;min-height:54px;font-size:16px}
-  .footer{flex-direction:column;text-align:center;padding-bottom:24px}
+/* TABLET */
+@media(max-width:850px){
+  .hero-copy{padding:60px 38px 55px 25px}
+  .hero h1{font-size:48px}
+  .hero-description{font-size:16px}
+  .intro{gap:40px}
+  .capability-main{padding:26px}
+  .capability-item{padding:20px}
 }
-@media(max-width:370px){
-  .page{width:calc(100% - 18px)}
-  .hero{padding:25px 16px 20px}
-  .hero h1{font-size:34px}
-  .visual-stage{transform:scale(.94);margin-top:0;margin-bottom:-10px}
-  .top-pill{font-size:12px}
+
+/* MOBILE */
+@media(max-width:650px){
+  :root{--nav-height:79px}
+  .page{width:calc(100% - 26px)}
+  .header{height:77px}
+  .brand-symbol{width:43px;height:43px}
+  .brand-title{font-size:22px}
+  .brand-subtitle{font-size:12px}
+  .header-meta{gap:0}
+  .header-index,.header-line{display:none}
+  .header-status{font-size:12px;padding:9px 10px}
+  .hero{
+    display:flex;
+    flex-direction:column;
+    min-height:unset;
+  }
+  .hero:after{display:none}
+  .hero-copy{
+    padding:39px 23px 16px;
+    text-align:right;
+  }
+  .hero-overline{font-size:13px;margin-bottom:19px}
+  .hero h1{
+    font-size:clamp(39px,10vw,51px);
+    line-height:1.45;
+    letter-spacing:-1.6px;
+  }
+  .hero-description{
+    font-size:16px;
+    line-height:2.05;
+    margin:15px 0 21px;
+  }
+  .hero-actions{gap:13px}
+  .hero-button{
+    min-height:56px;
+    width:100%;
+    font-size:16px;
+  }
+  .hero-secondary{font-size:13px}
+  .hero-art{
+    min-height:350px;
+    width:100%;
+    margin-top:-2px;
+  }
+  .instrument{width:275px}
+  .instrument-center{width:125px;height:125px}
+  .center-mark{width:53px;height:53px}
+  .center-mark:before{width:72px}
+  .center-mark:after{height:72px}
+  .art-caption{bottom:15px;font-size:12px}
+  .label-right{right:-3%}
+  .label-left{left:-3%}
+  .signal-ribbon{
+    grid-template-columns:1fr;
+  }
+  .signal-cell{
+    min-height:74px;
+    padding:12px 21px;
+    border-left:0;
+    border-bottom:1px solid #D5D1C5;
+  }
+  .signal-cell:last-child{border-bottom:0}
+  .signal-number{font-size:29px;min-width:42px}
+  .signal-cell strong{font-size:15px}
+  .signal-cell span{font-size:13px}
+  .intro{
+    padding:66px 0 60px;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .intro-heading{font-size:31px}
+  .intro-copy{font-size:16px;line-height:2.15}
+  .features-section{padding:60px 0}
+  .section-title-row{
+    display:block;
+    margin-bottom:24px;
+  }
+  .section-title-row h2{font-size:30px}
+  .section-title-row p{font-size:14px;margin-top:9px}
+  .capability-layout{grid-template-columns:1fr;gap:12px}
+  .capability-main{min-height:315px;padding:25px 22px}
+  .capability-main h3{font-size:27px}
+  .capability-main p{font-size:15px}
+  .capability-side{gap:12px}
+  .capability-item{
+    min-height:unset;
+    padding:19px 17px;
+    grid-template-columns:47px 1fr;
+    gap:13px;
+  }
+  .capability-item-icon{width:46px;height:46px}
+  .capability-item h3{font-size:17px}
+  .capability-item p{font-size:14px}
+  .process-section{padding:66px 0}
+  .process-head h2{font-size:30px}
+  .process-head p{font-size:14px}
+  .process-track{
+    grid-template-columns:1fr;
+    border-top:0;
+    border-right:1px solid #C9C8BA;
+    margin-right:5px;
+  }
+  .process-step{
+    border-left:0;
+    border-bottom:1px solid #D8D5C9;
+    padding:0 24px 25px 0;
+    margin-bottom:25px;
+  }
+  .process-step:last-child{border-bottom:0;margin-bottom:0}
+  .process-step:before{
+    top:4px;
+    right:-5px;
+  }
+  .process-step h3{font-size:19px}
+  .process-step p{font-size:14px}
+  .responsible{
+    padding:23px 19px;
+    grid-template-columns:48px 1fr;
+    gap:13px;
+  }
+  .responsible-symbol{width:46px;height:46px}
+  .responsible-symbol svg{width:23px;height:23px}
+  .responsible h3{font-size:17px}
+  .responsible p{font-size:13px}
+  .responsible-mark{
+    grid-column:1/-1;
+    justify-self:start;
+    font-size:12px;
+  }
+  .guide-feature{
+    margin:65px 0 60px;
+    padding:27px 22px;
+    grid-template-columns:1fr;
+    gap:23px;
+  }
+  .guide-feature h2{font-size:26px}
+  .guide-feature p{font-size:14px}
+  .guide-action{width:100%;min-height:57px}
+  .last-note{
+    display:block;
+    padding-bottom:25px;
+  }
+  .last-note strong{font-size:18px}
+  .last-note span{display:block;margin-top:7px;font-size:13px}
+  .footer{
+    min-height:75px;
+    padding-bottom:calc(var(--nav-height) + 14px);
+    font-size:12px;
+  }
+  .footer-brand{font-size:16px}
+  .bottom-nav-wrap{padding:7px 10px calc(8px + env(safe-area-inset-bottom))}
+  .bottom-nav{
+    min-height:67px;
+    border-radius:3px 3px 13px 13px;
+  }
+  .nav-item{font-size:11px;gap:4px}
+  .nav-item svg{width:21px;height:21px}
+}
+@media(max-width:360px){
+  .hero-copy{padding-right:18px;padding-left:18px}
+  .hero h1{font-size:37px}
+  .hero-art{min-height:315px}
+  .instrument{width:245px}
+  .nav-item{font-size:10px}
 }
 </style>
 </head>
 
 <body>
+
 <div class="page">
 
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="صفحه اصلی ردیاب">
-      <span class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 10.2c0 5.2-8 11-8 11s-8-5.8-8-11a8 8 0 1 1 16 0Z"/>
-          <circle cx="12" cy="10" r="2.7"/>
-          <path d="M12 2v2M4.7 5.1l1.4 1.4M19.3 5.1l-1.4 1.4"/>
+  <header class="header">
+    <a href="index.html" class="brand" aria-label="خانه ردیاب">
+      <span class="brand-symbol">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+          <path d="M12 1v2M3.8 5.2l1.5 1M20.2 5.2l-1.5 1"/>
         </svg>
       </span>
       <span>
-        <span class="brand-name">ردیاب</span>
-        <span class="brand-caption">آگاهی، آرامش، اطمینان</span>
+        <span class="brand-title">ردیاب</span>
+        <span class="brand-subtitle">سامانه هوشمند موقعیت‌یابی</span>
       </span>
     </a>
 
-    <div class="top-pill">
-      <span class="pulse-dot"></span>
-      همراه هوشمند خانواده
+    <div class="header-meta">
+      <span class="header-index">LOCATION SYSTEM / 01</span>
+      <span class="header-line"></span>
+      <span class="header-status">
+        <i class="status-point"></i>
+        صفحه اصلی
+      </span>
     </div>
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
-        <div class="eyebrow"><i></i> موقعیت عزیزانت؛ با آگاهی و رضایت آن‌ها</div>
+        <div class="hero-overline">ردیابی موقعیت، با دقت و آگاهی</div>
 
         <h1>
-          فاصله مهم نیست؛<br>
-          <span class="highlight">باخبر بمان.</span>
+          موقعیت را بدان؛
+          <span>با اطمینان تصمیم بگیر.</span>
         </h1>
 
-        <p class="hero-desc">
-          ردیاب برای زمانی است که می‌خواهی از موقعیت عزیزانت باخبر باشی؛
-          ساده، هوشمند و با احترام به حریم خصوصی.
+        <p class="hero-description">
+          ردیاب، راهی برای مشاهده موقعیت مکانی افراد همراه شماست؛
+          اطلاعات مکانی در دسترس، برای زمانی که آگاهی از محل حضور عزیزانت اهمیت دارد.
         </p>
 
         <div class="hero-actions">
-          <a class="primary-btn" href="guide.html">
-            آشنایی و شروع از راهنما
+          <a href="guide.html" class="hero-button">
+            راهنمای استفاده از ردیاب
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
           </a>
-          <span class="secondary-note">قدم‌به‌قدم تا استفاده آسان</span>
+          <a href="tracking.html" class="hero-secondary">ورود به بخش ردیابی ←</a>
         </div>
       </div>
 
-      <div class="visual-stage" aria-label="نمای گرافیکی نمونه از نمایش موقعیت یک شخص">
-        <div class="orbit"></div>
-        <div class="visual-halo"></div>
+      <div class="hero-art" aria-label="تصویر مفهومی سامانه موقعیت‌یابی">
+        <div class="instrument">
+          <div class="instrument-ring ring-a"></div>
+          <div class="instrument-ring ring-b"></div>
+          <div class="instrument-ring ring-c"></div>
+          <div class="instrument-ring ring-d"></div>
 
-        <div class="float-chip chip-one">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
-            <path d="m9 12 2 2 4-4"/>
-          </svg>
-          آگاهی با رضایت
-        </div>
+          <div class="instrument-cross"></div>
+          <div class="instrument-cross vertical"></div>
+          <div class="instrument-cross diagonal-a"></div>
+          <div class="instrument-cross diagonal-b"></div>
+          <div class="instrument-sweep"></div>
 
-        <div class="person-card">
-          <div class="person-top">
-            <div class="avatar">
+          <div class="instrument-node node-a"></div>
+          <div class="instrument-node node-b"></div>
+          <div class="instrument-node node-c"></div>
+          <div class="instrument-node node-d"></div>
+
+          <div class="instrument-center">
+            <div class="center-mark">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                <circle cx="12" cy="8" r="3.5"/>
-                <path d="M5 21c.5-4 3-6 7-6s6.5 2 7 6"/>
+                <path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/>
+                <circle cx="12" cy="10" r="2.5"/>
               </svg>
             </div>
-            <div class="person-info">
-              <strong>موقعیت همراه</strong>
-              <span>نمایش گرافیکی نمونه</span>
-            </div>
-            <span class="live-tag">نمونه</span>
           </div>
 
-          <div class="mini-map">
-            <div class="map-park"></div>
-            <div class="map-water"></div>
-            <div class="map-road"></div>
-            <div class="pin-ripple"></div>
-            <div class="map-pin"></div>
-          </div>
-
-          <div class="person-bottom">
-            <span>نمایش موقعیت روی نقشه</span>
-            <strong>ردیاب</strong>
-          </div>
+          <span class="instrument-label label-top">POSITION</span>
+          <span class="instrument-label label-bottom">PRECISION / 01</span>
+          <span class="instrument-label label-right">GPS</span>
+          <span class="instrument-label label-left">SIGNAL</span>
         </div>
-
-        <div class="float-chip chip-two">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
-            <path d="M12 8v4l2.5 1.5"/>
-          </svg>
-          آسودگی خاطر خانواده
-        </div>
+        <div class="art-caption"><b>01</b> سامانه نمایش موقعیت مکانی</div>
       </div>
     </section>
 
-    <section class="trust-strip reveal" aria-label="ویژگی‌های اصلی">
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M20 10.2c0 5.2-8 11-8 11s-8-5.8-8-11a8 8 0 1 1 16 0Z"/>
-            <circle cx="12" cy="10" r="2.5"/>
-          </svg>
-        </div>
+    <!-- THREE KEY POINTS -->
+    <section class="signal-ribbon reveal">
+      <div class="signal-cell">
+        <div class="signal-number">۰۱</div>
         <div>
           <strong>موقعیت مکانی</strong>
-          <span>آگاهی از محل حضور همراه</span>
+          <span>مشاهده محل حضور فرد همراه</span>
         </div>
       </div>
+      <div class="signal-cell">
+        <div class="signal-number">۰۲</div>
+        <div>
+          <strong>دسترسی هدفمند</strong>
+          <span>استفاده از امکانات فعال‌شده</span>
+        </div>
+      </div>
+      <div class="signal-cell">
+        <div class="signal-number">۰۳</div>
+        <div>
+          <strong>رعایت حریم خصوصی</strong>
+          <span>با اطلاع و رضایت فرد همراه</span>
+        </div>
+      </div>
+    </section>
 
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <!-- INTRODUCTION -->
+    <section class="intro reveal">
+      <div>
+        <div class="section-tag">درباره ردیاب</div>
+        <h2 class="intro-heading">
+          وقتی دانستنِ موقعیت
+          <span>اهمیت پیدا می‌کند.</span>
+        </h2>
+      </div>
+
+      <p class="intro-copy">
+        گاهی دانستن اینکه یکی از اعضای خانواده یا افراد مورداعتماد شما کجاست،
+        اهمیت زیادی دارد. <strong>ردیاب</strong> برای همین نیاز طراحی شده است:
+        بستری برای مشاهده موقعیت مکانی فردی که با آگاهی و رضایت خود، امکان
+        اشتراک‌گذاری موقعیتش را فعال کرده است.
+        تجربه‌ای روشن، قابل‌فهم و بدون پیچیدگی‌های غیرضروری.
+      </p>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="page">
+        <div class="section-title-row reveal">
+          <div>
+            <div class="section-tag">امکانات سامانه</div>
+            <h2>موقعیت‌یابی؛ با ساختاری روشن</h2>
+          </div>
+          <p>
+            امکانات ردیاب بر پایه دسترسی‌های فعال‌شده و شرایط اتصال دستگاه همراه ارائه می‌شوند.
+          </p>
+        </div>
+
+        <div class="capability-layout">
+          <article class="capability-main reveal">
+            <div class="capability-main-top">
+              <span class="capability-code">CORE CAPABILITY / 01</span>
+              <span class="capability-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                  <path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/>
+                  <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+              </span>
+            </div>
+
+            <div>
+              <h3>مشاهده موقعیت مکانی فرد همراه</h3>
+              <p>
+                موقعیت فردی را که اشتراک‌گذاری مکان را برای شما فعال کرده است،
+                از طریق بخش ردیابی دنبال کنید.
+              </p>
+            </div>
+
+            <div class="capability-foot">
+              <span>موقعیت‌یابی مبتنی بر دسترسی</span>
+              <span>۰۱</span>
+            </div>
+          </article>
+
+          <div class="capability-side">
+            <article class="capability-item reveal">
+              <div class="capability-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <h3>حریم خصوصی و شفافیت</h3>
+                <p>اشتراک‌گذاری موقعیت باید با اطلاع و رضایت فرد انجام شود؛ امنیت و اعتماد، بخشی از تجربه استفاده است.</p>
+              </div>
+            </article>
+
+            <article class="capability-item reveal">
+              <div class="capability-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <rect x="3" y="4" width="18" height="16" rx="2"/>
+                  <path d="M7 8h10M7 12h7M7 16h4"/>
+                </svg>
+              </div>
+              <div>
+                <h3>مراحل استفاده مشخص</h3>
+                <p>راهنمای سامانه، مراحل آماده‌سازی و استفاده از بخش‌های مختلف را به‌صورت منظم توضیح می‌دهد.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-section reveal">
+      <div class="page">
+        <div class="process-head">
+          <div class="section-tag">شروع استفاده</div>
+          <h2>از آماده‌سازی تا مشاهده موقعیت</h2>
+          <p>برای استفاده درست از سامانه، ابتدا باید شرایط لازم روی دستگاه همراه فراهم باشد.</p>
+        </div>
+
+        <div class="process-track">
+          <article class="process-step">
+            <span class="process-number">STEP / 01</span>
+            <h3>مطالعه راهنما</h3>
+            <p>با مراحل استفاده، پیش‌نیازها و نحوه کار سامانه آشنا شوید.</p>
+          </article>
+
+          <article class="process-step">
+            <span class="process-number">STEP / 02</span>
+            <h3>فعال‌سازی دسترسی</h3>
+            <p>دسترسی‌های موردنیاز را با اطلاع و رضایت فرد همراه آماده کنید.</p>
+          </article>
+
+          <article class="process-step">
+            <span class="process-number">STEP / 03</span>
+            <h3>ورود به بخش ردیابی</h3>
+            <p>پس از تکمیل مراحل، از بخش ردیابی برای مشاهده موقعیت استفاده کنید.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="page reveal">
+      <div class="responsible">
+        <div class="responsible-symbol">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
             <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
-            <path d="m9 12 2 2 4-4"/>
+            <path d="M12 8v4"/>
+            <path d="M12 16h.01"/>
           </svg>
         </div>
         <div>
-          <strong>حریم خصوصی</strong>
-          <span>ردیابی شفاف و با اطلاع فرد</span>
+          <h3>یک نکته ضروری پیش از استفاده</h3>
+          <p>
+            برای دریافت موقعیت، تلفن همراه فرد باید روشن، دارای شارژ و متصل به اینترنت باشد.
+            اشتراک‌گذاری موقعیت نیز باید با آگاهی و رضایت او انجام شود.
+          </p>
         </div>
-      </div>
-
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M12 8v4l3 2"/>
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 3v2M21 12h-2"/>
-          </svg>
-        </div>
-        <div>
-          <strong>اطلاع به‌موقع</strong>
-          <span>برای ارتباط و اطمینان بیشتر</span>
-        </div>
+        <span class="responsible-mark">استفاده مسئولانه</span>
       </div>
     </section>
 
-    <section class="section reveal">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">تجربه‌ای ساده و کاربردی</div>
-          <h2>آنچه از ردیاب انتظار داری</h2>
-        </div>
-        <p>همه‌چیز با هدف یک چیز طراحی شده است: آگاهی بیشتر و خیال آسوده‌تر.</p>
+    <!-- GUIDE CTA -->
+    <section class="guide-feature reveal">
+      <div class="guide-feature-copy">
+        <div class="guide-overline">راهنمای جامع ردیاب</div>
+        <h2>پیش از شروع، همه‌چیز را دقیق بدان.</h2>
+        <p>مراحل کار، پیش‌نیازها و شیوه استفاده از امکانات را در راهنمای ردیاب بخوانید.</p>
       </div>
-
-      <div class="feature-grid">
-        <article class="feature feature-main">
-          <span class="feature-index">01 / CORE</span>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <path d="M20 10.2c0 5.2-8 11-8 11s-8-5.8-8-11a8 8 0 1 1 16 0Z"/>
-              <circle cx="12" cy="10" r="2.5"/>
-            </svg>
-          </div>
-          <h3>موقعیت‌یابی همراه</h3>
-          <p>موقعیت فرد همراه را در چارچوب دسترسی و تنظیمات فعال‌شده مشاهده کن.</p>
-        </article>
-
-        <article class="feature">
-          <span class="feature-index">02</span>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-          </div>
-          <h3>شفافیت و اعتماد</h3>
-          <p>استفاده با اطلاع فرد همراه و رعایت حریم خصوصی او.</p>
-        </article>
-
-        <article class="feature">
-          <span class="feature-index">03</span>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <rect x="3" y="5" width="18" height="15" rx="3"/>
-              <path d="M7 9h10M7 13h6M7 17h3"/>
-            </svg>
-          </div>
-          <h3>رابط کاربری آسان</h3>
-          <p>مراحل استفاده به شکلی روشن و قابل‌فهم طراحی شده‌اند.</p>
-        </article>
-      </div>
-
-      <div class="privacy-band">
-        <div class="privacy-symbol">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <rect x="5" y="10" width="14" height="11" rx="2"/>
-            <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-            <path d="M12 14v3"/>
-          </svg>
-        </div>
-        <div>
-          <strong>اعتماد، قبل از هر چیز</strong>
-          <p>ردیابی باید با آگاهی و رضایت فرد انجام شود. برای دریافت موقعیت، تلفن همراه او باید روشن، دارای شارژ و متصل به اینترنت باشد.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="guide-card reveal">
-      <div class="guide-content">
-        <div class="guide-label">راهنمای استفاده</div>
-        <h2>برای شروع، راهنما را ببین</h2>
-        <p>مراحل کار، پیش‌نیازها و روش استفاده را قدم‌به‌قدم یاد بگیر.</p>
-      </div>
-
-      <!-- آدرس صفحه راهنما را در صورت تفاوت، در همین href تغییر بده -->
-      <a class="guide-btn" href="guide.html">
-        مشاهده راهنمای کامل
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <a href="guide.html" class="guide-action">
+        ورود به صفحه راهنما
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
       </a>
     </section>
+
+    <section class="last-note reveal">
+      <strong>ردیاب؛ برای آگاهی دقیق‌تر از موقعیت.</strong>
+      <span>موقعیت‌یابی شفاف، با رعایت حریم خصوصی</span>
+    </section>
+
   </main>
 
   <footer class="footer">
-    <div class="footer-brand">
-      <span class="footer-mini">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-          <path d="M20 10.2c0 5.2-8 11-8 11s-8-5.8-8-11a8 8 0 1 1 16 0Z"/>
-          <circle cx="12" cy="10" r="2.5"/>
-        </svg>
-      </span>
-      ردیاب
-    </div>
-    <span>آگاهی بیشتر، آرامش نزدیک‌تر</span>
+    <span class="footer-brand">ردیاب</span>
+    <span>سامانه هوشمند موقعیت‌یابی اشخاص</span>
   </footer>
 
 </div>
 
+<!-- FOUR-PAGE NAVIGATION -->
+<div class="bottom-nav-wrap">
+  <nav class="bottom-nav" aria-label="منوی اصلی">
+    <a href="index.html" class="nav-item active" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 10 9-7 9 7"/>
+        <path d="M5 9v11h14V9"/>
+        <path d="M9 20v-6h6v6"/>
+      </svg>
+      <span>خانه</span>
+    </a>
+
+    <a href="guide.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21Z"/>
+        <path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20"/>
+        <path d="M8 7h8M8 11h7"/>
+      </svg>
+      <span>راهنما</span>
+    </a>
+
+    <a href="activation.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="10" width="16" height="11" rx="2"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+        <path d="m10 15 2 2 3-3"/>
+      </svg>
+      <span>فعال‌سازی</span>
+    </a>
+
+    <a href="tracking.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/>
+      </svg>
+      <span>ردیابی</span>
+    </a>
+  </nav>
+</div>
+
 <script>
-/* ورود نرم و سبک عناصر هنگام اسکرول */
 (function(){
-  const items = document.querySelectorAll('.reveal');
+  const elements=document.querySelectorAll('.reveal');
 
   if(!('IntersectionObserver' in window)){
-    items.forEach(item => item.classList.add('visible'));
+    elements.forEach(el=>el.classList.add('visible'));
     return;
   }
 
-  const observer = new IntersectionObserver((entries)=>{
+  const observer=new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  },{threshold:.12});
+  },{
+    threshold:.10,
+    rootMargin:"0px 0px -35px 0px"
+  });
 
-  items.forEach(item=>observer.observe(item));
+  elements.forEach(el=>observer.observe(el));
 })();
 </script>
+
 </body>
 </html>
