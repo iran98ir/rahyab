@@ -1,0 +1,1404 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F1E8">
+<title>راهنمای ردیاب | پیش از شروع، آگاهانه انتخاب کن</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#F4F1E8;
+  --paper-2:#EAE6DA;
+  --white:#FFFEFA;
+  --ink:#202B24;
+  --green:#344B3B;
+  --green-2:#526B55;
+  --green-soft:#DDE6D8;
+  --orange:#E46F45;
+  --orange-soft:#F7E0D4;
+  --muted:#74796E;
+  --line:rgba(42,57,45,.13);
+  --shadow:0 22px 65px rgba(48,61,47,.09);
+  --radius:28px;
+  --font:'Vazirmatn',Tahoma,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 90% 4%,rgba(228,111,69,.10),transparent 27rem),
+    radial-gradient(ellipse at 0% 35%,rgba(91,119,87,.09),transparent 32rem),
+    var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+::selection{background:var(--orange);color:white}
+
+/* ---------- shared header ---------- */
+.site-header{
+  width:min(1200px,calc(100% - 44px));
+  margin:0 auto;
+  height:94px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:5;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.brand-mark{
+  width:48px;height:48px;
+  border-radius:17px 17px 17px 6px;
+  background:var(--green);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 20px rgba(52,75,59,.19);
+  transform:rotate(-4deg);
+}
+.brand-mark svg{width:26px;height:26px}
+.brand-name{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+.brand-caption{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
+  margin-top:1px;
+}
+.header-note{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--green);
+  font-size:15px;
+  font-weight:800;
+  background:rgba(255,254,250,.72);
+  border:1px solid var(--line);
+  padding:11px 17px;
+  border-radius:100px;
+}
+.header-note i{
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 5px var(--orange-soft);
+}
+
+/* ---------- hero ---------- */
+.page-wrap{width:min(1200px,calc(100% - 44px));margin:auto}
+.hero{
+  min-height:430px;
+  position:relative;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  align-items:center;
+  gap:30px;
+  padding:45px 0 55px;
+}
+.hero-copy{position:relative;z-index:2}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:15px;
+  font-weight:800;
+  color:var(--green);
+  background:var(--green-soft);
+  padding:10px 16px;
+  border-radius:100px;
+}
+.eyebrow span{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--orange);
+}
+.hero h1{
+  font-size:clamp(37px,5.2vw,68px);
+  line-height:1.42;
+  letter-spacing:-2.6px;
+  font-weight:900;
+  margin:24px 0 16px;
+  max-width:670px;
+}
+.hero h1 em{
+  color:var(--orange);
+  font-style:normal;
+  position:relative;
+  white-space:nowrap;
+}
+.hero h1 em:after{
+  content:"";
+  position:absolute;
+  height:9px;
+  bottom:2px;
+  right:0;left:0;
+  background:rgba(228,111,69,.17);
+  border-radius:20px;
+  z-index:-1;
+}
+.hero-desc{
+  max-width:590px;
+  color:#626B60;
+  font-size:18px;
+  line-height:2.1;
+  font-weight:600;
+  margin:0;
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:27px;
+}
+.primary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  background:var(--green);
+  color:white;
+  border-radius:15px;
+  padding:15px 22px;
+  font-size:16px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(52,75,59,.17);
+  transition:.25s ease;
+}
+.primary-btn:hover{transform:translateY(-3px);background:#263D2E}
+.primary-btn svg{width:19px;height:19px}
+.text-link{
+  font-size:16px;
+  font-weight:800;
+  color:var(--green);
+  padding:12px 5px;
+}
+.text-link span{color:var(--orange);font-size:21px;margin-right:5px}
+
+/* hero visual */
+.hero-art{
+  min-height:350px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+.art-orbit{
+  width:min(340px,75vw);
+  aspect-ratio:1;
+  border:1px solid rgba(52,75,59,.18);
+  border-radius:50%;
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+.art-orbit:before,.art-orbit:after{
+  content:"";
+  position:absolute;
+  border:1px dashed rgba(52,75,59,.23);
+  border-radius:50%;
+}
+.art-orbit:before{inset:26px}
+.art-orbit:after{inset:58px;border-style:solid;opacity:.6}
+.art-core{
+  width:145px;height:145px;
+  border-radius:48% 48% 48% 18%;
+  background:var(--green);
+  transform:rotate(-45deg);
+  display:grid;
+  place-items:center;
+  box-shadow:0 22px 50px rgba(52,75,59,.25);
+  position:relative;
+}
+.art-core svg{
+  width:58px;height:58px;
+  transform:rotate(45deg);
+  color:#fff;
+}
+.art-pulse{
+  position:absolute;
+  width:190px;height:190px;
+  border:1px solid rgba(228,111,69,.38);
+  border-radius:50%;
+  animation:pulse 3.4s ease-out infinite;
+}
+.art-pulse.p2{animation-delay:1.7s}
+@keyframes pulse{
+  0%{transform:scale(.75);opacity:.7}
+  100%{transform:scale(1.65);opacity:0}
+}
+.orbit-dot{
+  position:absolute;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:var(--orange);
+  border:5px solid var(--paper);
+  box-shadow:0 0 0 1px var(--orange);
+}
+.dot-a{top:48px;right:52px}
+.dot-b{bottom:55px;left:35px;width:13px;height:13px;background:var(--green-2)}
+.art-label{
+  position:absolute;
+  background:var(--white);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  border-radius:17px;
+  padding:13px 17px;
+  font-size:15px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  white-space:nowrap;
+}
+.art-label svg{width:20px;height:20px;color:var(--orange)}
+.label-top{top:30px;right:-5px}
+.label-bottom{bottom:26px;left:-5px}
+.art-index{
+  position:absolute;
+  top:50%;left:0;
+  transform:translateY(-50%);
+  writing-mode:vertical-rl;
+  font-size:13px;
+  font-weight:900;
+  color:rgba(52,75,59,.46);
+  letter-spacing:2px;
+}
+
+/* ---------- quick facts ribbon ---------- */
+.fact-ribbon{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:var(--green);
+  color:white;
+  border-radius:24px;
+  overflow:hidden;
+  margin:0 0 86px;
+  box-shadow:0 20px 45px rgba(52,75,59,.14);
+}
+.fact{
+  min-height:112px;
+  padding:22px 26px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  position:relative;
+}
+.fact:not(:last-child):after{
+  content:"";
+  position:absolute;
+  left:0;top:24px;bottom:24px;
+  width:1px;background:rgba(255,255,255,.19);
+}
+.fact-icon{
+  flex:0 0 44px;width:44px;height:44px;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.12);
+  border-radius:14px;
+}
+.fact-icon svg{width:23px;height:23px}
+.fact strong{display:block;font-size:17px;font-weight:900}
+.fact small{display:block;font-size:14px;color:rgba(255,255,255,.72);margin-top:4px;font-weight:600}
+
+/* ---------- section intro ---------- */
+.faq-layout{
+  display:grid;
+  grid-template-columns:285px minmax(0,1fr);
+  gap:48px;
+  align-items:start;
+  padding-bottom:90px;
+}
+.faq-aside{
+  position:sticky;
+  top:25px;
+  padding-top:10px;
+}
+.aside-kicker{
+  color:var(--orange);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.4px;
+}
+.faq-aside h2{
+  font-size:35px;
+  line-height:1.55;
+  letter-spacing:-1px;
+  margin:13px 0;
+  font-weight:900;
+}
+.faq-aside p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:2;
+  font-weight:600;
+  margin:0;
+}
+.aside-count{
+  margin-top:28px;
+  padding:19px 20px;
+  background:var(--orange-soft);
+  border-radius:20px 20px 20px 5px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.aside-count span{font-size:15px;font-weight:800;color:#8A4E37}
+.aside-count strong{font-size:32px;color:var(--orange);font-weight:900;direction:ltr}
+.aside-tip{
+  margin-top:17px;
+  padding:17px 18px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  color:var(--green);
+  font-size:15px;
+  line-height:1.9;
+  font-weight:700;
+}
+.aside-tip svg{width:22px;height:22px;flex-shrink:0;margin-top:3px}
+
+/* ---------- accordion ---------- */
+.faq-main{min-width:0}
+.faq-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  margin-bottom:23px;
+}
+.faq-heading h2{
+  margin:0;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:-.7px;
+}
+.faq-heading p{
+  margin:7px 0 0;
+  font-size:15px;
+  color:var(--muted);
+  font-weight:600;
+}
+.faq-heading .mini-tag{
+  flex-shrink:0;
+  border:1px solid var(--line);
+  border-radius:100px;
+  padding:9px 14px;
+  font-size:14px;
+  color:var(--green);
+  font-weight:800;
+  background:rgba(255,254,250,.65);
+}
+.accordion-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.faq-item{
+  border:1px solid rgba(52,75,59,.13);
+  background:rgba(255,254,250,.76);
+  border-radius:21px;
+  overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+  scroll-margin-top:110px;
+}
+.faq-item.open{
+  background:var(--white);
+  border-color:rgba(228,111,69,.46);
+  box-shadow:0 13px 35px rgba(48,61,47,.07);
+}
+.faq-question{
+  width:100%;
+  border:0;
+  background:transparent;
+  min-height:84px;
+  padding:17px 21px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  text-align:right;
+  cursor:pointer;
+  color:var(--ink);
+}
+.faq-number{
+  width:42px;height:42px;
+  flex:0 0 42px;
+  display:grid;place-items:center;
+  border-radius:14px;
+  background:var(--paper-2);
+  color:var(--green);
+  font-size:15px;
+  font-weight:900;
+  direction:ltr;
+  transition:.25s;
+}
+.faq-item.open .faq-number{background:var(--orange);color:white}
+.faq-question-text{
+  flex:1;
+  font-size:17px;
+  font-weight:900;
+  line-height:1.8;
+}
+.faq-toggle{
+  width:38px;height:38px;
+  flex:0 0 38px;
+  border-radius:50%;
+  background:var(--green-soft);
+  display:grid;place-items:center;
+  color:var(--green);
+  transition:transform .3s,background .3s,color .3s;
+}
+.faq-toggle svg{width:18px;height:18px}
+.faq-item.open .faq-toggle{
+  transform:rotate(45deg);
+  background:var(--orange-soft);
+  color:var(--orange);
+}
+
+/* Grid animation: no JS height measurement, avoids accordion jump */
+.faq-answer-grid{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .36s cubic-bezier(.2,.75,.25,1);
+}
+.faq-item.open .faq-answer-grid{grid-template-rows:1fr}
+.faq-answer-clip{overflow:hidden;min-height:0}
+.faq-answer{
+  padding:0 80px 25px 27px;
+  color:#626B60;
+  font-size:16px;
+  line-height:2.15;
+  font-weight:500;
+}
+.faq-answer p{margin:0 0 13px}
+.faq-answer p:last-child{margin-bottom:0}
+.faq-answer strong{color:var(--green);font-weight:900}
+.answer-highlight{
+  margin-top:15px;
+  padding:13px 16px;
+  background:var(--green-soft);
+  border-radius:13px;
+  color:var(--green);
+  font-weight:800;
+  font-size:15px;
+  line-height:1.9;
+}
+.answer-highlight.orange{
+  background:var(--orange-soft);
+  color:#854C36;
+}
+.answer-list{
+  list-style:none;
+  margin:12px 0 0;
+  padding:0;
+  display:grid;
+  gap:9px;
+}
+.answer-list li{
+  position:relative;
+  padding-right:23px;
+}
+.answer-list li:before{
+  content:"";
+  width:8px;height:8px;
+  border-radius:3px;
+  background:var(--orange);
+  position:absolute;
+  right:0;top:12px;
+  transform:rotate(45deg);
+}
+.inline-link{
+  color:var(--orange);
+  font-weight:900;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+/* ---------- special note ---------- */
+.transparency{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:25px;
+  align-items:center;
+  padding:29px 32px;
+  background:#E5E9DE;
+  border-radius:26px 26px 6px 26px;
+  margin:0 0 82px;
+  overflow:hidden;
+}
+.transparency:after{
+  content:"";
+  position:absolute;
+  width:170px;height:170px;
+  border:1px solid rgba(52,75,59,.13);
+  border-radius:50%;
+  left:-48px;bottom:-100px;
+  box-shadow:0 0 0 18px rgba(52,75,59,.035),0 0 0 38px rgba(52,75,59,.025);
+}
+.transparency h3{
+  margin:0 0 8px;
+  font-size:22px;
+  font-weight:900;
+}
+.transparency p{
+  margin:0;
+  color:#5F6B5F;
+  font-size:16px;
+  line-height:2;
+  font-weight:600;
+  max-width:760px;
+}
+.transparency-icon{
+  width:68px;height:68px;
+  display:grid;place-items:center;
+  border-radius:22px;
+  background:var(--green);
+  color:white;
+  z-index:1;
+}
+.transparency-icon svg{width:33px;height:33px}
+
+/* ---------- final CTA ---------- */
+.final-cta{
+  position:relative;
+  overflow:hidden;
+  border-radius:32px;
+  background:var(--green);
+  color:white;
+  padding:48px 50px;
+  margin-bottom:75px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+  box-shadow:0 25px 55px rgba(52,75,59,.16);
+}
+.final-cta:before,.final-cta:after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:50%;
+  pointer-events:none;
+}
+.final-cta:before{width:360px;height:360px;left:-120px;top:-200px}
+.final-cta:after{width:260px;height:260px;left:-70px;top:-150px}
+.cta-content{position:relative;z-index:1}
+.cta-label{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#F4B394;
+  font-size:15px;
+  font-weight:900;
+}
+.cta-label:before{
+  content:"";
+  width:8px;height:8px;border-radius:50%;background:var(--orange);
+}
+.final-cta h2{
+  font-size:clamp(28px,4vw,43px);
+  line-height:1.55;
+  font-weight:900;
+  letter-spacing:-1.3px;
+  margin:13px 0 9px;
+}
+.final-cta p{
+  font-size:16px;
+  line-height:2;
+  color:rgba(255,255,255,.73);
+  font-weight:600;
+  margin:0;
+  max-width:650px;
+}
+.cta-button{
+  position:relative;z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:13px;
+  white-space:nowrap;
+  padding:18px 24px;
+  border-radius:16px;
+  background:var(--orange);
+  color:white;
+  font-size:17px;
+  font-weight:900;
+  box-shadow:0 12px 25px rgba(0,0,0,.14);
+  transition:.25s;
+}
+.cta-button:hover{transform:translateY(-3px);background:#F07D52}
+.cta-button svg{width:20px;height:20px}
+
+/* ---------- footer ---------- */
+.footer{
+  border-top:1px solid var(--line);
+  padding:27px 0 115px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+}
+.footer-brand{font-size:18px;color:var(--green);font-weight:900}
+.footer-note{max-width:550px;text-align:left;line-height:1.9}
+
+/* ---------- bottom navigation ---------- */
+.bottom-nav-wrap{
+  position:fixed;
+  z-index:20;
+  bottom:max(13px,env(safe-area-inset-bottom));
+  left:0;right:0;
+  display:flex;
+  justify-content:center;
+  pointer-events:none;
+}
+.bottom-nav{
+  pointer-events:auto;
+  width:min(560px,calc(100% - 28px));
+  min-height:76px;
+  padding:8px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+  background:rgba(255,254,250,.94);
+  border:1px solid rgba(52,75,59,.14);
+  border-radius:23px;
+  box-shadow:0 13px 45px rgba(32,43,36,.17);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+}
+.nav-item{
+  min-width:0;
+  border-radius:16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  color:#7B8177;
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+}
+.nav-item svg{width:22px;height:22px;stroke-width:1.9}
+.nav-item.active{
+  color:var(--green);
+  background:var(--green-soft);
+}
+.nav-item.active svg{color:var(--orange)}
+.nav-item:active{transform:scale(.96)}
+
+/* ---------- modern responsive motion ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{
+    animation:reveal-in .7s both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 22%;
+  }
+  @keyframes reveal-in{
+    from{opacity:.35;transform:translateY(22px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr .8fr;gap:5px}
+  .hero h1{font-size:clamp(36px,6vw,55px)}
+  .faq-layout{grid-template-columns:230px minmax(0,1fr);gap:28px}
+  .faq-aside h2{font-size:30px}
+  .fact{padding:18px 16px}
+  .fact strong{font-size:16px}
+}
+@media(max-width:680px){
+  html{scroll-padding-top:85px}
+  .site-header,.page-wrap{width:calc(100% - 30px)}
+  .site-header{height:78px}
+  .brand-mark{width:43px;height:43px;border-radius:15px 15px 15px 5px}
+  .brand-name{font-size:21px}
+  .brand-caption{font-size:13px}
+  .header-note{font-size:13px;padding:9px 11px;gap:8px}
+  .hero{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    padding:30px 0 32px;
+    gap:0;
+  }
+  .hero h1{
+    font-size:clamp(36px,9.2vw,49px);
+    line-height:1.48;
+    letter-spacing:-1.5px;
+    margin:19px 0 12px;
+  }
+  .hero-desc{font-size:16px;line-height:2}
+  .hero-actions{margin-top:20px;gap:10px}
+  .primary-btn{font-size:15px;padding:14px 17px}
+  .text-link{font-size:15px}
+  .hero-art{min-height:285px;margin-top:8px}
+  .art-orbit{width:255px}
+  .art-core{width:112px;height:112px}
+  .art-core svg{width:47px;height:47px}
+  .art-pulse{width:150px;height:150px}
+  .label-top{top:20px;right:0}
+  .label-bottom{bottom:16px;left:0}
+  .art-label{font-size:13px;padding:10px 12px}
+  .art-label svg{width:17px;height:17px}
+  .art-index{font-size:11px}
+  .fact-ribbon{
+    grid-template-columns:1fr;
+    margin-bottom:60px;
+    border-radius:20px;
+  }
+  .fact{min-height:82px;padding:14px 18px}
+  .fact:not(:last-child):after{
+    left:18px;right:18px;top:auto;bottom:0;
+    height:1px;width:auto;
+  }
+  .fact-icon{width:40px;height:40px;flex-basis:40px}
+  .fact strong{font-size:16px}
+  .fact small{font-size:14px}
+  .faq-layout{display:flex;flex-direction:column;gap:25px;padding-bottom:60px}
+  .faq-aside{position:relative;top:auto;width:100%;padding:0}
+  .faq-aside h2{font-size:29px;line-height:1.5;margin:9px 0}
+  .faq-aside p{font-size:16px}
+  .aside-count{
+    margin-top:16px;
+    padding:13px 17px;
+    border-radius:15px;
+  }
+  .aside-count strong{font-size:27px}
+  .aside-tip{font-size:15px;margin-top:12px}
+  .faq-main{width:100%}
+  .faq-heading{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:16px}
+  .faq-heading h2{font-size:23px}
+  .faq-heading p{font-size:15px}
+  .faq-heading .mini-tag{font-size:13px;padding:7px 12px}
+  .accordion-list{gap:10px}
+  .faq-item{border-radius:17px}
+  .faq-question{min-height:76px;padding:13px 12px;gap:11px}
+  .faq-number{width:36px;height:36px;flex-basis:36px;border-radius:12px;font-size:13px}
+  .faq-question-text{font-size:16px;line-height:1.75}
+  .faq-toggle{width:33px;height:33px;flex-basis:33px}
+  .faq-answer{padding:0 59px 20px 15px;font-size:15px;line-height:2.05}
+  .answer-highlight{font-size:14px;padding:11px 12px}
+  .transparency{
+    grid-template-columns:1fr auto;
+    padding:22px 19px;
+    gap:13px;
+    margin-bottom:60px;
+  }
+  .transparency h3{font-size:19px}
+  .transparency p{font-size:15px;line-height:1.95}
+  .transparency-icon{width:51px;height:51px;border-radius:16px}
+  .transparency-icon svg{width:26px;height:26px}
+  .final-cta{
+    grid-template-columns:1fr;
+    padding:29px 23px;
+    border-radius:24px;
+    gap:23px;
+    margin-bottom:52px;
+  }
+  .final-cta h2{font-size:30px;line-height:1.55}
+  .final-cta p{font-size:15px}
+  .cta-button{justify-content:center;width:100%;font-size:16px;padding:16px}
+  .footer{padding:23px 0 110px;align-items:flex-start;flex-direction:column;gap:8px}
+  .footer-note{text-align:right;font-size:13px}
+  .bottom-nav{
+    min-height:69px;
+    width:calc(100% - 22px);
+    border-radius:20px;
+    padding:6px;
+  }
+  .nav-item{font-size:12px;gap:3px}
+  .nav-item svg{width:21px;height:21px}
+}
+@media(max-width:370px){
+  .header-note{font-size:12px}
+  .hero h1{font-size:34px}
+  .faq-question-text{font-size:15px}
+  .faq-answer{padding-right:53px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="صفحه اصلی ردیاب">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+    </span>
+    <span>
+      <span class="brand-name">ردیاب</span>
+      <span class="brand-caption">آگاهی با انتخاب آگاهانه</span>
+    </span>
+  </a>
+
+  <div class="header-note">
+    <i></i>
+    راهنمای استفاده
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span></span> قبل از شروع، اینجا را بخوانید</div>
+
+      <h1>
+        پیش از هر چیز، با<br>
+        <em>نحوه کار اپلیکیشن</em><br>
+        آشنا شو
+      </h1>
+
+      <p class="hero-desc">
+        ردیابی زمانی ارزشمند است که بدانید چه اتفاقی می‌افتد.
+        این راهنما، مسیر استفاده، شیوه‌های ردیابی، فعال‌سازی و
+        پاسخ پرسش‌های مهم شما را روشن می‌کند.
+      </p>
+
+      <div class="hero-actions">
+        <a class="primary-btn" href="#questions">
+          شروع مطالعه راهنما
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <a class="text-link" href="tracking.html">آماده شروع هستید؟ <span>←</span></a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-label="تصویر مفهومی موقعیت‌یابی">
+      <span class="art-index">LOCATION AWARENESS / 2026</span>
+      <div class="art-orbit">
+        <div class="art-pulse"></div>
+        <div class="art-pulse p2"></div>
+        <span class="orbit-dot dot-a"></span>
+        <span class="orbit-dot dot-b"></span>
+        <div class="art-core">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/>
+            <circle cx="12" cy="9" r="2.7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="art-label label-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3v3m0 12v3M3 12h3m12 0h3"/>
+          <circle cx="12" cy="12" r="7"/>
+        </svg>
+        موقعیت، با آگاهی
+      </div>
+      <div class="art-label label-bottom">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        شفافیت و رضایت
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE FACTS -->
+  <section class="fact-ribbon reveal">
+    <div class="fact">
+      <span class="fact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+      </span>
+      <span><strong>موقعیت‌یابی هدفمند</strong><small>مشاهده موقعیت فرد موردنظر</small></span>
+    </div>
+    <div class="fact">
+      <span class="fact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </span>
+      <span><strong>استفاده مسئولانه</strong><small>با اطلاع و رضایت فرد</small></span>
+    </div>
+    <div class="fact">
+      <span class="fact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <path d="M9 18h6M9 6h6"/>
+        </svg>
+      </span>
+      <span><strong>نیازمند اتصال</strong><small>تلفن روشن و متصل به اینترنت</small></span>
+    </div>
+  </section>
+
+  <!-- FAQ AREA -->
+  <section class="faq-layout" id="questions">
+
+    <aside class="faq-aside">
+      <div class="aside-kicker">THE KNOWLEDGE CENTER</div>
+      <h2>قبل از اینکه تصمیم بگیری، پاسخ‌ها را بدان.</h2>
+      <p>
+        ده پرسش مهم را آماده کرده‌ایم تا بدون سردرگمی،
+        با شیوه کار ردیاب و شرایط استفاده از آن آشنا شوید.
+      </p>
+
+      <div class="aside-count">
+        <span>پرسش‌های این راهنما</span>
+        <strong>۱۰</strong>
+      </div>
+
+      <div class="aside-tip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 11v5m0-8h.01"/>
+        </svg>
+        برای مطالعه پاسخ هر سؤال، عنوان آن را لمس کنید. با باز کردن سؤال دیگر، پاسخ قبلی به‌آرامی بسته می‌شود.
+      </div>
+    </aside>
+
+    <div class="faq-main">
+      <div class="faq-heading">
+        <div>
+          <h2>پرسش‌هایی که باید پاسخشان را بدانید</h2>
+          <p>هر ابهامی، یک پاسخ روشن دارد.</p>
+        </div>
+        <span class="mini-tag">۱۰ موضوع کاربردی</span>
+      </div>
+
+      <div class="accordion-list" id="accordion">
+
+        <!-- 01 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">01</span>
+            <span class="faq-question-text">انواع شیوه‌های ردیابی را ذکر کنید</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  ردیابی موقعیت می‌تواند بر اساس فناوری‌های مختلفی انجام شود.
+                  مهم‌ترین فناوری‌های مورد استفاده در تلفن‌های هوشمند عبارت‌اند از:
+                </p>
+                <ul class="answer-list">
+                  <li><strong>GPS:</strong> تعیین موقعیت با استفاده از سیگنال ماهواره‌ها؛ در فضای باز معمولاً دقت مناسبی دارد.</li>
+                  <li><strong>شبکه‌های Wi-Fi:</strong> کمک به تشخیص موقعیت با استفاده از شبکه‌های بی‌سیم اطراف.</li>
+                  <li><strong>دکل‌های مخابراتی:</strong> تخمین موقعیت با توجه به ارتباط تلفن با شبکه تلفن همراه.</li>
+                </ul>
+                <div class="answer-highlight">
+                  دقت موقعیت به شرایط محیطی، دستگاه، مجوزهای دسترسی و کیفیت اتصال بستگی دارد. این روش‌ها لزوماً در همه شرایط به یک اندازه دقیق نیستند.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">02</span>
+            <span class="faq-question-text">نحوه کار اپلیکیشن چگونه است؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  منطق کار ردیاب بر پایه ارتباط میان دستگاه شما و دستگاه فردی است که با اطلاع و رضایت خود در فرایند ردیابی شرکت می‌کند.
+                </p>
+                <ul class="answer-list">
+                  <li>ابتدا فرایند استفاده و فعال‌سازی را مطابق راهنما انجام می‌دهید.</li>
+                  <li>دسترسی‌های لازم برای دریافت موقعیت باید روی دستگاه مربوطه برقرار باشد.</li>
+                  <li>دستگاه باید روشن، دارای شارژ کافی و متصل به اینترنت باشد.</li>
+                  <li>پس از برقراری شرایط لازم، موقعیت قابل دریافت در بخش ردیابی نمایش داده می‌شود.</li>
+                </ul>
+                <div class="answer-highlight">
+                  نکته مهم: خاموش بودن تلفن، قطع اینترنت یا غیرفعال بودن دسترسی موقعیت می‌تواند مانع دریافت موقعیت جدید شود.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">03</span>
+            <span class="faq-question-text">آیا ردیابی نامحسوس است؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  <strong>حریم خصوصی خط قرمز استفاده مسئولانه از ردیاب است.</strong>
+                  این اپلیکیشن نباید برای ردیابی پنهانی، فریب‌کارانه یا بدون اطلاع و رضایت فرد استفاده شود.
+                </p>
+                <p>
+                  ردیابی باید با آگاهی فرد موردنظر و با رعایت قوانین و حقوق او انجام شود. دسترسی به موقعیت مکانی، موضوعی شخصی و حساس است و نباید بدون مجوز قانونی یا رضایت معتبر انجام شود.
+                </p>
+                <div class="answer-highlight orange">
+                  ردیاب برای ایجاد آگاهی و اطمینان در روابط مبتنی بر اعتماد طراحی شده است؛ نه نقض حریم خصوصی افراد.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">04</span>
+            <span class="faq-question-text">هم‌زمان چند نفر را می‌توان ردیابی کرد؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  تعداد افراد قابل افزودن و ردیابی به امکانات حساب کاربری و محدودیت‌های طرح انتخابی بستگی دارد.
+                </p>
+                <p>
+                  برای اعلام تعداد دقیق و قابل اتکا، باید جزئیات طرح‌های فعال و شرایط هر اشتراک بررسی شود. بنابراین از اعلام یک عدد ثابت که ممکن است با نوع اشتراک متفاوت باشد، خودداری می‌کنیم.
+                </p>
+                <div class="answer-highlight">
+                  پیش از خرید اشتراک، ظرفیت و امکانات همان طرح را در صفحه فعال‌سازی بررسی کنید.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">05</span>
+            <span class="faq-question-text">نحوه فعال‌سازی چگونه است؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  برای فعال‌سازی، وارد بخش مربوط به اشتراک شوید و مراحل اعلام‌شده در همان صفحه را دنبال کنید.
+                </p>
+                <ul class="answer-list">
+                  <li>ابتدا شرایط و امکانات طرح‌ها را با دقت مطالعه کنید.</li>
+                  <li>طرح موردنظر خود را انتخاب کنید.</li>
+                  <li>اطلاعات موردنیاز را مطابق راهنمای صفحه تکمیل کنید.</li>
+                  <li>پس از تکمیل فرایند، مراحل اتصال و شروع استفاده را دنبال کنید.</li>
+                </ul>
+                <div class="answer-highlight">
+                  برای مشاهده مراحل و گزینه‌های فعال‌سازی، از بخش «فعال‌سازی» در منوی پایین استفاده کنید.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">06</span>
+            <span class="faq-question-text">طرح پلاتینیوم و پریمیوم چیست؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  پلاتینیوم و پریمیوم دو عنوان برای طرح‌های اشتراکی هستند که جزئیات و امکانات هرکدام باید در صفحه فعال‌سازی به‌صورت شفاف بررسی شود.
+                </p>
+                <p>
+                  هنگام مقایسه، فقط به نام طرح توجه نکنید؛ مدت اعتبار، تعداد افراد مجاز، امکانات قابل استفاده و شرایط تمدید را ملاک تصمیم‌گیری قرار دهید.
+                </p>
+                <div class="answer-highlight">
+                  مشخصات نهایی، قیمت و شرایط هر طرح را از صفحه فعال‌سازی مشاهده کنید؛ ملاک خرید، اطلاعات درج‌شده در همان صفحه است.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">07</span>
+            <span class="faq-question-text">پشتیبانی به چه صورت است؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  اگر در مراحل استفاده، فعال‌سازی یا دریافت موقعیت با مشکل روبه‌رو شدید، موضوع را از مسیر پشتیبانی رسمی مجموعه پیگیری کنید.
+                </p>
+                <p>
+                  برای بررسی سریع‌تر، شرح دقیق مشکل، مدل دستگاه و مرحله‌ای را که در آن با خطا مواجه شده‌اید آماده داشته باشید. از ارسال اطلاعات حساس یا رمزهای شخصی خودداری کنید.
+                </p>
+                <div class="answer-highlight">
+                  اطلاعات تماس و مسیر ارتباطی پشتیبانی را از بخش‌های رسمی و در دسترس اپلیکیشن بررسی کنید.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">08</span>
+            <span class="faq-question-text">سازندگان ردیاب چه افرادی هستند؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  ردیاب یک محصول نرم‌افزاری است و طراحی، توسعه و نگهداری چنین محصولی به مجموعه‌ای از فعالیت‌های تخصصی در حوزه فناوری نیاز دارد.
+                </p>
+                <p>
+                  برای معرفی دقیق نام اشخاص، سوابق حرفه‌ای یا اعضای تیم سازنده، باید اطلاعات رسمی و تأییدشده مجموعه منتشر شود. از درج نام یا عنوان تأییدنشده در این راهنما خودداری می‌کنیم.
+                </p>
+                <div class="answer-highlight">
+                  معرفی رسمی سازندگان و اطلاعات حقوقی مجموعه باید از طریق صفحه رسمی معرفی یا راه‌های ارتباطی تأییدشده ارائه شود.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 09 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">09</span>
+            <span class="faq-question-text">سایر ویژگی‌های ردیاب چیست؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  مهم‌ترین کاربرد ردیاب، فراهم کردن امکان آگاهی از موقعیت فرد موردنظر در چارچوب دسترسی‌های مجاز و شرایط فنی لازم است.
+                </p>
+                <ul class="answer-list">
+                  <li>امکان استفاده برای موقعیت‌یابی افراد با اطلاع و رضایت آن‌ها.</li>
+                  <li>نمایش موقعیت دریافتی در بخش ردیابی.</li>
+                  <li>بهره‌گیری از قابلیت‌های موقعیت‌یابی دستگاه، متناسب با شرایط اتصال و مجوزها.</li>
+                </ul>
+                <p>
+                  امکاناتی مانند تاریخچه مسیر، هشدارهای هوشمند یا محدوده جغرافیایی را تنها در صورتی می‌توان جزو قابلیت‌های محصول دانست که در نسخه فعال اپلیکیشن ارائه شده باشند.
+                </p>
+                <div class="answer-highlight">
+                  برای آشنایی با امکانات واقعی و قابل استفاده، توضیحات داخل اپلیکیشن و مشخصات طرح انتخابی را ملاک قرار دهید.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-number">10</span>
+            <span class="faq-question-text">اگر از اپلیکیشن و عملکرد آن راضی نبودیم چه کنیم؟</span>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-grid">
+            <div class="faq-answer-clip">
+              <div class="faq-answer">
+                <p>
+                  پیش از هر تصمیم، بهتر است علت نارضایتی مشخص شود. گاهی مشکل به قطع اینترنت، خاموش بودن دستگاه، محدودیت دسترسی موقعیت یا تنظیمات تلفن مربوط است؛ نه عملکرد خود اپلیکیشن.
+                </p>
+                <ul class="answer-list">
+                  <li>شرایط فنی و اتصال هر دو دستگاه را بررسی کنید.</li>
+                  <li>مراحل راهنما را دوباره مرور کنید.</li>
+                  <li>در صورت باقی ماندن مشکل، موضوع را از مسیر پشتیبانی رسمی پیگیری کنید.</li>
+                  <li>اگر درخواست بازگشت وجه دارید، شرایط و ضوابط اعلام‌شده هنگام خرید را بررسی و از پشتیبانی پیگیری کنید.</li>
+                </ul>
+                <div class="answer-highlight orange">
+                  شرایط انصراف، لغو اشتراک یا بازگشت وجه تابع مقررات اعلام‌شده هنگام خرید است؛ پیش از خرید، این موارد را بررسی کنید.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCY -->
+  <section class="transparency reveal">
+    <div>
+      <h3>یک نکته مهم؛ موقعیت بدون شرایط فنی دریافت نمی‌شود.</h3>
+      <p>
+        برای دریافت موقعیت جدید، تلفن همراه فرد باید روشن، دارای شارژ کافی و متصل به اینترنت باشد و دسترسی موقعیت مکانی نیز مطابق تنظیمات دستگاه برقرار باشد.
+      </p>
+    </div>
+    <div class="transparency-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <path d="M9 18h6M9 6h6"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="cta-content">
+      <span class="cta-label">حالا وقت یک شروع آگاهانه است</span>
+      <h2>همه‌چیز را دانستی؛<br>حالا موقعیت را بررسی کن.</h2>
+      <p>
+        اگر با شیوه کار و شرایط استفاده آشنا شده‌اید، می‌توانید وارد بخش ردیابی شوید و مراحل شروع را دنبال کنید.
+      </p>
+    </div>
+    <a class="cta-button" href="tracking.html">
+      شروع ردیابی
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand">ردیاب</div>
+    <div class="footer-note">
+      استفاده مسئولانه، با اطلاع و رضایت فرد و رعایت حریم خصوصی.
+    </div>
+  </footer>
+
+</main>
+
+<!-- FOUR-PAGE NAVIGATION -->
+<nav class="bottom-nav-wrap" aria-label="منوی اصلی">
+  <div class="bottom-nav">
+    <a class="nav-item" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1Z"/>
+      </svg>
+      <span>خانه</span>
+    </a>
+    <a class="nav-item active" href="guide.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21Z"/>
+        <path d="M4 5.5V21m4-13h8m-8 4h8"/>
+      </svg>
+      <span>راهنما</span>
+    </a>
+    <a class="nav-item" href="activation.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+        <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/>
+        <circle cx="12" cy="12" r="4"/>
+      </svg>
+      <span>فعال‌سازی</span>
+    </a>
+    <a class="nav-item" href="tracking.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+        <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      <span>ردیابی</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const items = Array.from(document.querySelectorAll('.faq-item'));
+
+  items.forEach((item)=>{
+    const button = item.querySelector('.faq-question');
+
+    button.addEventListener('click',()=>{
+      const wasOpen = item.classList.contains('open');
+
+      // Keep the interaction predictable: only one answer stays open.
+      items.forEach((other)=>{
+        other.classList.remove('open');
+        other.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+
+      if(!wasOpen){
+        item.classList.add('open');
+        button.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // Keep the current reading position steady during accordion transitions.
+  if('scrollRestoration' in history){
+    history.scrollRestoration = 'manual';
+  }
+})();
+</script>
+
+</body>
+</html>
