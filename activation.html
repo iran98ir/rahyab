@@ -13,7 +13,7 @@
 
 <style>
 /* ============================================================
-   DESIGN TOKENS — کپی دقیق صفحه اصلی
+   DESIGN TOKENS
    ============================================================ */
 :root{
   --paper:#F3F0E7;
@@ -31,6 +31,14 @@
   --shadow:0 22px 55px rgba(42,55,42,.10);
   --shadow2:0 10px 28px rgba(42,55,42,.08);
   --nav-height:82px;
+
+  /* بنفش سلطنتی — کارت اشتراک */
+  --purple:#4C2A85;
+  --purple2:#6B3FA0;
+  --purple3:#8B5FC7;
+  --purple-soft:rgba(107,63,160,.14);
+  --gold:#E8BD86;
+  --gold2:#D6B96D;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,11 +54,11 @@ a{text-decoration:none;color:inherit}
 button{font:inherit;cursor:pointer}
 button,a{-webkit-tap-highlight-color:transparent}
 svg{display:block}
-::selection{background:var(--orange);color:#FFF}
+::selection{background:var(--purple);color:#FFF}
 .page{width:min(100% - 44px,1160px);margin:auto}
 
 /* ============================================================
-   HEADER — کپی دقیق صفحه اصلی
+   HEADER
    ============================================================ */
 .header{
   height:94px;
@@ -89,10 +97,10 @@ svg{display:block}
 }
 
 /* ============================================================
-   HERO — سبز تیره با کارت پریمیوم
+   HERO — کارت اشتراک بنفش
    ============================================================ */
 .hero{
-  min-height:620px;
+  min-height:680px;
   display:grid;
   grid-template-columns:1fr 1fr;
   background:var(--green);
@@ -173,23 +181,24 @@ svg{display:block}
 .hero-secondary:hover{color:#E8BD86}
 
 /* ============================================================
-   PREMIUM PLAN CARD — قلب hero
+   PREMIUM PLAN CARD — بنفش سلطنتی
    ============================================================ */
 .hero-art{
-  min-height:620px;
+  min-height:680px;
   display:flex;justify-content:center;align-items:center;
   position:relative;padding:40px 30px;
 }
 .plan-card{
   width:min(390px,100%);
-  background:linear-gradient(160deg,#1F3A2E 0%,#2A4A3A 100%);
-  border:1px solid rgba(232,189,134,.35);
-  border-radius:22px;
-  padding:26px 24px;
+  background:linear-gradient(160deg,#4C2A85 0%,#3A1E66 60%,#2E1750 100%);
+  border:1px solid rgba(232,189,134,.45);
+  border-radius:24px;
+  padding:28px 26px;
   box-shadow:
-    0 35px 70px rgba(0,0,0,.4),
-    0 0 0 1px rgba(255,255,255,.05) inset,
-    0 0 0 6px rgba(232,189,134,.05);
+    0 40px 80px rgba(30,15,50,.55),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 0 6px rgba(232,189,134,.08),
+    0 0 60px rgba(76,42,133,.4);
   position:relative;
   overflow:hidden;
   isolation:isolate;
@@ -197,23 +206,38 @@ svg{display:block}
 .plan-card:before{
   content:"";
   position:absolute;
-  width:260px;height:260px;
-  border:1px solid rgba(232,189,134,.14);
+  width:300px;height:300px;
+  border:1px solid rgba(232,189,134,.15);
   border-radius:50%;
-  top:-140px;left:-90px;
+  top:-160px;left:-100px;
   box-shadow:
-    0 0 0 25px rgba(232,189,134,.035),
-    0 0 0 55px rgba(232,189,134,.02);
+    0 0 0 30px rgba(232,189,134,.04),
+    0 0 0 65px rgba(232,189,134,.025);
   z-index:-1;
 }
 .plan-card:after{
   content:"";
   position:absolute;
-  width:180px;height:180px;
-  background:radial-gradient(circle,rgba(232,189,134,.10),transparent 70%);
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(232,189,134,.15),transparent 70%);
   border-radius:50%;
-  bottom:-100px;right:-70px;
+  bottom:-110px;right:-80px;
   z-index:-1;
+}
+/* نور شناور بنفش */
+.plan-card .plan-glow{
+  position:absolute;
+  width:120px;height:120px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(139,95,199,.5),transparent 70%);
+  top:20%;right:-60px;
+  filter:blur(20px);
+  z-index:-1;
+  animation:glowFloat 6s ease-in-out infinite;
+}
+@keyframes glowFloat{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(-15px,20px)}
 }
 
 /* Plan Head */
@@ -229,17 +253,17 @@ svg{display:block}
   letter-spacing:.5px;
 }
 .plan-badge-icon{
-  width:38px;height:38px;
+  width:40px;height:40px;
   border-radius:11px;
   background:linear-gradient(145deg,#E8BD86,#D95F37);
   display:grid;place-items:center;
-  color:#1F3A2E;
-  box-shadow:0 6px 14px rgba(217,95,55,.35);
+  color:#3A1E66;
+  box-shadow:0 6px 14px rgba(217,95,55,.4);
 }
-.plan-badge-icon svg{width:20px;height:20px}
+.plan-badge-icon svg{width:21px;height:21px}
 .plan-special{
   font-size:10px;font-weight:900;
-  color:#1F3A2E;
+  color:#3A1E66;
   background:#5FD47B;
   padding:5px 9px;
   border-radius:5px;
@@ -253,28 +277,37 @@ svg{display:block}
 
 /* Plan Name */
 .plan-name{
-  font-size:32px;font-weight:900;
+  font-size:34px;font-weight:900;
   color:#F7F3E8;
   letter-spacing:-1px;
   margin:0 0 4px;
 }
 .plan-name-sub{
   font-size:14px;font-weight:600;
-  color:#B8C5BA;
+  color:#B8A8D9;
   margin:0 0 22px;
 }
 
 /* Price */
 .plan-price{
   display:flex;align-items:baseline;gap:8px;
-  padding:16px 18px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
+  padding:18px 20px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(232,189,134,.20);
   border-radius:14px;
-  margin-bottom:20px;
+  margin-bottom:22px;
+  position:relative;
+  overflow:hidden;
+}
+.plan-price:before{
+  content:"";
+  position:absolute;
+  top:0;right:0;left:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#E8BD86,transparent);
 }
 .plan-price-num{
-  font-size:42px;font-weight:900;
+  font-size:44px;font-weight:900;
   color:#E8BD86;
   direction:ltr;
   letter-spacing:-2px;
@@ -282,13 +315,13 @@ svg{display:block}
 }
 .plan-price-unit{
   font-size:14px;font-weight:800;
-  color:#B8C5BA;
+  color:#B8A8D9;
 }
 .plan-price-tag{
   margin-right:auto;
   font-size:10px;font-weight:900;
   color:#5FD47B;
-  background:rgba(95,212,123,.12);
+  background:rgba(95,212,123,.14);
   padding:5px 9px;
   border-radius:5px;
   letter-spacing:.4px;
@@ -296,20 +329,20 @@ svg{display:block}
 
 /* Features list */
 .plan-features{
-  display:flex;flex-direction:column;gap:11px;
+  display:flex;flex-direction:column;gap:12px;
   margin-bottom:22px;
 }
 .plan-feature{
   display:flex;align-items:center;gap:11px;
   font-size:14px;font-weight:700;
-  color:#E0E3D9;
+  color:#E0D5F0;
 }
 .plan-feature-check{
   width:22px;height:22px;
   border-radius:50%;
-  background:rgba(95,212,123,.15);
+  background:rgba(232,189,134,.15);
   display:grid;place-items:center;
-  color:#5FD47B;
+  color:#E8BD86;
   flex-shrink:0;
 }
 .plan-feature-check svg{width:12px;height:12px}
@@ -320,11 +353,11 @@ svg{display:block}
   display:flex;align-items:center;justify-content:space-between;
   gap:10px;
   padding-top:18px;
-  border-top:1px solid rgba(255,255,255,.10);
+  border-top:1px solid rgba(232,189,134,.15);
 }
 .plan-footer-text{
   font-size:12px;
-  color:#8FA098;
+  color:#B8A8D9;
   font-weight:700;
   line-height:1.7;
 }
@@ -340,7 +373,7 @@ svg{display:block}
   letter-spacing:2px;
 }
 
-/* Floating card */
+/* Floating cards */
 .float-badge{
   position:absolute;
   background:#FFFEFA;
@@ -352,7 +385,7 @@ svg{display:block}
   box-shadow:0 14px 30px rgba(0,0,0,.28);
   white-space:nowrap;z-index:3;
 }
-.float-badge svg{width:16px;height:16px;color:var(--orange)}
+.float-badge svg{width:16px;height:16px;color:var(--purple)}
 .fb-top{top:22px;right:-8px}
 .fb-bottom{bottom:22px;left:-8px}
 
@@ -380,132 +413,339 @@ svg{display:block}
 }
 
 /* ============================================================
-   COMPARISON — مقایسه سه پلن
+   PAYMENT SECTION — شماره کارت + کپی
    ============================================================ */
-.plans-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:32px;
+.payment-section{
+  padding:60px 0 40px;
 }
-.plan-option{
-  position:relative;
-  padding:28px 24px;
+.payment-card{
   background:var(--white);
-  border:2px solid var(--line);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+  max-width:640px;
+  margin:32px auto 0;
+}
+.payment-card:before{
+  content:"";
+  position:absolute;
+  top:0;right:0;left:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--purple),var(--gold),var(--orange));
+}
+
+/* Card visual */
+.bank-card{
+  position:relative;
+  aspect-ratio:1.65/1;
+  background:linear-gradient(135deg,#4C2A85 0%,#6B3FA0 100%);
+  border-radius:18px;
+  padding:22px 24px;
+  color:#FFF;
+  overflow:hidden;
+  isolation:isolate;
+  margin-bottom:24px;
+  box-shadow:
+    0 15px 35px rgba(76,42,133,.35),
+    0 0 0 1px rgba(255,255,255,.08) inset;
+}
+.bank-card:before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border:1px solid rgba(232,189,134,.20);
+  border-radius:50%;
+  top:-100px;left:-70px;
+  box-shadow:0 0 0 25px rgba(232,189,134,.05);
+  z-index:-1;
+}
+.bank-card:after{
+  content:"";
+  position:absolute;
+  width:140px;height:140px;
+  background:radial-gradient(circle,rgba(232,189,134,.25),transparent 70%);
+  border-radius:50%;
+  bottom:-60px;right:-40px;
+  z-index:-1;
+}
+.bank-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:auto;
+}
+.bank-name{
+  display:flex;align-items:center;gap:9px;
+  font-size:14px;font-weight:900;
+  color:#E8BD86;
+  letter-spacing:.4px;
+}
+.bank-name svg{width:20px;height:20px}
+.bank-logo{
+  font-size:11px;font-weight:900;
+  color:rgba(255,255,255,.6);
+  letter-spacing:2px;
+}
+.bank-body{
+  position:absolute;
+  bottom:22px;right:24px;left:24px;
+}
+.bank-label{
+  font-size:10px;font-weight:800;
+  color:rgba(255,255,255,.5);
+  letter-spacing:1.5px;
+  margin-bottom:6px;
+}
+.bank-number{
+  font-size:22px;
+  font-weight:900;
+  color:#FFF;
+  direction:ltr;
+  letter-spacing:2px;
+  font-family:"Vazirmatn",monospace;
+  text-align:right;
+  white-space:nowrap;
+}
+.bank-owner{
+  margin-top:10px;
+  font-size:12px;
+  font-weight:700;
+  color:rgba(255,255,255,.7);
+  display:flex;align-items:center;gap:6px;
+}
+.bank-owner strong{color:#E8BD86;font-weight:900}
+
+/* Copy row */
+.copy-row{
+  display:flex;gap:10px;
+  margin-bottom:24px;
+}
+.copy-input{
+  flex:1;
+  display:flex;align-items:center;
+  padding:0 18px;
+  height:56px;
+  background:#F5F3EC;
+  border:1.5px solid var(--line);
+  border-radius:14px;
+  font-size:17px;
+  font-weight:900;
+  color:var(--ink);
+  letter-spacing:1.5px;
+  direction:ltr;
+  text-align:right;
+  font-family:"Vazirmatn",monospace;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.copy-btn{
+  min-width:130px;
+  padding:0 20px;
+  height:56px;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--purple);
+  color:#FFF;
+  border:0;
+  border-radius:14px;
+  font-size:14px;font-weight:900;
+  transition:.25s;
+  box-shadow:0 6px 16px rgba(76,42,133,.28);
+}
+.copy-btn:hover{background:var(--purple2);transform:translateY(-2px)}
+.copy-btn:active{transform:translateY(0)}
+.copy-btn svg{width:18px;height:18px}
+.copy-btn.copied{background:#2EB25E}
+.copy-btn.copied:hover{background:#2EB25E}
+
+/* Payment steps */
+.payment-steps{
+  display:flex;flex-direction:column;gap:14px;
+  padding:20px 22px;
+  background:var(--green-soft);
+  border-radius:16px;
+  margin-bottom:24px;
+}
+.step-item{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;font-weight:600;
+  color:#4A5449;
+  line-height:1.9;
+}
+.step-num{
+  width:26px;height:26px;
+  flex:0 0 26px;
+  border-radius:50%;
+  background:var(--green);
+  color:#FFF;
+  display:grid;place-items:center;
+  font-size:12px;font-weight:900;
+}
+.step-item strong{color:var(--green);font-weight:900}
+
+/* ============================================================
+   RECEIPT UPLOAD
+   ============================================================ */
+.receipt-section{
+  padding:30px 0 50px;
+}
+.receipt-intro{
+  max-width:640px;
+  margin:0 auto 26px;
+  padding:22px 24px;
+  background:linear-gradient(135deg,#F8E4D9 0%,#FDF1EA 100%);
+  border-right:4px solid var(--orange);
+  border-radius:14px;
+  font-size:16px;
+  line-height:2;
+  font-weight:700;
+  color:#854C36;
+}
+.receipt-intro strong{
+  color:#6B3A25;
+  font-weight:900;
+}
+
+.receipt-uploader{
+  max-width:640px;
+  margin:0 auto;
+  background:var(--white);
+  border:2px dashed var(--line);
   border-radius:20px;
-  cursor:pointer;
+  padding:38px 28px;
+  text-align:center;
   transition:.3s;
+  cursor:pointer;
+  position:relative;
   overflow:hidden;
 }
-.plan-option:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow2);
-  border-color:rgba(217,95,55,.3);
+.receipt-uploader:hover{
+  border-color:var(--purple);
+  background:#FAF7FE;
 }
-.plan-option.featured{
-  border-color:var(--green);
-  background:linear-gradient(160deg,#FFFEFA 0%,#F5F0E2 100%);
-  box-shadow:0 20px 45px rgba(40,72,58,.12);
-  transform:scale(1.02);
+.receipt-uploader.dragover{
+  border-color:var(--purple);
+  background:#F0E9FA;
+  transform:scale(1.01);
 }
-.plan-option.featured:hover{
-  transform:scale(1.02) translateY(-4px);
+.receipt-uploader.has-file{
+  border-style:solid;
+  border-color:#2EB25E;
+  background:#F0FAF3;
+  padding:22px 24px;
 }
-.plan-option.featured:before{
-  content:"پیشنهاد ویژه";
-  position:absolute;
-  top:0;left:0;
-  background:var(--green);
-  color:#FFF;
-  font-size:11px;
-  font-weight:900;
-  padding:7px 15px;
-  border-radius:0 20px 0 12px;
-  letter-spacing:.4px;
-}
-.plan-option-tag{
-  font-size:12px;font-weight:900;
-  color:var(--muted);
-  letter-spacing:.4px;
-  margin-bottom:8px;
-}
-.plan-option.featured .plan-option-tag{color:var(--orange)}
-.plan-option h3{
-  font-size:22px;font-weight:900;
-  color:var(--ink);
-  margin:0 0 5px;
-  letter-spacing:-.5px;
-}
-.plan-option-desc{
-  font-size:13px;
-  color:var(--muted);
-  font-weight:600;
-  line-height:1.8;
-  margin:0 0 18px;
-  min-height:44px;
-}
-.plan-option-price{
-  display:flex;align-items:baseline;gap:6px;
-  padding:14px 0;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  margin-bottom:18px;
-}
-.plan-option-price-num{
-  font-size:32px;font-weight:900;
-  color:var(--green);
-  direction:ltr;
-  letter-spacing:-1.5px;
-  line-height:1;
-}
-.plan-option.featured .plan-option-price-num{color:var(--orange)}
-.plan-option-price-unit{
-  font-size:13px;font-weight:700;
-  color:var(--muted);
-}
-.plan-option-features{
-  display:flex;flex-direction:column;
-  gap:9px;
-  margin-bottom:22px;
-}
-.plan-option-features li{
-  list-style:none;
-  display:flex;align-items:flex-start;gap:8px;
-  font-size:13px;
-  color:#4A5449;
-  font-weight:600;
-  line-height:1.7;
-}
-.plan-option-features li svg{
-  width:15px;height:15px;
-  color:var(--green);
-  flex-shrink:0;
-  margin-top:3px;
-}
-.plan-option.featured .plan-option-features li svg{color:var(--orange)}
-.plan-option-button{
-  width:100%;
-  min-height:48px;
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  border:2px solid var(--green);
-  background:transparent;
-  color:var(--green);
-  font-size:14px;font-weight:900;
-  border-radius:10px;
+.receipt-icon{
+  width:70px;height:70px;
+  margin:0 auto 16px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--purple-soft);
+  color:var(--purple);
   transition:.25s;
 }
-.plan-option-button:hover{
-  background:var(--green);
+.receipt-uploader:hover .receipt-icon{
+  background:var(--purple);
+  color:#FFF;
+  transform:scale(1.08);
+}
+.receipt-uploader.has-file .receipt-icon{
+  background:#2EB25E;
   color:#FFF;
 }
-.plan-option.featured .plan-option-button{
+.receipt-icon svg{width:32px;height:32px}
+.receipt-title{
+  font-size:18px;
+  font-weight:900;
+  color:var(--ink);
+  margin:0 0 7px;
+}
+.receipt-sub{
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
+  line-height:1.9;
+  margin:0 0 18px;
+}
+.receipt-hint{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 14px;
+  background:var(--paper2);
+  border-radius:50px;
+  font-size:12px;
+  font-weight:800;
+  color:var(--green);
+}
+.receipt-hint svg{width:14px;height:14px}
+
+/* File preview */
+.receipt-preview{
+  display:none;
+  align-items:center;
+  gap:14px;
+  text-align:right;
+}
+.receipt-uploader.has-file .receipt-preview{display:flex}
+.receipt-uploader.has-file .receipt-empty{display:none}
+.receipt-thumb{
+  width:64px;height:64px;
+  border-radius:12px;
+  background:var(--green-soft);
+  object-fit:cover;
+  flex-shrink:0;
+  border:2px solid #FFF;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.receipt-file-info{flex:1;min-width:0}
+.receipt-file-name{
+  font-size:14px;font-weight:900;
+  color:var(--ink);
+  margin:0 0 4px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.receipt-file-size{
+  font-size:12px;font-weight:700;
+  color:#2EB25E;
+}
+.receipt-remove{
+  width:36px;height:36px;
+  border-radius:50%;
+  background:#FEE;
+  color:#C33;
+  border:0;
+  display:grid;place-items:center;
+  cursor:pointer;
+  transition:.2s;
+  flex-shrink:0;
+}
+.receipt-remove:hover{background:#FCC;transform:scale(1.08)}
+.receipt-remove svg{width:16px;height:16px}
+
+/* Submit */
+.receipt-submit{
+  max-width:640px;
+  margin:24px auto 0;
+  width:100%;
+  min-height:60px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
   background:var(--green);
   color:#FFF;
+  border:0;
+  border-radius:14px;
+  font-size:17px;font-weight:900;
+  box-shadow:0 7px 0 #1B3326,0 13px 24px rgba(40,72,58,.18);
+  transition:.2s;
 }
-.plan-option.featured .plan-option-button:hover{
-  background:var(--green2);
+.receipt-submit:hover{background:var(--green2);transform:translateY(-2px)}
+.receipt-submit:active{transform:translateY(4px);box-shadow:0 3px 0 #1B3326}
+.receipt-submit:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:0 4px 0 #1B3326,0 6px 12px rgba(40,72,58,.1);
 }
+.receipt-submit svg{width:22px;height:22px}
 
 /* ============================================================
    TRUST BAR
@@ -546,46 +786,6 @@ svg{display:block}
   display:block;font-size:12px;
   color:#B8C5BA;font-weight:700;
   margin-top:3px;
-}
-
-/* ============================================================
-   MINI FAQ
-   ============================================================ */
-.mini-faq{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-bottom:70px;
-}
-.faq-mini-card{
-  padding:22px 22px;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:16px;
-  transition:.25s;
-}
-.faq-mini-card:hover{
-  box-shadow:var(--shadow2);
-  border-color:rgba(217,95,55,.25);
-}
-.faq-mini-icon{
-  width:36px;height:36px;
-  border-radius:10px;
-  background:var(--green-soft);
-  color:var(--green);
-  display:grid;place-items:center;
-  margin-bottom:13px;
-}
-.faq-mini-icon svg{width:18px;height:18px}
-.faq-mini-card h4{
-  font-size:16px;font-weight:900;
-  margin:0 0 7px;
-  letter-spacing:-.3px;
-}
-.faq-mini-card p{
-  font-size:14px;line-height:1.9;
-  color:#626B5F;font-weight:600;
-  margin:0;
 }
 
 /* ============================================================
@@ -660,7 +860,7 @@ svg{display:block}
 .footer-brand{color:var(--green);font-size:18px;font-weight:900}
 
 /* ============================================================
-   BOTTOM NAV — کپی دقیق صفحه اصلی
+   BOTTOM NAV
    ============================================================ */
 .bottom-nav-wrap{
   position:fixed;z-index:50;bottom:0;left:0;right:0;
@@ -712,6 +912,7 @@ svg{display:block}
   transition:.3s;
 }
 .toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:#2EB25E}
 
 /* ============================================================
    REVEAL
@@ -738,9 +939,6 @@ svg{display:block}
   .hero h1{font-size:48px}
   .hero-description{font-size:17px}
   .section-title{font-size:34px}
-  .plans-grid{grid-template-columns:1fr;gap:14px}
-  .plan-option.featured{transform:none}
-  .plan-option.featured:hover{transform:translateY(-4px)}
   .trust-bar{grid-template-columns:1fr}
   .trust-item:not(:last-child):after{
     top:auto;bottom:0;left:22px;right:22px;
@@ -786,17 +984,34 @@ svg{display:block}
   .section-title{font-size:30px}
   .section-desc{font-size:16px;line-height:2.1}
 
-  .plans-grid{margin-top:24px}
-  .plan-option{padding:24px 20px}
-  .plan-option h3{font-size:20px}
-  .plan-option-price-num{font-size:28px}
+  .payment-section{padding:45px 0 30px}
+  .payment-card{padding:22px 18px;border-radius:20px}
+  .bank-card{padding:18px 20px;border-radius:16px}
+  .bank-name{font-size:12px}
+  .bank-name svg{width:18px;height:18px}
+  .bank-number{font-size:18px;letter-spacing:1.5px}
+  .bank-label{font-size:9px}
+  .bank-owner{font-size:11px}
+
+  .copy-row{flex-direction:column;gap:9px}
+  .copy-input{height:54px;font-size:16px;padding:0 15px}
+  .copy-btn{width:100%;min-width:auto;height:54px;font-size:14px}
+
+  .payment-steps{padding:17px 18px;gap:11px}
+  .step-item{font-size:13px}
+
+  .receipt-section{padding:20px 0 40px}
+  .receipt-intro{padding:18px 20px;font-size:15px;margin-bottom:20px}
+  .receipt-uploader{padding:30px 22px}
+  .receipt-icon{width:60px;height:60px}
+  .receipt-icon svg{width:28px;height:28px}
+  .receipt-title{font-size:17px}
+  .receipt-sub{font-size:13px}
+  .receipt-submit{font-size:16px;min-height:56px}
 
   .trust-bar{margin:35px 0 45px}
   .trust-item{padding:18px 20px}
   .trust-text strong{font-size:15px}
-
-  .mini-faq{grid-template-columns:1fr;gap:11px;margin-bottom:50px}
-  .faq-mini-card{padding:18px 19px}
 
   .final-cta{
     grid-template-columns:1fr;
@@ -830,6 +1045,7 @@ svg{display:block}
   .plan-card{padding:18px}
   .plan-name{font-size:24px}
   .plan-price-num{font-size:32px}
+  .bank-number{font-size:16px;letter-spacing:1px}
 }
 </style>
 </head>
@@ -866,7 +1082,7 @@ svg{display:block}
 
   <main>
 
-    <!-- HERO — Premium Plan Card -->
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
         <div class="hero-overline">اشتراک ویژه ردیاب</div>
@@ -903,7 +1119,7 @@ svg{display:block}
         </div>
 
         <div class="hero-actions">
-          <a href="#plans" class="hero-button">
+          <a href="#payment" class="hero-button">
             خرید اشتراک
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -914,7 +1130,10 @@ svg{display:block}
       </div>
 
       <div class="hero-art">
+        <!-- PLAN CARD بنفش سلطنتی -->
         <div class="plan-card">
+          <span class="plan-glow"></span>
+
           <div class="plan-head">
             <div class="plan-badge">
               <div class="plan-badge-icon">
@@ -998,133 +1217,139 @@ svg{display:block}
       </div>
     </section>
 
-    <!-- SECTION: PLANS COMPARISON -->
-    <section class="section-block" id="plans">
-      <div class="section-tag">پلن‌های اشتراک</div>
+    <!-- PAYMENT SECTION — شماره کارت + کپی -->
+    <section class="payment-section" id="payment">
+      <div class="section-tag">اطلاعات پرداخت</div>
       <h2 class="section-title">
-        پلنی که مناسب توست را انتخاب کن،
-        <span>هوشمندانه شروع کن.</span>
+        شماره کارت را کپی کن،
+        <span>واریز را انجام بده.</span>
       </h2>
       <p class="section-desc">
-        سه گزینه برای سه نیاز متفاوت. هر کدام از این پلن‌ها برای یک نوع استفاده طراحی شده‌اند.
-        پلن مناسب خودت را انتخاب کن و همین حالا شروع کن.
+        مبلغ اشتراک پریمیوم را به شماره کارت زیر واریز کن، سپس رسید پرداخت را در بخش بعدی ارسال کن.
       </p>
 
-      <div class="plans-grid">
-        <!-- Plan 1: Basic -->
-        <div class="plan-option reveal">
-          <div class="plan-option-tag">BASE / پایه</div>
-          <h3>پایه</h3>
-          <p class="plan-option-desc">شروع مسیر ردیابی با امکانات ضروری</p>
-          <div class="plan-option-price">
-            <span class="plan-option-price-num">۰</span>
-            <span class="plan-option-price-unit">تومان / رایگان</span>
+      <div class="payment-card">
+        <!-- Bank Card Visual -->
+        <div class="bank-card">
+          <div class="bank-head">
+            <div class="bank-name">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="3"/>
+                <path d="M2 10h20"/>
+              </svg>
+              بانک پاسارگاد
+            </div>
+            <span class="bank-logo">PASARGAD</span>
           </div>
-          <ul class="plan-option-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              ردیابی یک دستگاه
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              مشاهده موقعیت به‌صورت زنده
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              پشتیبانی عادی
-            </li>
-          </ul>
-          <button class="plan-option-button" type="button" data-plan="base">
-            شروع رایگان
+
+          <div class="bank-body">
+            <div class="bank-label">CARD NUMBER</div>
+            <div class="bank-number" id="cardNumberDisplay">5022 2910 9895 3217</div>
+            <div class="bank-owner">
+              به نام <strong>حمیدرضا سلیمی</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy Row -->
+        <div class="copy-row">
+          <div class="copy-input" id="cardNumberText">5022291098953217</div>
+          <button class="copy-btn" type="button" id="copyBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span>کپی شماره کارت</span>
           </button>
         </div>
 
-        <!-- Plan 2: Premium (featured) -->
-        <div class="plan-option featured reveal">
-          <div class="plan-option-tag">MOST POPULAR / محبوب‌ترین</div>
-          <h3>پریمیوم</h3>
-          <p class="plan-option-desc">انتخاب اکثر کاربران، کامل‌ترین گزینه</p>
-          <div class="plan-option-price">
-            <span class="plan-option-price-num">۱,۲۰۰,۰۰۰</span>
-            <span class="plan-option-price-unit">تومان / ۱۲ ماه</span>
+        <!-- Payment Steps -->
+        <div class="payment-steps">
+          <div class="step-item">
+            <span class="step-num">۱</span>
+            <div>
+              مبلغ <strong>۱,۲۰۰,۰۰۰ تومان</strong> را به شماره کارت بالا واریز کنید.
+            </div>
           </div>
-          <ul class="plan-option-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              ردیابی نامحدود دستگاه‌ها
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              تاریخچه کامل مسیرها
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              هشدارهای هوشمند و محدوده جغرافیایی
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              پشتیبانی اولویت‌دار ۲۴/۷
-            </li>
-          </ul>
-          <button class="plan-option-button" type="button" data-plan="premium">
-            خرید پریمیوم
-          </button>
-        </div>
-
-        <!-- Plan 3: Platinum -->
-        <div class="plan-option reveal">
-          <div class="plan-option-tag">ENTERPRISE / پلاتینیوم</div>
-          <h3>پلاتینیوم</h3>
-          <p class="plan-option-desc">برای کاربران حرفه‌ای و سازمان‌ها</p>
-          <div class="plan-option-price">
-            <span class="plan-option-price-num">۲,۸۰۰,۰۰۰</span>
-            <span class="plan-option-price-unit">تومان / ۱۲ ماه</span>
+          <div class="step-item">
+            <span class="step-num">۲</span>
+            <div>
+              <strong>عکس رسید واریز</strong> یا پیامک تأیید واریز را ذخیره کنید (باید دارای تاریخ، ساعت و کد رهگیری باشد).
+            </div>
           </div>
-          <ul class="plan-option-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              همه امکانات پریمیوم
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              ردیابی سازمانی نامحدود
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              API اختصاصی و یکپارچه‌سازی
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 6 9 17l-5-5"/>
-              </svg>
-              مدیر حساب اختصاصی
-            </li>
-          </ul>
-          <button class="plan-option-button" type="button" data-plan="platinum">
-            خرید پلاتینیوم
-          </button>
+          <div class="step-item">
+            <span class="step-num">۳</span>
+            <div>
+              رسید را در بخش بعدی <strong>آپلود</strong> کنید تا اشتراک شما فعال شود.
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- RECEIPT UPLOAD SECTION -->
+    <section class="receipt-section">
+      <div class="section-tag">ارسال رسید واریز</div>
+      <h2 class="section-title">
+        رسید واریز را آپلود کن،
+        <span>اشتراکت فعال می‌شه.</span>
+      </h2>
+      <p class="section-desc">
+        پس از واریز، رسید پرداخت را برای بررسی و فعال‌سازی ارسال کن.
+      </p>
+
+      <div class="receipt-intro reveal">
+        <strong>توجه:</strong>
+        لطفاً عکس رسید واریز یا پیامک تأیید واریز را که دارای
+        <strong>تاریخ، ساعت و کد رهگیری</strong> است ارسال نمایید.
+        رسید بدون کد رهگیری قابل بررسی نیست.
+      </div>
+
+      <label class="receipt-uploader reveal" id="uploader">
+        <input type="file" id="receiptInput" accept="image/*" hidden>
+
+        <!-- Empty state -->
+        <div class="receipt-empty">
+          <div class="receipt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <path d="M17 8l-5-5-5 5"/>
+              <path d="M12 3v12"/>
+            </svg>
+          </div>
+          <h3 class="receipt-title">آپلود رسید واریز</h3>
+          <p class="receipt-sub">
+            عکس رسید یا اسکرین‌شات پیامک تأیید واریز را انتخاب کن
+          </p>
+          <span class="receipt-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+            </svg>
+            فرمت‌های مجاز: JPG، PNG — حداکثر ۵ مگابایت
+          </span>
+        </div>
+
+        <!-- Filled state -->
+        <div class="receipt-preview">
+          <img class="receipt-thumb" id="receiptThumb" alt="رسید">
+          <div class="receipt-file-info">
+            <div class="receipt-file-name" id="receiptName">رسید.jpg</div>
+            <div class="receipt-file-size" id="receiptSize">۰ KB</div>
+          </div>
+          <button class="receipt-remove" type="button" id="removeBtn" aria-label="حذف">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </label>
+
+      <button class="receipt-submit" type="button" id="submitBtn" disabled>
+        <span>ارسال رسید و فعال‌سازی اشتراک</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
     </section>
 
     <!-- TRUST BAR -->
@@ -1138,7 +1363,7 @@ svg{display:block}
         </div>
         <div class="trust-text">
           <strong>پرداخت امن</strong>
-          <small>درگاه معتبر و رمزنگاری‌شده</small>
+          <small>تأیید دستی توسط تیم</small>
         </div>
       </div>
 
@@ -1150,8 +1375,8 @@ svg{display:block}
           </svg>
         </div>
         <div class="trust-text">
-          <strong>فعال‌سازی فوری</strong>
-          <small>دسترسی بلافاصله پس از پرداخت</small>
+          <strong>فعال‌سازی سریع</strong>
+          <small>حداکثر ۲ ساعت کاری</small>
         </div>
       </div>
 
@@ -1169,73 +1394,18 @@ svg{display:block}
       </div>
     </section>
 
-    <!-- MINI FAQ -->
-    <section class="section-block reveal">
-      <div class="section-tag">سوالات متداول خرید</div>
-      <h2 class="section-title">
-        قبل از خرید،
-        <span>این‌ها را بدان.</span>
-      </h2>
-
-      <div class="mini-faq">
-        <div class="faq-mini-card">
-          <div class="faq-mini-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="3"/>
-              <path d="M2 10h20"/>
-            </svg>
-          </div>
-          <h4>روش‌های پرداخت چیست؟</h4>
-          <p>پرداخت از طریق درگاه‌های بانکی معتبر انجام می‌شود. تمام تراکنش‌ها با رمزنگاری کامل محافظت می‌شوند.</p>
-        </div>
-
-        <div class="faq-mini-card">
-          <div class="faq-mini-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 7v5l3 2"/>
-            </svg>
-          </div>
-          <h4>چه زمانی فعال می‌شود؟</h4>
-          <p>اشتراک شما بلافاصله پس از تأیید پرداخت فعال می‌شود و می‌توانید از تمام امکانات استفاده کنید.</p>
-        </div>
-
-        <div class="faq-mini-card">
-          <div class="faq-mini-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 12a9 9 0 1 0 9-9"/>
-              <path d="M3 3v6h6"/>
-            </svg>
-          </div>
-          <h4>امکان بازگشت وجه وجود دارد؟</h4>
-          <p>شرایط انصراف و بازگشت وجه تابع مقررات اعلام‌شده هنگام خرید است. پیش از خرید، این موارد را مطالعه کنید.</p>
-        </div>
-
-        <div class="faq-mini-card">
-          <div class="faq-mini-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-          </div>
-          <h4>اطلاعات پرداخت امن است؟</h4>
-          <p>اطلاعات کارت شما در سرورهای ما ذخیره نمی‌شود و تمام تراکنش‌ها از طریق درگاه‌های معتبر انجام می‌گیرد.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="reveal">
       <div class="final-cta">
         <div class="cta-content">
           <span class="cta-label">آماده‌ای برای شروع؟</span>
-          <h2>پلن را انتخاب کن،<br>همین حالا شروع کن.</h2>
+          <h2>همین حالا شروع کن،<br>یک سال اطمینان.</h2>
           <p>
-            با فعال‌سازی اشتراک، به تمام امکانات ردیاب دسترسی پیدا می‌کنی.
-            یک تصمیم ساده، یک سال اطمینان.
+            با فعال‌سازی اشتراک پریمیوم، به تمام امکانات ردیاب دسترسی پیدا می‌کنی.
+            یک تصمیم ساده، یک سال خیال راحت.
           </p>
         </div>
-        <a class="cta-button" href="#plans">
+        <a class="cta-button" href="#payment">
           خرید اشتراک
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -1317,42 +1487,158 @@ svg{display:block}
   /* ---------- Toast ---------- */
   const toast = document.getElementById('toast');
   let toastTimer;
-  function showToast(msg){
+  function showToast(msg, type){
     toast.textContent = msg;
-    toast.classList.add('show');
+    toast.className = 'toast show' + (type === 'success' ? ' success' : '');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(()=>toast.classList.remove('show'), 3800);
+    toastTimer = setTimeout(()=>{toast.className = 'toast'}, 3800);
   }
 
-  /* ---------- Plan Buttons ---------- */
-  const planBtns = document.querySelectorAll('.plan-option-button');
-  const planNames = {base:'پایه', premium:'پریمیوم', platinum:'پلاتینیوم'};
+  /* ---------- Copy Card Number ---------- */
+  const CARD = '5022291098953217';
+  const copyBtn = document.getElementById('copyBtn');
+  const copySpan = copyBtn.querySelector('span');
 
-  planBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const plan = btn.getAttribute('data-plan');
+  copyBtn.addEventListener('click', async ()=>{
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(CARD);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = CARD;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      copyBtn.classList.add('copied');
+      copySpan.textContent = 'کپی شد ✓';
+      showToast('شماره کارت با موفقیت کپی شد.', 'success');
 
-      /*
-        BACKEND INTEGRATION:
-        ارسال به سرویس پرداخت و فعال‌سازی.
-        نمونه:
-        fetch('/api/subscription/checkout',{
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({plan})
-        }).then(r=>r.json()).then(data=>{
-          window.location.href = data.paymentUrl;
-        })
-      */
+      setTimeout(()=>{
+        copyBtn.classList.remove('copied');
+        copySpan.textContent = 'کپی شماره کارت';
+      }, 2500);
+    } catch(err){
+      showToast('کپی نشد؛ لطفاً شماره را دستی انتخاب و کپی کنید.');
+    }
+  });
 
-      showToast(
-        `درخواست خرید پلن «${planNames[plan]}» ثبت شد. ` +
-        `برای تکمیل خرید، اتصال به درگاه پرداخت رسمی و سرویس ثبت اشتراک لازم است.`
-      );
-    });
+  /* ---------- Receipt Uploader ---------- */
+  const uploader = document.getElementById('uploader');
+  const input = document.getElementById('receiptInput');
+  const thumb = document.getElementById('receiptThumb');
+  const nameEl = document.getElementById('receiptName');
+  const sizeEl = document.getElementById('receiptSize');
+  const removeBtn = document.getElementById('removeBtn');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+  let currentFile = null;
+
+  function humanSize(bytes){
+    if(bytes < 1024) return bytes + ' B';
+    if(bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
+    return (bytes/(1024*1024)).toFixed(1) + ' MB';
+  }
+
+  function handleFile(file){
+    if(!file) return;
+
+    if(!file.type.startsWith('image/')){
+      showToast('فقط فایل عکس (JPG، PNG) قابل ارسال است.');
+      return;
+    }
+    if(file.size > MAX_SIZE){
+      showToast('حجم فایل بیش از ۵ مگابایت است.');
+      return;
+    }
+
+    currentFile = file;
+    nameEl.textContent = file.name;
+    sizeEl.textContent = humanSize(file.size);
+
+    const reader = new FileReader();
+    reader.onload = (e)=>{ thumb.src = e.target.result; };
+    reader.readAsDataURL(file);
+
+    uploader.classList.add('has-file');
+    submitBtn.disabled = false;
+  }
+
+  input.addEventListener('change', ()=>{
+    handleFile(input.files[0]);
+  });
+
+  // Drag & drop
+  uploader.addEventListener('dragover', (e)=>{
+    e.preventDefault();
+    uploader.classList.add('dragover');
+  });
+  uploader.addEventListener('dragleave', ()=>{
+    uploader.classList.remove('dragover');
+  });
+  uploader.addEventListener('drop', (e)=>{
+    e.preventDefault();
+    uploader.classList.remove('dragover');
+    if(e.dataTransfer.files && e.dataTransfer.files[0]){
+      handleFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  removeBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    currentFile = null;
+    input.value = '';
+    thumb.src = '';
+    uploader.classList.remove('has-file');
+    submitBtn.disabled = true;
+  });
+
+  /* ---------- Submit ---------- */
+  submitBtn.addEventListener('click', ()=>{
+    if(!currentFile){
+      showToast('ابتدا رسید واریز را آپلود کنید.');
+      return;
+    }
+
+    /*
+      BACKEND INTEGRATION:
+      ارسال فایل به سرور برای بررسی و فعال‌سازی.
+
+      نمونه:
+      const fd = new FormData();
+      fd.append('receipt', currentFile);
+      fd.append('cardNumber', CARD);
+
+      fetch('/api/subscription/verify', {
+        method: 'POST',
+        body: fd
+      })
+      .then(r => r.json())
+      .then(data => {
+        if(data.ok){
+          showToast('رسید دریافت شد. اشتراک پس از بررسی فعال می‌شود.', 'success');
+        } else {
+          showToast(data.message || 'خطا در ارسال رسید.');
+        }
+      })
+      .catch(()=> showToast('خطای شبکه. لطفاً دوباره تلاش کنید.'));
+    */
+
+    showToast(
+      'رسید شما دریافت شد. پس از بررسی توسط تیم پشتیبانی، اشتراک فعال می‌شود.',
+      'success'
+    );
+
+    submitBtn.disabled = true;
+    submitBtn.querySelector('span').textContent = 'رسید ارسال شد ✓';
   });
 })();
 </script>
 
 </body>
-              </html>
+   </html>
