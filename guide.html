@@ -13,7 +13,7 @@
 
 <style>
 /* ============================================================
-   DESIGN TOKENS — هماهنگ با صفحه اصلی
+   DESIGN TOKENS — کپی دقیق صفحه اصلی
    ============================================================ */
 :root{
   --paper:#F3F0E7;
@@ -47,13 +47,10 @@ button{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
 svg{display:block}
 ::selection{background:var(--orange);color:#FFF}
-.page{
-  width:min(100% - 44px,1160px);
-  margin:auto;
-}
+.page{width:min(100% - 44px,1160px);margin:auto}
 
 /* ============================================================
-   HEADER — کپی دقیق از صفحه اصلی
+   HEADER — کپی دقیق صفحه اصلی
    ============================================================ */
 .header{
   height:94px;
@@ -63,16 +60,10 @@ svg{display:block}
   position:relative;
   z-index:5;
 }
-.brand{
-  display:flex;
-  align-items:center;
-  gap:13px;
-}
+.brand{display:flex;align-items:center;gap:13px}
 .brand-symbol{
-  width:49px;
-  height:49px;
-  display:grid;
-  place-items:center;
+  width:49px;height:49px;
+  display:grid;place-items:center;
   position:relative;
   background:var(--green);
   color:#F5F1E6;
@@ -80,64 +71,31 @@ svg{display:block}
   transform:rotate(-4deg);
   box-shadow:0 8px 17px rgba(40,72,58,.18);
 }
-.brand-symbol svg{
-  width:27px;
-  height:27px;
-  transform:rotate(4deg);
-}
-.brand-title{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:-1px;
-  line-height:1.25;
-}
-.brand-subtitle{
-  font-size:13px;
-  color:var(--muted);
-  font-weight:700;
-  margin-top:3px;
-}
-.header-meta{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.header-index{
-  color:#777D70;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-.header-line{
-  width:40px;
-  height:1px;
-  background:#A9AA9C;
-}
+.brand-symbol svg{width:27px;height:27px;transform:rotate(4deg)}
+.brand-title{font-size:25px;font-weight:900;letter-spacing:-1px;line-height:1.25}
+.brand-subtitle{font-size:13px;color:var(--muted);font-weight:700;margin-top:3px}
+.header-meta{display:flex;align-items:center;gap:10px}
+.header-index{color:#777D70;font-size:13px;font-weight:800;letter-spacing:1px}
+.header-line{width:40px;height:1px;background:#A9AA9C}
 .header-status{
-  display:flex;
-  align-items:center;
-  gap:8px;
+  display:flex;align-items:center;gap:8px;
   padding:10px 14px;
   border:1px solid #D9D8CA;
   border-radius:5px;
   background:rgba(255,254,250,.56);
-  font-size:13px;
-  font-weight:800;
-  color:var(--green);
+  font-size:13px;font-weight:800;color:var(--green);
 }
 .status-point{
-  width:8px;
-  height:8px;
-  border-radius:50%;
+  width:8px;height:8px;border-radius:50%;
   background:var(--orange);
   box-shadow:0 0 0 4px rgba(217,95,55,.12);
 }
 
 /* ============================================================
-   HERO — سبز تیره، هم‌خانواده با صفحه اصلی
+   HERO — سبز تیره با Live Map Card (نوآوری)
    ============================================================ */
 .hero{
-  min-height:520px;
+  min-height:600px;
   display:grid;
   grid-template-columns:1.05fr .95fr;
   background:var(--green);
@@ -145,18 +103,15 @@ svg{display:block}
   position:relative;
   overflow:hidden;
   isolation:isolate;
-  border-radius:2px;
 }
 .hero:before{
   content:"";
   position:absolute;
   z-index:-1;
-  width:620px;
-  height:620px;
+  width:650px;height:650px;
   border:1px solid rgba(255,255,255,.10);
   border-radius:50%;
-  left:-260px;
-  top:-280px;
+  left:-250px;top:-270px;
   box-shadow:
     0 0 0 45px rgba(255,255,255,.025),
     0 0 0 95px rgba(255,255,255,.02),
@@ -165,208 +120,316 @@ svg{display:block}
 .hero:after{
   content:"";
   position:absolute;
-  width:1px;
-  height:100%;
+  width:1px;height:100%;
   background:rgba(255,255,255,.12);
-  right:50%;
-  top:0;
+  right:50%;top:0;
 }
 .hero-copy{
-  padding:66px 65px 60px 35px;
+  padding:80px 65px 70px 35px;
   position:relative;
   z-index:2;
 }
 .hero-overline{
-  display:flex;
-  align-items:center;
-  gap:12px;
+  display:flex;align-items:center;gap:12px;
   color:var(--yellow);
-  font-size:14px;
-  font-weight:900;
+  font-size:14px;font-weight:900;
   letter-spacing:.2px;
-  margin-bottom:24px;
+  margin-bottom:28px;
 }
 .hero-overline:before{
-  content:"";
-  width:31px;
-  height:2px;
-  background:var(--orange);
+  content:"";width:31px;height:2px;background:var(--orange);
 }
 .hero h1{
-  font-size:clamp(38px,4.6vw,60px);
-  line-height:1.42;
-  letter-spacing:-2.2px;
+  font-size:clamp(43px,5.2vw,68px);
+  line-height:1.38;
+  letter-spacing:-2.5px;
   font-weight:900;
   margin:0;
 }
-.hero h1 span{
-  color:#E5B47C;
-  display:block;
-}
+.hero h1 span{color:#E5B47C;display:block}
 .hero-description{
   color:#D2D8CE;
-  font-size:17px;
+  font-size:18px;
   font-weight:600;
-  line-height:2.1;
+  line-height:2.15;
   max-width:480px;
-  margin:20px 0 27px;
+  margin:23px 0 29px;
 }
 .hero-actions{
-  display:flex;
-  align-items:center;
-  gap:17px;
-  flex-wrap:wrap;
+  display:flex;align-items:center;gap:17px;flex-wrap:wrap;
 }
 .hero-button{
-  min-height:56px;
-  padding:0 22px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
+  min-height:59px;
+  padding:0 23px;
+  display:inline-flex;align-items:center;justify-content:center;gap:13px;
   color:#202B25;
   background:#E8BD86;
-  font-size:16px;
-  font-weight:900;
+  font-size:17px;font-weight:900;
   border-radius:4px 17px 4px 17px;
   transition:.25s;
 }
-.hero-button:hover{
-  background:#F0CCA0;
-  transform:translateY(-3px);
-}
+.hero-button:hover{background:#F0CCA0;transform:translateY(-3px)}
 .hero-button svg{width:20px;height:20px}
 .hero-secondary{
   color:#E0E3D9;
-  font-size:14px;
-  font-weight:700;
+  font-size:14px;font-weight:700;
 }
 .hero-secondary:hover{color:#E8BD86}
 
-/* HERO ART — نصب دقیق از صفحه اصلی */
+/* ============================================================
+   LIVE MAP CARD — نوآوری جایگزین رادار
+   ============================================================ */
 .hero-art{
-  min-height:520px;
+  min-height:600px;
   display:flex;
   justify-content:center;
   align-items:center;
   position:relative;
+  padding:40px 30px;
+}
+.map-card{
+  width:min(390px,100%);
+  background:#1E382C;
+  border:1px solid rgba(232,189,134,.25);
+  border-radius:22px;
+  padding:16px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.35),
+    0 0 0 1px rgba(255,255,255,.05) inset;
+  position:relative;
   overflow:hidden;
 }
-.instrument{
-  width:min(380px,85%);
-  aspect-ratio:1;
-  position:relative;
-  display:grid;
-  place-items:center;
-}
-.instrument-ring{
-  position:absolute;
-  border-radius:50%;
-  border:1px solid rgba(230,220,194,.22);
-}
-.ring-a{inset:0}
-.ring-b{inset:35px;border-style:dashed;opacity:.65}
-.ring-c{inset:76px;border-color:rgba(230,220,194,.30)}
-.ring-d{inset:116px;border-color:rgba(230,220,194,.20)}
-.instrument-cross{
-  position:absolute;
-  width:100%;
-  height:1px;
-  background:rgba(255,255,255,.14);
-}
-.instrument-cross.vertical{
-  width:1px;
-  height:100%;
-}
-.instrument-cross.diagonal-a{transform:rotate(45deg);opacity:.5}
-.instrument-cross.diagonal-b{transform:rotate(-45deg);opacity:.5}
-.instrument-center{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  position:relative;
-  z-index:2;
-  display:grid;
-  place-items:center;
-  background:radial-gradient(circle at 35% 30%,#52745E,#28483A 65%);
-  border:1px solid rgba(236,217,175,.5);
-  box-shadow:
-    0 0 0 13px rgba(232,189,134,.055),
-    0 0 0 28px rgba(232,189,134,.035),
-    0 18px 45px rgba(0,0,0,.16);
-}
-.center-mark{
-  width:62px;
-  height:62px;
-  border:1px solid #E6BD83;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  position:relative;
-}
-.center-mark:before,.center-mark:after{
+.map-card:before{
   content:"";
   position:absolute;
-  background:#E6BD83;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(232,189,134,.10),transparent 40%),
+    radial-gradient(circle at 90% 90%,rgba(217,95,55,.08),transparent 45%);
+  pointer-events:none;
 }
-.center-mark:before{width:84px;height:1px}
-.center-mark:after{height:84px;width:1px}
-.center-mark svg{
-  width:27px;height:27px;
-  color:#F2C48F;
+.map-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:6px 6px 12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:12px;
+  position:relative;
+  z-index:1;
+}
+.map-head-left{
+  display:flex;align-items:center;gap:10px;
+}
+.map-live-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:#5FD47B;
+  box-shadow:0 0 0 4px rgba(95,212,123,.18);
+  animation:livePulse 1.8s infinite;
+}
+@keyframes livePulse{
+  0%,100%{box-shadow:0 0 0 4px rgba(95,212,123,.18)}
+  50%{box-shadow:0 0 0 7px rgba(95,212,123,.05)}
+}
+.map-head-label{
+  color:#E9D7B5;font-size:12px;font-weight:900;letter-spacing:.6px;
+}
+.map-head-time{
+  color:#8FA098;font-size:11px;font-weight:700;direction:ltr;
+}
+.map-canvas{
+  position:relative;
+  aspect-ratio:1 / .88;
+  border-radius:14px;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,#233E31 0%,#1B3228 100%);
+}
+/* نقشه CSS — راه‌ها */
+.map-canvas:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:34px 34px;
+  opacity:.9;
+}
+/* بلوک‌های شهری */
+.map-block{
+  position:absolute;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:4px;
+}
+.b1{top:8%;left:6%;width:24%;height:18%}
+.b2{top:8%;right:8%;width:30%;height:22%}
+.b3{top:36%;left:6%;width:18%;height:26%}
+.b4{top:42%;right:10%;width:26%;height:22%}
+.b5{bottom:8%;left:14%;width:34%;height:20%}
+.b6{bottom:12%;right:8%;width:22%;height:22%}
+/* خیابان اصلی */
+.map-road{
+  position:absolute;
+  background:rgba(232,189,134,.18);
+}
+.road-h{left:0;right:0;top:52%;height:5px}
+.road-v{top:0;bottom:0;left:48%;width:5px}
+.road-d{
+  width:140%;
+  height:4px;
+  top:22%;left:-20%;
+  background:rgba(232,189,134,.10);
+  transform:rotate(-18deg);
+  transform-origin:center;
+}
+/* مسیر */
+.map-route{
+  position:absolute;
+  left:10%;
+  top:72%;
+  width:80%;
+  height:60%;
+  border:2px dashed rgba(232,189,134,.55);
+  border-radius:60% 40% 30% 50%;
+  border-top-color:transparent;
+  border-left-color:transparent;
+  transform:rotate(-12deg);
+  filter:drop-shadow(0 0 8px rgba(232,189,134,.25));
+}
+
+/* پین‌ها */
+.map-pin{
+  position:absolute;
+  transform:translate(-50%,-100%);
+}
+.map-pin.me{top:70%;left:22%}
+.map-pin.friend{top:34%;left:66%}
+.pin-dot{
+  width:34px;height:34px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  color:#fff;
+  font-size:13px;font-weight:900;
   position:relative;
   z-index:2;
+  border:2px solid rgba(255,255,255,.85);
 }
-.instrument-node{
+.pin-dot.me{background:#4A88E5;box-shadow:0 6px 14px rgba(74,136,229,.4)}
+.pin-dot.friend{background:var(--orange);box-shadow:0 6px 14px rgba(217,95,55,.45)}
+.pin-tail{
   position:absolute;
-  width:12px;height:12px;
+  width:14px;height:14px;
+  bottom:-5px;left:50%;
+  transform:translateX(-50%) rotate(45deg);
+  border:2px solid rgba(255,255,255,.85);
+  border-top:0;border-left:0;
+}
+.pin-tail.me{background:#4A88E5}
+.pin-tail.friend{background:var(--orange)}
+.pin-pulse{
+  position:absolute;
+  top:50%;left:50%;
+  width:60px;height:60px;
   border-radius:50%;
-  background:#E8BD86;
-  border:3px solid #28483A;
-  box-shadow:0 0 0 4px rgba(232,189,134,.15);
+  border:2px solid rgba(217,95,55,.45);
+  transform:translate(-50%,-50%);
+  animation:pinPulse 2.4s ease-out infinite;
+  pointer-events:none;
 }
-.node-a{top:11%;right:23%}
-.node-b{bottom:19%;left:14%;width:9px;height:9px}
-.node-c{top:42%;left:0;width:8px;height:8px}
-.node-d{bottom:4%;right:41%;width:8px;height:8px}
-.instrument-sweep{
-  position:absolute;
-  width:50%;
-  height:50%;
-  top:0;
-  right:50%;
-  transform-origin:bottom right;
-  background:conic-gradient(from 0deg,transparent 0deg,rgba(232,189,134,.18) 40deg,transparent 75deg);
-  border-radius:100% 0 0 0;
-  animation:sweep 9s linear infinite;
-  opacity:.8;
+@keyframes pinPulse{
+  0%{transform:translate(-50%,-50%) scale(.5);opacity:.9}
+  100%{transform:translate(-50%,-50%) scale(2);opacity:0}
 }
-@keyframes sweep{to{transform:rotate(360deg)}}
-.instrument-label{
+.pin-label{
   position:absolute;
-  color:#E9D7B5;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-.label-top{top:5%;left:50%;transform:translateX(-50%)}
-.label-bottom{bottom:5%;left:50%;transform:translateX(-50%)}
-.label-right{right:-7%;top:50%;transform:translateY(-50%)}
-.label-left{left:-7%;top:50%;transform:translateY(-50%)}
-.art-caption{
-  position:absolute;
-  bottom:42px;
-  right:50%;
-  transform:translateX(50%);
-  color:#D9D9C9;
-  font-size:13px;
-  font-weight:700;
+  top:-32px;left:50%;
+  transform:translateX(-50%);
+  background:#FFFEFA;
+  color:var(--ink);
+  font-size:11px;font-weight:900;
+  padding:4px 9px;
+  border-radius:6px;
   white-space:nowrap;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
-.art-caption b{color:#E8BD86;margin-left:7px}
+.pin-label:after{
+  content:"";
+  position:absolute;
+  bottom:-4px;left:50%;
+  transform:translateX(-50%) rotate(45deg);
+  width:8px;height:8px;
+  background:#FFFEFA;
+}
+
+/* کارت اطلاعات شناور */
+.map-info{
+  position:absolute;
+  bottom:12px;
+  right:12px;
+  left:12px;
+  background:rgba(255,254,250,.96);
+  border-radius:12px;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  box-shadow:0 10px 24px rgba(0,0,0,.2);
+  backdrop-filter:blur(8px);
+  z-index:2;
+}
+.map-info-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#E8BD86,#D95F37);
+  display:grid;place-items:center;
+  color:#fff;font-weight:900;font-size:13px;
+  flex-shrink:0;
+}
+.map-info-text{flex:1;min-width:0}
+.map-info-title{
+  font-size:12px;font-weight:900;color:var(--green);
+}
+.map-info-sub{
+  font-size:11px;font-weight:700;color:#777D70;
+  margin-top:2px;
+}
+.map-info-status{
+  width:8px;height:8px;border-radius:50%;
+  background:#2EB25E;
+  box-shadow:0 0 0 3px rgba(46,178,94,.18);
+}
+
+/* کارت‌های کنار نقشه */
+.map-float{
+  position:absolute;
+  background:#FFFEFA;
+  color:var(--ink);
+  border-radius:12px;
+  padding:11px 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+  white-space:nowrap;
+  z-index:3;
+}
+.map-float svg{width:18px;height:18px;color:var(--orange)}
+.mf-top{top:22px;right:0}
+.mf-bottom{bottom:22px;left:0}
+.mf-badge{
+  background:var(--green);
+  color:#FFFEFA;
+  border-radius:14px;
+  padding:3px 9px;
+  font-size:10px;
+  letter-spacing:.5px;
+}
 
 /* ============================================================
-   SIGNAL RIBBON — کپی از صفحه اصلی
+   SIGNAL RIBBON — کپی صفحه اصلی
    ============================================================ */
 .signal-ribbon{
   display:grid;
@@ -377,248 +440,248 @@ svg{display:block}
 .signal-cell{
   min-height:103px;
   padding:20px 25px;
-  display:flex;
-  align-items:center;
-  gap:15px;
+  display:flex;align-items:center;gap:15px;
   border-left:1px solid #D5D1C5;
 }
 .signal-cell:last-child{border-left:0}
 .signal-number{
-  font-size:34px;
-  font-weight:900;
-  color:var(--orange);
-  line-height:1;
+  font-size:34px;font-weight:900;
+  color:var(--orange);line-height:1;
 }
 .signal-cell strong{display:block;font-size:16px;font-weight:900}
 .signal-cell span{
-  display:block;
-  color:#777D70;
-  font-size:13px;
-  font-weight:700;
-  margin-top:4px;
+  display:block;color:#777D70;
+  font-size:13px;font-weight:700;margin-top:4px;
 }
 
 /* ============================================================
    INTRO
    ============================================================ */
 .intro{
-  padding:95px 0 55px;
+  padding:105px 0 60px;
   display:grid;
   grid-template-columns:.75fr 1.25fr;
   gap:80px;
   align-items:start;
 }
 .section-tag{
-  color:var(--orange);
-  font-size:14px;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  gap:11px;
+  color:var(--orange);font-size:14px;font-weight:900;
+  display:flex;align-items:center;gap:11px;
   margin-bottom:18px;
 }
 .section-tag:before{
-  content:"";
-  width:27px;height:2px;background:var(--orange);
+  content:"";width:27px;height:2px;background:var(--orange);
 }
 .intro-heading{
-  font-size:39px;
-  line-height:1.55;
-  font-weight:900;
-  margin:0;
-  letter-spacing:-1.2px;
+  font-size:39px;line-height:1.55;font-weight:900;
+  margin:0;letter-spacing:-1.2px;
 }
 .intro-heading span{color:var(--green2)}
 .intro-copy{
-  font-size:17px;
-  line-height:2.15;
-  font-weight:600;
-  color:#626B5F;
-  margin:0;
-  max-width:680px;
+  font-size:18px;line-height:2.2;font-weight:600;
+  color:#626B5F;margin:0;max-width:680px;
 }
 .intro-copy strong{color:var(--green);font-weight:900}
 
 /* ============================================================
-   FAQ LAYOUT
+   FAQ LAYOUT + نوآوری: Progress tracker
    ============================================================ */
 .faq-layout{
   display:grid;
   grid-template-columns:285px minmax(0,1fr);
   gap:48px;
   align-items:start;
-  padding:35px 0 90px;
+  padding:40px 0 90px;
 }
 .faq-aside{
   position:sticky;
   top:25px;
 }
 .faq-aside h2{
-  font-size:30px;
-  line-height:1.5;
-  letter-spacing:-1px;
-  margin:13px 0;
-  font-weight:900;
+  font-size:31px;line-height:1.5;letter-spacing:-1px;
+  margin:13px 0;font-weight:900;
 }
 .faq-aside p{
-  color:var(--muted);
-  font-size:15px;
-  line-height:2;
-  font-weight:600;
-  margin:0;
+  color:var(--muted);font-size:16px;line-height:2;
+  font-weight:600;margin:0;
 }
-.aside-count{
+/* Progress Card — نوآوری */
+.progress-card{
   margin-top:26px;
-  padding:19px 20px;
-  background:var(--orange-soft);
-  border-radius:20px 20px 20px 5px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  padding:20px;
+  background:var(--green);
+  color:#F7F3E8;
+  border-radius:4px 20px 4px 20px;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
 }
-.aside-count span{font-size:14px;font-weight:800;color:#8A4E37}
-.aside-count strong{font-size:32px;color:var(--orange);font-weight:900;direction:ltr}
+.progress-card:before{
+  content:"";
+  position:absolute;
+  width:200px;height:200px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:50%;
+  left:-80px;bottom:-100px;
+  z-index:-1;
+}
+.progress-head{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:13px;
+}
+.progress-label{
+  font-size:13px;font-weight:900;color:#E9D7B5;
+  letter-spacing:.4px;
+}
+.progress-count{
+  font-size:13px;font-weight:900;color:#E9D7B5;
+}
+.progress-count b{color:#E8BD86;font-size:18px;margin:0 2px}
+.progress-bar{
+  height:7px;
+  background:rgba(255,255,255,.13);
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:13px;
+}
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,#E8BD86,#D95F37);
+  width:0%;
+  border-radius:10px;
+  transition:width .5s cubic-bezier(.2,.75,.25,1);
+}
+.progress-foot{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:#B8C5BA;
+  line-height:1.7;
+}
+.progress-foot svg{width:16px;height:16px;flex-shrink:0;color:#E8BD86}
+
 .aside-tip{
   margin-top:16px;
   padding:16px 17px;
   border:1px solid var(--line);
   border-radius:18px;
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  color:var(--green);
-  font-size:14px;
-  line-height:1.9;
-  font-weight:700;
+  display:flex;gap:12px;align-items:flex-start;
+  color:var(--green);font-size:14px;line-height:1.9;font-weight:700;
   background:rgba(255,254,250,.65);
 }
 .aside-tip svg{width:20px;height:20px;flex-shrink:0;margin-top:3px}
 
 .faq-main{min-width:0}
 .faq-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:15px;
-  margin-bottom:23px;
-  padding-bottom:20px;
+  display:flex;justify-content:space-between;align-items:end;
+  gap:15px;margin-bottom:23px;padding-bottom:20px;
   border-bottom:1px solid var(--line);
 }
 .faq-heading h2{
-  margin:0;
-  font-size:26px;
-  font-weight:900;
-  letter-spacing:-.7px;
+  margin:0;font-size:28px;font-weight:900;letter-spacing:-.7px;
 }
 .faq-heading p{
-  margin:7px 0 0;
-  font-size:14px;
-  color:var(--muted);
-  font-weight:600;
+  margin:7px 0 0;font-size:15px;color:var(--muted);font-weight:600;
 }
 .faq-heading .mini-tag{
   flex-shrink:0;
   border:1px solid var(--line);
   border-radius:100px;
-  padding:8px 14px;
-  font-size:13px;
-  color:var(--green);
-  font-weight:800;
+  padding:9px 15px;
+  font-size:13px;color:var(--green);font-weight:800;
   background:var(--white);
 }
 
 /* ACCORDION */
-.accordion-list{
-  display:flex;
-  flex-direction:column;
-  gap:11px;
-}
+.accordion-list{display:flex;flex-direction:column;gap:12px}
 .faq-item{
   border:1px solid rgba(40,72,58,.13);
   background:var(--white);
   border-radius:18px;
   overflow:hidden;
-  transition:border-color .25s,box-shadow .25s;
+  transition:border-color .25s,box-shadow .25s,background .25s;
   scroll-margin-top:110px;
+  position:relative;
 }
 .faq-item.open{
   border-color:var(--orange);
-  box-shadow:var(--shadow2);
+  box-shadow:0 14px 34px rgba(42,55,42,.09);
+}
+.faq-item.seen:not(.open):before{
+  content:"خوانده شد";
+  position:absolute;
+  top:14px;left:14px;
+  font-size:10px;
+  font-weight:900;
+  color:var(--green);
+  background:var(--green-soft);
+  padding:3px 8px;
+  border-radius:6px;
+  z-index:1;
 }
 .faq-question{
   width:100%;
   border:0;
   background:transparent;
-  min-height:82px;
-  padding:16px 21px;
-  display:flex;
-  align-items:center;
-  gap:16px;
-  text-align:right;
-  cursor:pointer;
-  color:var(--ink);
+  min-height:88px;
+  padding:17px 21px;
+  display:flex;align-items:center;gap:16px;
+  text-align:right;cursor:pointer;color:var(--ink);
 }
 .faq-number{
-  width:42px;height:42px;
-  flex:0 0 42px;
+  width:44px;height:44px;flex:0 0 44px;
   display:grid;place-items:center;
   border-radius:14px;
   background:var(--paper2);
   color:var(--green);
-  font-size:15px;
-  font-weight:900;
+  font-size:16px;font-weight:900;
   direction:ltr;
   transition:.25s;
 }
 .faq-item.open .faq-number{background:var(--orange);color:#FFF}
 .faq-question-text{
-  flex:1;
-  font-size:17px;
-  font-weight:900;
-  line-height:1.8;
+  flex:1;font-size:18px;font-weight:900;line-height:1.8;
 }
 .faq-toggle{
-  width:38px;height:38px;
-  flex:0 0 38px;
+  width:40px;height:40px;flex:0 0 40px;
   border-radius:50%;
   background:var(--green-soft);
   display:grid;place-items:center;
   color:var(--green);
   transition:transform .3s,background .3s,color .3s;
 }
-.faq-toggle svg{width:18px;height:18px}
+.faq-toggle svg{width:19px;height:19px}
 .faq-item.open .faq-toggle{
   transform:rotate(45deg);
   background:var(--orange-soft);
   color:var(--orange);
 }
+
 .faq-answer-grid{
   display:grid;
   grid-template-rows:0fr;
-  transition:grid-template-rows .36s cubic-bezier(.2,.75,.25,1);
+  transition:grid-template-rows .38s cubic-bezier(.2,.75,.25,1);
 }
 .faq-item.open .faq-answer-grid{grid-template-rows:1fr}
 .faq-answer-clip{overflow:hidden;min-height:0}
 .faq-answer{
-  padding:0 80px 24px 27px;
+  padding:0 82px 26px 27px;
   color:#626B60;
-  font-size:15px;
+  font-size:17px;
   line-height:2.15;
   font-weight:500;
 }
-.faq-answer p{margin:0 0 12px}
+.faq-answer p{margin:0 0 13px}
 .faq-answer p:last-child{margin-bottom:0}
 .faq-answer strong{color:var(--green);font-weight:900}
 .answer-highlight{
-  margin-top:14px;
-  padding:13px 16px;
+  margin-top:15px;
+  padding:14px 17px;
   background:var(--green-soft);
   border-right:4px solid var(--green2);
   border-radius:6px;
   color:var(--green);
   font-weight:800;
-  font-size:14px;
-  line-height:1.9;
+  font-size:15px;
+  line-height:1.95;
 }
 .answer-highlight.orange{
   background:var(--orange-soft);
@@ -626,40 +689,33 @@ svg{display:block}
   color:#854C36;
 }
 .answer-list{
-  list-style:none;
-  margin:11px 0 0;
-  padding:0;
-  display:grid;
-  gap:8px;
+  list-style:none;margin:12px 0 0;padding:0;
+  display:grid;gap:9px;
 }
 .answer-list li{
-  position:relative;
-  padding-right:23px;
+  position:relative;padding-right:23px;
+  font-size:16px;
 }
 .answer-list li:before{
-  content:"";
-  width:8px;height:8px;
-  border-radius:3px;
+  content:"";width:8px;height:8px;border-radius:3px;
   background:var(--orange);
-  position:absolute;
-  right:0;top:12px;
+  position:absolute;right:0;top:12px;
   transform:rotate(45deg);
 }
 
 /* ============================================================
-   TRANSPARENCY — هم‌خانواده با capability-main صفحه اصلی
+   TRANSPARENCY — سبز تیره
    ============================================================ */
 .transparency{
   position:relative;
   display:grid;
   grid-template-columns:1fr auto;
-  gap:25px;
-  align-items:center;
-  padding:34px 38px;
+  gap:25px;align-items:center;
+  padding:38px 42px;
   background:var(--green);
   color:#F7F3E8;
-  border-radius:2px 28px 2px 28px;
-  margin:0 0 80px;
+  border-radius:4px 28px 4px 28px;
+  margin:0 0 82px;
   overflow:hidden;
   isolation:isolate;
 }
@@ -674,96 +730,77 @@ svg{display:block}
   z-index:-1;
 }
 .transparency h3{
-  margin:0 0 8px;
-  font-size:21px;
-  font-weight:900;
-  color:#F7F3E8;
+  margin:0 0 9px;
+  font-size:22px;font-weight:900;color:#F7F3E8;
 }
 .transparency p{
   margin:0;
   color:#D5DCD2;
-  font-size:15px;
-  line-height:2;
-  font-weight:600;
+  font-size:16px;line-height:2;font-weight:600;
   max-width:760px;
 }
 .transparency-icon{
-  width:66px;height:66px;
+  width:68px;height:68px;
   display:grid;place-items:center;
   border-radius:50%;
   border:1px solid rgba(255,255,255,.3);
-  color:#E8BD86;
-  z-index:1;
+  color:#E8BD86;z-index:1;
 }
-.transparency-icon svg{width:30px;height:30px}
+.transparency-icon svg{width:31px;height:31px}
 
 /* ============================================================
-   FINAL CTA — هم‌خانواده با guide-feature صفحه اصلی
+   FINAL CTA — با قلاب قوی
    ============================================================ */
 .final-cta{
   position:relative;
   overflow:hidden;
   background:#E7D7C5;
   color:var(--ink);
-  padding:44px 48px;
-  margin-bottom:75px;
+  padding:48px 50px;
+  margin-bottom:80px;
   display:grid;
   grid-template-columns:1fr auto;
   align-items:center;
   gap:30px;
-  border-radius:2px;
+  border-radius:4px;
 }
 .final-cta:before{
   content:"?";
   position:absolute;
-  left:7%;
-  top:-90px;
-  font-size:350px;
-  line-height:1;
-  font-weight:900;
+  left:7%;top:-90px;
+  font-size:350px;line-height:1;font-weight:900;
   color:rgba(217,95,55,.09);
   pointer-events:none;
 }
 .cta-content{position:relative;z-index:1}
 .cta-label{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  color:var(--orange);
-  font-size:14px;
-  font-weight:900;
+  display:inline-flex;align-items:center;gap:9px;
+  color:var(--orange);font-size:14px;font-weight:900;
 }
 .cta-label:before{
-  content:"";
-  width:8px;height:8px;border-radius:50%;background:var(--orange);
+  content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);
 }
 .final-cta h2{
-  font-size:clamp(26px,3.4vw,36px);
-  line-height:1.5;
+  font-size:clamp(28px,3.7vw,40px);
+  line-height:1.45;
   font-weight:900;
-  letter-spacing:-1px;
-  margin:12px 0 8px;
+  letter-spacing:-1.2px;
+  margin:13px 0 9px;
 }
 .final-cta p{
-  font-size:15px;
-  line-height:2;
-  color:#70695F;
-  font-weight:600;
-  margin:0;
-  max-width:620px;
+  font-size:16px;line-height:2;
+  color:#70695F;font-weight:600;margin:0;
+  max-width:640px;
 }
 .cta-button{
   position:relative;z-index:1;
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
+  display:inline-flex;align-items:center;gap:13px;
   white-space:nowrap;
-  padding:17px 22px;
+  padding:18px 24px;
   background:var(--green);
   color:#F7F3E8;
-  font-size:16px;
-  font-weight:900;
-  border-radius:2px;
+  font-size:16px;font-weight:900;
+  border-radius:4px 17px 4px 17px;
   transition:.25s;
 }
 .cta-button:hover{background:var(--green2);transform:translateY(-3px)}
@@ -773,11 +810,8 @@ svg{display:block}
    LAST NOTE + FOOTER
    ============================================================ */
 .last-note{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
-  padding:0 0 35px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:25px;padding:0 0 35px;
 }
 .last-note strong{font-size:20px;font-weight:900}
 .last-note span{font-size:14px;color:var(--muted);font-weight:700}
@@ -785,77 +819,48 @@ svg{display:block}
 .footer{
   border-top:1px solid #D9D6CB;
   min-height:83px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  color:var(--muted);
-  font-size:13px;
-  font-weight:700;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:20px;color:var(--muted);
+  font-size:13px;font-weight:700;
   padding-bottom:var(--nav-height);
 }
-.footer-brand{
-  color:var(--green);
-  font-size:18px;
-  font-weight:900;
-}
+.footer-brand{color:var(--green);font-size:18px;font-weight:900}
 
 /* ============================================================
-   BOTTOM NAV — کپی دقیق از صفحه اصلی
+   BOTTOM NAV — کپی دقیق صفحه اصلی
    ============================================================ */
 .bottom-nav-wrap{
-  position:fixed;
-  z-index:50;
-  bottom:0;
-  left:0;
-  right:0;
+  position:fixed;z-index:50;bottom:0;left:0;right:0;
   padding:10px 15px calc(10px + env(safe-area-inset-bottom));
   background:linear-gradient(180deg,rgba(243,240,231,0),rgba(243,240,231,.95) 28%);
 }
 .bottom-nav{
-  width:min(100%,560px);
-  min-height:70px;
-  margin:auto;
+  width:min(100%,560px);min-height:70px;margin:auto;
   background:#263F34;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(4,1fr);
   padding:7px;
   box-shadow:0 12px 35px rgba(31,53,41,.25);
   border:1px solid rgba(255,255,255,.12);
 }
 .nav-item{
   min-width:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  color:#C2CFC2;
-  font-size:12px;
-  font-weight:800;
-  position:relative;
-  transition:.2s;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;color:#C2CFC2;
+  font-size:12px;font-weight:800;
+  position:relative;transition:.2s;
 }
 .nav-item svg{width:22px;height:22px;stroke-width:1.8}
-.nav-item.active{
-  background:#E7BD87;
-  color:#263F34;
-}
+.nav-item.active{background:#E7BD87;color:#263F34}
 .nav-item.active:after{
-  content:"";
-  position:absolute;
-  width:20px;height:2px;
-  bottom:4px;
+  content:"";position:absolute;
+  width:20px;height:2px;bottom:4px;
   background:var(--orange);
 }
 .nav-item:active{transform:scale(.96)}
 
-/* ============================================================
-   REVEAL
-   ============================================================ */
+/* REVEAL */
 .reveal{
-  opacity:0;
-  transform:translateY(22px);
+  opacity:0;transform:translateY(22px);
   transition:opacity .7s ease,transform .7s ease;
 }
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -869,15 +874,16 @@ svg{display:block}
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — فونت‌ها بدون کاهش
    ============================================================ */
 @media(max-width:850px){
-  .hero-copy{padding:55px 38px 55px 25px}
-  .hero h1{font-size:46px}
-  .hero-description{font-size:16px}
+  .hero-copy{padding:60px 38px 55px 25px}
+  .hero h1{font-size:48px}
+  .hero-description{font-size:17px}
   .intro{gap:40px}
-  .faq-layout{grid-template-columns:230px minmax(0,1fr);gap:28px}
-  .faq-aside h2{font-size:26px}
+  .faq-layout{grid-template-columns:240px minmax(0,1fr);gap:28px}
+  .faq-aside h2{font-size:27px}
+  .map-card{width:min(340px,100%)}
 }
 
 @media(max-width:650px){
@@ -893,44 +899,34 @@ svg{display:block}
   .header-index,.header-line{display:none}
   .header-status{font-size:12px;padding:9px 10px}
 
-  .hero{
-    display:flex;
-    flex-direction:column;
-    min-height:unset;
-  }
+  .hero{display:flex;flex-direction:column;min-height:unset}
   .hero:after{display:none}
-  .hero-copy{
-    padding:37px 23px 15px;
-    text-align:right;
-  }
-  .hero-overline{font-size:13px;margin-bottom:18px}
+  .hero-copy{padding:39px 23px 16px;text-align:right}
+  .hero-overline{font-size:13px;margin-bottom:19px}
   .hero h1{
-    font-size:clamp(34px,9vw,46px);
-    line-height:1.45;
-    letter-spacing:-1.4px;
+    font-size:clamp(39px,10vw,51px);
+    line-height:1.45;letter-spacing:-1.6px;
   }
-  .hero-description{font-size:15px;line-height:2.05;margin:14px 0 20px}
-  .hero-actions{gap:12px}
-  .hero-button{min-height:54px;width:100%;font-size:15px}
+  .hero-description{font-size:16px;line-height:2.05;margin:15px 0 21px}
+  .hero-actions{gap:13px}
+  .hero-button{min-height:56px;width:100%;font-size:16px}
   .hero-secondary{font-size:13px}
-  .hero-art{min-height:340px;width:100%}
-  .instrument{width:265px}
-  .instrument-center{width:120px;height:120px}
-  .center-mark{width:52px;height:52px}
-  .center-mark:before{width:70px}
-  .center-mark:after{height:70px}
-  .center-mark svg{width:23px;height:23px}
-  .art-caption{bottom:14px;font-size:12px}
-  .label-right{right:-3%}
-  .label-left{left:-3%}
-  .instrument-label{font-size:11px}
+  .hero-art{padding:20px 15px 30px;min-height:auto}
+  .map-card{width:100%;max-width:360px;margin:auto}
+  .map-head-label{font-size:11px}
+  .map-head-time{font-size:10px}
+  .pin-dot{width:30px;height:30px;font-size:12px}
+  .map-info-title{font-size:12px}
+  .map-info-sub{font-size:11px}
+  .map-float{font-size:11px;padding:9px 12px}
+  .map-float svg{width:15px;height:15px}
+  .mf-top{top:12px;right:-4px}
+  .mf-bottom{bottom:12px;left:-4px}
 
   .signal-ribbon{grid-template-columns:1fr}
   .signal-cell{
-    min-height:74px;
-    padding:12px 21px;
-    border-left:0;
-    border-bottom:1px solid #D5D1C5;
+    min-height:74px;padding:12px 21px;
+    border-left:0;border-bottom:1px solid #D5D1C5;
   }
   .signal-cell:last-child{border-bottom:0}
   .signal-number{font-size:29px;min-width:42px}
@@ -938,77 +934,76 @@ svg{display:block}
   .signal-cell span{font-size:13px}
 
   .intro{
-    padding:60px 0 45px;
-    grid-template-columns:1fr;
-    gap:16px;
+    padding:66px 0 45px;
+    grid-template-columns:1fr;gap:18px;
   }
-  .intro-heading{font-size:30px}
-  .intro-copy{font-size:15px;line-height:2.1}
+  .intro-heading{font-size:31px}
+  .intro-copy{font-size:17px;line-height:2.15}
 
   .faq-layout{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-    padding:25px 0 55px;
+    display:flex;flex-direction:column;
+    gap:25px;padding:25px 0 55px;
   }
   .faq-aside{position:relative;top:auto;width:100%}
-  .faq-aside h2{font-size:26px;line-height:1.45;margin:9px 0}
-  .faq-aside p{font-size:14px}
-  .aside-count{margin-top:14px;padding:13px 17px;border-radius:15px}
-  .aside-count span{font-size:13px}
-  .aside-count strong{font-size:26px}
-  .aside-tip{font-size:13px;margin-top:11px;padding:13px 14px}
+  .faq-aside h2{font-size:27px;line-height:1.45;margin:9px 0}
+  .faq-aside p{font-size:16px}
+  .progress-card{margin-top:16px;padding:16px 17px;border-radius:4px 16px 4px 16px}
+  .progress-label{font-size:12px}
+  .progress-count{font-size:12px}
+  .progress-count b{font-size:16px}
+  .progress-foot{font-size:11px}
+  .aside-tip{font-size:14px;margin-top:12px;padding:13px 14px}
   .faq-main{width:100%}
-  .faq-heading{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:16px;padding-bottom:16px}
-  .faq-heading h2{font-size:22px}
-  .faq-heading p{font-size:13px}
-  .faq-heading .mini-tag{font-size:12px;padding:7px 12px}
-  .accordion-list{gap:9px}
-  .faq-item{border-radius:15px}
-  .faq-question{min-height:74px;padding:13px 12px;gap:10px}
-  .faq-number{width:36px;height:36px;flex-basis:36px;border-radius:11px;font-size:13px}
-  .faq-question-text{font-size:15px;line-height:1.7}
-  .faq-toggle{width:32px;height:32px;flex-basis:32px}
-  .faq-toggle svg{width:16px;height:16px}
-  .faq-answer{padding:0 58px 18px 15px;font-size:14px;line-height:2.05}
-  .answer-highlight{font-size:13px;padding:11px 12px}
-  .answer-list li{padding-right:20px}
-  .answer-list li:before{width:7px;height:7px;top:11px}
+  .faq-heading{
+    flex-direction:column;align-items:flex-start;gap:10px;
+    margin-bottom:16px;padding-bottom:16px;
+  }
+  .faq-heading h2{font-size:24px}
+  .faq-heading p{font-size:14px}
+  .faq-heading .mini-tag{font-size:13px;padding:7px 12px}
+  .accordion-list{gap:10px}
+  .faq-item{border-radius:16px}
+  .faq-item.seen:not(.open):before{top:10px;left:10px;font-size:9px;padding:2px 7px}
+  .faq-question{min-height:80px;padding:14px 13px;gap:11px}
+  .faq-number{width:38px;height:38px;flex-basis:38px;border-radius:12px;font-size:15px}
+  .faq-question-text{font-size:17px;line-height:1.75}
+  .faq-toggle{width:36px;height:36px;flex-basis:36px}
+  .faq-toggle svg{width:17px;height:17px}
+  .faq-answer{padding:0 62px 22px 15px;font-size:16px;line-height:2.05}
+  .answer-highlight{font-size:15px;padding:12px 13px}
+  .answer-list li{padding-right:21px;font-size:15px}
+  .answer-list li:before{width:7px;height:7px;top:12px}
 
   .transparency{
     grid-template-columns:1fr auto;
-    padding:23px 20px;
-    gap:13px;
-    margin-bottom:55px;
-    border-radius:2px 22px 2px 22px;
+    padding:24px 21px;gap:13px;
+    margin-bottom:60px;
+    border-radius:4px 22px 4px 22px;
   }
-  .transparency h3{font-size:17px}
-  .transparency p{font-size:14px;line-height:1.95}
-  .transparency-icon{width:50px;height:50px}
-  .transparency-icon svg{width:24px;height:24px}
+  .transparency h3{font-size:18px}
+  .transparency p{font-size:15px;line-height:1.95}
+  .transparency-icon{width:52px;height:52px}
+  .transparency-icon svg{width:25px;height:25px}
 
   .final-cta{
     grid-template-columns:1fr;
-    padding:26px 22px;
-    gap:22px;
-    margin-bottom:50px;
+    padding:28px 23px;gap:23px;
+    margin-bottom:55px;
   }
   .cta-label{font-size:13px}
-  .final-cta h2{font-size:26px;line-height:1.5}
-  .final-cta p{font-size:14px}
-  .cta-button{justify-content:center;width:100%;font-size:15px;padding:15px}
+  .final-cta h2{font-size:28px;line-height:1.5}
+  .final-cta p{font-size:15px}
+  .cta-button{justify-content:center;width:100%;font-size:16px;padding:16px}
 
   .last-note{display:block;padding-bottom:25px}
-  .last-note strong{font-size:17px}
+  .last-note strong{font-size:18px}
   .last-note span{display:block;margin-top:7px;font-size:13px}
 
   .footer{
     min-height:75px;
     padding-bottom:calc(var(--nav-height) + 14px);
     font-size:12px;
-    align-items:flex-start;
-    flex-direction:column;
-    gap:8px;
+    align-items:flex-start;flex-direction:column;gap:8px;
   }
   .footer-brand{font-size:16px}
 
@@ -1017,15 +1012,13 @@ svg{display:block}
   .nav-item{font-size:11px;gap:4px}
   .nav-item svg{width:21px;height:21px}
 }
-
 @media(max-width:360px){
   .hero-copy{padding-right:18px;padding-left:18px}
-  .hero h1{font-size:32px}
-  .hero-art{min-height:300px}
-  .instrument{width:235px}
+  .hero h1{font-size:37px}
   .nav-item{font-size:10px}
-  .faq-question-text{font-size:14px}
-  .faq-answer{padding-right:52px}
+  .faq-question-text{font-size:16px}
+  .faq-answer{padding-right:56px}
+  .map-card{padding:12px}
 }
 </style>
 </head>
@@ -1034,7 +1027,7 @@ svg{display:block}
 
 <div class="page">
 
-  <!-- HEADER — کپی دقیق از صفحه اصلی -->
+  <!-- HEADER -->
   <header class="header">
     <a href="index.html" class="brand" aria-label="خانه ردیاب">
       <span class="brand-symbol">
@@ -1062,13 +1055,13 @@ svg{display:block}
 
   <main>
 
-    <!-- HERO سبز تیره -->
+    <!-- HERO — Live Map Card -->
     <section class="hero">
       <div class="hero-copy">
         <div class="hero-overline">پیش از شروع، اینجا را بخوانید</div>
 
         <h1>
-          پیش از هر چیز،
+          پیش از هر تصمیم،
           <span>آگاهانه انتخاب کن.</span>
         </h1>
 
@@ -1089,39 +1082,76 @@ svg{display:block}
         </div>
       </div>
 
-      <div class="hero-art" aria-label="تصویر مفهومی موقعیت‌یابی">
-        <div class="instrument">
-          <div class="instrument-ring ring-a"></div>
-          <div class="instrument-ring ring-b"></div>
-          <div class="instrument-ring ring-c"></div>
-          <div class="instrument-ring ring-d"></div>
+      <div class="hero-art" aria-label="نقشه زنده موقعیت‌یابی">
+        <!-- کارت شناور بالا -->
+        <div class="map-float mf-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          متصل
+          <span class="mf-badge">LIVE</span>
+        </div>
 
-          <div class="instrument-cross"></div>
-          <div class="instrument-cross vertical"></div>
-          <div class="instrument-cross diagonal-a"></div>
-          <div class="instrument-cross diagonal-b"></div>
-          <div class="instrument-sweep"></div>
-
-          <div class="instrument-node node-a"></div>
-          <div class="instrument-node node-b"></div>
-          <div class="instrument-node node-c"></div>
-          <div class="instrument-node node-d"></div>
-
-          <div class="instrument-center">
-            <div class="center-mark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                <path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/>
-                <circle cx="12" cy="10" r="2.5"/>
-              </svg>
+        <!-- Live Map Card -->
+        <div class="map-card">
+          <div class="map-head">
+            <div class="map-head-left">
+              <span class="map-live-dot"></span>
+              <span class="map-head-label">LIVE TRACKING</span>
             </div>
+            <span class="map-head-time">12s ago</span>
           </div>
 
-          <span class="instrument-label label-top">GUIDE</span>
-          <span class="instrument-label label-bottom">FAQ / 10</span>
-          <span class="instrument-label label-right">AWARE</span>
-          <span class="instrument-label label-left">KNOW</span>
+          <div class="map-canvas">
+            <div class="map-block b1"></div>
+            <div class="map-block b2"></div>
+            <div class="map-block b3"></div>
+            <div class="map-block b4"></div>
+            <div class="map-block b5"></div>
+            <div class="map-block b6"></div>
+
+            <div class="map-road road-h"></div>
+            <div class="map-road road-v"></div>
+            <div class="map-road road-d"></div>
+
+            <div class="map-route"></div>
+
+            <!-- پین من -->
+            <div class="map-pin me">
+              <div class="pin-label">شما</div>
+              <div class="pin-dot me">م</div>
+              <div class="pin-tail me"></div>
+            </div>
+
+            <!-- پین دوست با پالس -->
+            <div class="map-pin friend">
+              <div class="pin-pulse"></div>
+              <div class="pin-label">سارا</div>
+              <div class="pin-dot friend">س</div>
+              <div class="pin-tail friend"></div>
+            </div>
+
+            <!-- کارت اطلاعات پایین نقشه -->
+            <div class="map-info">
+              <div class="map-info-avatar">س</div>
+              <div class="map-info-text">
+                <div class="map-info-title">سارا محمدی</div>
+                <div class="map-info-sub">خیابان ولیعصر، تهران</div>
+              </div>
+              <span class="map-info-status"></span>
+            </div>
+          </div>
         </div>
-        <div class="art-caption"><b>02</b> مرکز دانش و راهنمای ردیاب</div>
+
+        <!-- کارت شناور پایین -->
+        <div class="map-float mf-bottom">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          رضایت تأیید شد
+        </div>
       </div>
     </section>
 
@@ -1177,9 +1207,22 @@ svg{display:block}
           با شیوه کار ردیاب و شرایط استفاده از آن آشنا شوید.
         </p>
 
-        <div class="aside-count">
-          <span>پرسش‌های این راهنما</span>
-          <strong>۱۰</strong>
+        <!-- Progress Card نوآورانه -->
+        <div class="progress-card">
+          <div class="progress-head">
+            <span class="progress-label">پیشرفت مطالعه</span>
+            <span class="progress-count"><b id="progCount">۰</b> / ۱۰</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progFill"></div>
+          </div>
+          <div class="progress-foot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            هر پاسخ باز شده، یک قدم به آگاهی نزدیک‌تر.
+          </div>
         </div>
 
         <div class="aside-tip">
@@ -1504,7 +1547,7 @@ svg{display:block}
       </div>
     </section>
 
-    <!-- TRANSPARENCY سبز تیره -->
+    <!-- TRANSPARENCY -->
     <section class="page reveal">
       <div class="transparency">
         <div>
@@ -1522,14 +1565,15 @@ svg{display:block}
       </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- FINAL CTA — قلاب قوی -->
     <section class="page reveal">
       <div class="final-cta">
         <div class="cta-content">
-          <span class="cta-label">حالا وقت یک شروع آگاهانه است</span>
-          <h2>همه‌چیز را دانستی؛<br>حالا موقعیت را بررسی کن.</h2>
+          <span class="cta-label">همه‌چیز روشن شد؟</span>
+          <h2>مسیر را می‌دانی؛<br>حالا اولین قدم را بردار.</h2>
           <p>
-            اگر با شیوه کار و شرایط استفاده آشنا شده‌اید، می‌توانید وارد بخش ردیابی شوید و مراحل شروع را دنبال کنید.
+            آگاهی، نیمی از مسیر است. نیم دیگر، اعتماد به انتخاب درست است.
+            همین حالا وارد بخش ردیابی شو و تجربه‌ات را شروع کن.
           </p>
         </div>
         <a class="cta-button" href="tracking.html">
@@ -1555,7 +1599,7 @@ svg{display:block}
 
 </div>
 
-<!-- BOTTOM NAV — کپی دقیق از صفحه اصلی -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav-wrap">
   <nav class="bottom-nav" aria-label="منوی اصلی">
     <a href="index.html" class="nav-item">
@@ -1598,7 +1642,7 @@ svg{display:block}
 
 <script>
 (function(){
-  /* --- Reveal on scroll (هماهنگ با صفحه اصلی) --- */
+  /* ---------- Reveal ---------- */
   const reveals = document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){
     reveals.forEach(el=>el.classList.add('visible'));
@@ -1614,19 +1658,35 @@ svg{display:block}
     reveals.forEach(el=>io.observe(el));
   }
 
-  /* --- Accordion --- */
+  /* ---------- Accordion + Progress Tracker ---------- */
   const items = Array.from(document.querySelectorAll('.faq-item'));
-  items.forEach((item)=>{
+  const seen = new Set();
+  const progCount = document.getElementById('progCount');
+  const progFill = document.getElementById('progFill');
+
+  const toFa = (n)=> String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+
+  function updateProgress(){
+    const count = seen.size;
+    progCount.textContent = toFa(count);
+    progFill.style.width = (count / items.length * 100) + '%';
+  }
+
+  items.forEach((item, idx)=>{
     const btn = item.querySelector('.faq-question');
     btn.addEventListener('click',()=>{
       const wasOpen = item.classList.contains('open');
-      items.forEach((other)=>{
+      items.forEach(other=>{
         other.classList.remove('open');
         other.querySelector('.faq-question').setAttribute('aria-expanded','false');
       });
       if(!wasOpen){
         item.classList.add('open');
         btn.setAttribute('aria-expanded','true');
+        // mark seen
+        seen.add(idx);
+        item.classList.add('seen');
+        updateProgress();
       }
     });
   });
@@ -1638,4 +1698,4 @@ svg{display:block}
 </script>
 
 </body>
-              </html>
+               </html>
