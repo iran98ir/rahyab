@@ -1,0 +1,811 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#193D32">
+<title>فعال‌سازی اشتراک | ردیاب</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --forest:#193D32;
+  --forest2:#254E40;
+  --forest3:#32624F;
+  --olive:#89946B;
+  --lime:#D6E5A4;
+  --orange:#C8754B;
+  --white:#FFFFFF;
+  --paper:#F5F8F2;
+  --line:rgba(25,61,50,.12);
+  --muted:#718078;
+  --shadow:0 16px 42px rgba(20,54,42,.10);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  background:
+    radial-gradient(ellipse at 5% 5%,rgba(137,148,107,.14),transparent 32%),
+    radial-gradient(ellipse at 95% 35%,rgba(214,229,164,.20),transparent 30%),
+    linear-gradient(145deg,#F5F8F2,#EAF1E9 55%,#F4F7F0);
+  color:var(--forest);
+  min-height:100vh;
+  padding-bottom:112px;
+  overflow-x:hidden;
+}
+
+button,input{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+/* decorative background */
+.ambient{
+  position:fixed;
+  pointer-events:none;
+  z-index:-1;
+  border-radius:50%;
+  filter:blur(2px);
+}
+.ambient.one{
+  width:240px;height:240px;
+  top:150px;right:-150px;
+  background:rgba(137,148,107,.13);
+}
+.ambient.two{
+  width:190px;height:190px;
+  bottom:180px;left:-125px;
+  background:rgba(214,229,164,.25);
+}
+
+/* header */
+.topbar{
+  width:100%;
+  padding:calc(15px + env(safe-area-inset-top)) 19px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  background:rgba(245,248,242,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(25,61,50,.08);
+  position:relative;
+  z-index:5;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.brand-mark{
+  width:48px;height:48px;
+  background:linear-gradient(145deg,#32624F,#193D32);
+  border-radius:17px 17px 17px 6px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 18px rgba(25,61,50,.22);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+.brand-mark:after{
+  content:"";
+  position:absolute;
+  width:45px;height:45px;
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:50%;
+  top:-24px;left:-18px;
+}
+.brand-mark svg{width:27px;height:27px;position:relative;z-index:1}
+
+.brand-name{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.7px;
+  line-height:1.35;
+}
+.brand-sub{
+  font-size:12px;
+  font-weight:600;
+  color:#748177;
+  margin-top:2px;
+}
+
+.header-tag{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:#E5EDE2;
+  border:1px solid rgba(25,61,50,.09);
+  padding:8px 11px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:800;
+  color:var(--forest);
+  white-space:nowrap;
+}
+.header-tag i{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:#83A36D;
+  box-shadow:0 0 0 4px rgba(131,163,109,.15);
+}
+
+/* page */
+.container{
+  width:min(100% - 34px,540px);
+  margin:0 auto;
+}
+
+.hero{
+  padding:28px 0 20px;
+  position:relative;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#E1EBDD;
+  color:#365943;
+  border:1px solid rgba(25,61,50,.09);
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:800;
+}
+.eyebrow span{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--orange);
+}
+
+.hero h1{
+  font-size:clamp(29px,7vw,39px);
+  font-weight:900;
+  line-height:1.55;
+  letter-spacing:-1.3px;
+  margin-top:15px;
+}
+.hero h1 em{
+  font-style:normal;
+  color:#66804F;
+  position:relative;
+  white-space:nowrap;
+}
+.hero h1 em:after{
+  content:"";
+  position:absolute;
+  height:8px;
+  background:rgba(214,229,164,.8);
+  bottom:2px;
+  right:0;left:0;
+  z-index:-1;
+  border-radius:10px;
+}
+.hero p{
+  color:#69786F;
+  font-size:15px;
+  line-height:2;
+  font-weight:500;
+  margin-top:8px;
+  max-width:440px;
+}
+
+/* premium card */
+.premium-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px 30px 10px 30px;
+  background:
+    radial-gradient(circle at 95% 0%,rgba(214,229,164,.18),transparent 34%),
+    linear-gradient(145deg,#285443 0%,#193D32 55%,#102F26 100%);
+  color:#fff;
+  padding:23px 21px 21px;
+  box-shadow:0 22px 50px rgba(20,54,42,.23);
+  isolation:isolate;
+}
+.premium-card:before{
+  content:"";
+  position:absolute;
+  width:230px;height:230px;
+  border:1px solid rgba(214,229,164,.15);
+  border-radius:50%;
+  top:-125px;left:-65px;
+  box-shadow:0 0 0 22px rgba(214,229,164,.035),
+             0 0 0 45px rgba(214,229,164,.025);
+  z-index:-1;
+}
+.premium-card:after{
+  content:"";
+  position:absolute;
+  width:150px;height:150px;
+  border-radius:50%;
+  background:rgba(214,229,164,.06);
+  bottom:-105px;right:45%;
+  z-index:-1;
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+.premium-label{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:13px;
+  font-weight:800;
+  color:#E0EACD;
+}
+.premium-icon{
+  width:43px;height:43px;
+  border-radius:15px 15px 5px 15px;
+  background:linear-gradient(145deg,#DCE9B2,#A9C17A);
+  display:grid;
+  place-items:center;
+  color:#244634;
+  box-shadow:0 7px 18px rgba(0,0,0,.16);
+}
+.premium-icon svg{width:23px;height:23px}
+
+.special-tag{
+  border:1px solid rgba(214,229,164,.35);
+  background:rgba(214,229,164,.12);
+  color:#E5EFCF;
+  padding:7px 10px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.premium-card h2{
+  font-size:30px;
+  font-weight:900;
+  margin-top:20px;
+  letter-spacing:-.8px;
+}
+.premium-card .description{
+  font-size:14px;
+  line-height:2;
+  color:rgba(255,255,255,.78);
+  margin-top:7px;
+  max-width:400px;
+  font-weight:500;
+}
+
+.duration-strip{
+  margin-top:19px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:17px;
+  padding:12px 14px;
+}
+.duration-main{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  font-weight:800;
+}
+.duration-main svg{
+  width:21px;height:21px;
+  color:#D6E5A4;
+}
+.duration-number{
+  color:#D6E5A4;
+  font-size:22px;
+  font-weight:900;
+  white-space:nowrap;
+}
+.duration-number small{
+  font-size:12px;
+  font-weight:700;
+  color:#E5EBD9;
+}
+
+/* features */
+.features-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:22px 0 12px;
+  color:#E8F0E1;
+  font-size:14px;
+  font-weight:900;
+}
+.features-title:before{
+  content:"";
+  width:4px;height:19px;
+  background:#D6E5A4;
+  border-radius:5px;
+}
+.feature-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.feature{
+  min-height:91px;
+  padding:13px 12px;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.075);
+  border-radius:17px 17px 6px 17px;
+}
+.feature-icon{
+  flex:0 0 31px;
+  width:31px;height:31px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  color:#DCE9B2;
+  background:rgba(214,229,164,.13);
+}
+.feature-icon svg{width:18px;height:18px}
+.feature-text{
+  font-size:12px;
+  font-weight:800;
+  line-height:1.9;
+  color:#F5F8F0;
+}
+.feature-text small{
+  display:block;
+  color:rgba(255,255,255,.58);
+  font-size:10px;
+  font-weight:500;
+  margin-top:2px;
+}
+
+.card-footer{
+  margin-top:19px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.footer-note{
+  font-size:11px;
+  color:rgba(255,255,255,.66);
+  line-height:1.8;
+  font-weight:500;
+}
+.footer-note strong{
+  color:#E4EDCF;
+  font-size:13px;
+  display:block;
+}
+
+/* activation action */
+.action-section{
+  margin-top:23px;
+}
+.section-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.section-heading h3{
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:-.4px;
+}
+.section-heading span{
+  font-size:11px;
+  color:#77847A;
+  font-weight:700;
+}
+
+.activation-panel{
+  background:rgba(255,255,255,.77);
+  border:1px solid rgba(25,61,50,.10);
+  border-radius:22px 22px 7px 22px;
+  padding:17px;
+  box-shadow:0 12px 32px rgba(25,61,50,.07);
+}
+.activation-panel p{
+  color:#738078;
+  font-size:13px;
+  line-height:1.9;
+  font-weight:500;
+}
+.activation-panel p strong{color:var(--forest)}
+
+.activate-btn{
+  margin-top:15px;
+  width:100%;
+  min-height:58px;
+  border:0;
+  border-radius:16px 16px 5px 16px;
+  color:#fff;
+  font-size:16px;
+  font-weight:900;
+  background:linear-gradient(110deg,#38684F,#193D32);
+  box-shadow:0 9px 20px rgba(25,61,50,.22),inset 0 1px 0 rgba(255,255,255,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:transform .2s,box-shadow .2s;
+}
+.activate-btn:active{
+  transform:scale(.985);
+  box-shadow:0 4px 12px rgba(25,61,50,.2);
+}
+.activate-btn svg{width:21px;height:21px}
+
+.notice{
+  margin-top:12px;
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+  padding:12px 13px;
+  border-radius:14px;
+  background:#E9F0E5;
+  color:#5F7064;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.9;
+}
+.notice svg{
+  width:18px;height:18px;
+  flex:0 0 18px;
+  color:#55744E;
+  margin-top:2px;
+}
+
+/* bottom nav */
+.bottom-nav{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:20;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(248,250,246,.94);
+  backdrop-filter:blur(22px);
+  border-top:1px solid rgba(25,61,50,.10);
+  box-shadow:0 -8px 28px rgba(25,61,50,.07);
+}
+.nav-inner{
+  width:min(100%,540px);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+}
+.nav-item{
+  min-height:61px;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  color:#819087;
+  font-size:11px;
+  font-weight:700;
+  transition:.2s;
+  position:relative;
+}
+.nav-item svg{
+  width:22px;height:22px;
+  stroke-width:1.9;
+}
+.nav-item.active{
+  color:#193D32;
+  background:#E4EDE0;
+  font-weight:900;
+}
+.nav-item.active:before{
+  content:"";
+  position:absolute;
+  top:0;
+  width:22px;height:3px;
+  border-radius:0 0 5px 5px;
+  background:#77935F;
+}
+.nav-item.active svg{stroke-width:2.5}
+
+/* toast */
+.toast{
+  position:fixed;
+  z-index:50;
+  bottom:100px;
+  left:17px;right:17px;
+  max-width:500px;
+  margin:auto;
+  padding:14px 16px;
+  background:#193D32;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:15px;
+  box-shadow:0 12px 35px rgba(0,0,0,.2);
+  font-size:13px;
+  line-height:1.9;
+  font-weight:700;
+  opacity:0;
+  transform:translateY(15px);
+  pointer-events:none;
+  transition:.3s;
+}
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(min-width:600px){
+  .container{width:min(100% - 48px,540px)}
+  .hero{padding-top:38px}
+  .premium-card{padding:27px}
+}
+
+@media(max-width:360px){
+  .container{width:calc(100% - 26px)}
+  .feature{padding:11px 9px;gap:7px}
+  .feature-text{font-size:11px}
+  .premium-card h2{font-size:27px}
+  .header-tag{font-size:10px;padding:7px 8px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+        <path d="M12 17s4-2.5 4-6a4 4 0 1 0-8 0c0 3.5 4 6 4 6Z"/>
+        <circle cx="12" cy="11" r="1.2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="brand-name">ردیاب</div>
+      <div class="brand-sub">آگاهی با انتخاب آگاهانه</div>
+    </div>
+  </div>
+
+  <div class="header-tag"><i></i> مرکز فعال‌سازی</div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="eyebrow"><span></span> دسترسی ویژه ردیاب</div>
+    <h1>یک سال، <em>بدون محدودیت</em> حرکت کنید.</h1>
+    <p>
+      امکانات کامل ردیاب را با اشتراک پریمیوم در اختیار داشته باشید؛
+      یک انتخاب برای استفاده گسترده‌تر و بدون محدودیت.
+    </p>
+  </section>
+
+  <section class="premium-card">
+
+    <div class="card-top">
+      <div class="premium-label">
+        <div class="premium-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 2 2.4 6.2L21 11l-6.6 2.8L12 20l-2.4-6.2L3 11l6.6-2.8L12 2Z"/>
+            <path d="m19 15 1.2 2.3L22.5 18.5l-2.3 1.2L19 22l-1.2-2.3-2.3-1.2 2.3-1.2L19 15Z"/>
+          </svg>
+        </div>
+        اشتراک ویژه ردیاب
+      </div>
+      <div class="special-tag">PREMIUM ACCESS</div>
+    </div>
+
+    <h2>اشتراک پریمیوم</h2>
+    <p class="description">
+      با خرید اشتراک، به مدت یک سال به‌صورت نامحدود از امکانات اپلیکیشن استفاده کنید و تجربه کامل‌تری از قابلیت‌های ردیاب داشته باشید.
+    </p>
+
+    <div class="duration-strip">
+      <div class="duration-main">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3 2"/>
+        </svg>
+        مدت اعتبار اشتراک
+      </div>
+      <div class="duration-number">۱۲ <small>ماه کامل</small></div>
+    </div>
+
+    <div class="features-title">با پریمیوم چه امکاناتی دارید؟</div>
+
+    <div class="feature-list">
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M5 12h14M12 5v14"/>
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          بدون محدودیت
+          <small>در تعداد ردیابی‌ها</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+            <circle cx="9" cy="8" r="3"/>
+            <path d="M3 20v-1a6 6 0 0 1 12 0v1"/>
+            <circle cx="17" cy="9" r="2.5"/>
+            <path d="M17 15a4 4 0 0 1 4 4v1"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          ردیابی هم‌زمان
+          <small>چند نفر در یک زمان</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+            <rect x="3" y="4" width="18" height="17" rx="3"/>
+            <path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 5-5"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          اعتبار یک‌ساله
+          <small>۱۲ ماه استفاده کامل</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 14.5 8.5 20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5L12 3Z"/>
+            <path d="m19 15 1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2Z"/>
+          </svg>
+        </div>
+        <div class="feature-text">
+          دسترسی کامل
+          <small>به امکانات اپلیکیشن</small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-note">
+        یک اشتراک برای تجربه کامل ردیاب
+        <strong>۱۲ ماه دسترسی پریمیوم</strong>
+      </div>
+      <div style="color:#D6E5A4;font-size:12px;font-weight:900;letter-spacing:1px">PRO ✦</div>
+    </div>
+
+  </section>
+
+  <section class="action-section">
+    <div class="section-heading">
+      <h3>فعال‌سازی اشتراک</h3>
+      <span>مرحله نهایی</span>
+    </div>
+
+    <div class="activation-panel">
+      <p>
+        برای شروع استفاده از امکانات پریمیوم، فرایند خرید و فعال‌سازی اشتراک را آغاز کنید.
+        پس از تأیید پرداخت، وضعیت اشتراک شما باید در حساب کاربری ثبت شود.
+      </p>
+
+      <button class="activate-btn" id="buyButton" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="5" width="20" height="14" rx="3"/>
+          <path d="M2 10h20M7 15h3"/>
+        </svg>
+        خرید اشتراک پریمیوم
+      </button>
+    </div>
+
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 11v5M12 8h.01"/>
+      </svg>
+      <span>برای تکمیل خرید، درگاه پرداخت و سرویس ثبت اشتراک باید به سامانه متصل باشند. این دکمه پس از اتصال درگاه، کاربر را به مرحله پرداخت هدایت می‌کند.</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- منوی پایین؛ ترتیب و آیکون‌ها در تمام صفحات باید یکسان بماند -->
+<nav class="bottom-nav">
+  <div class="nav-inner">
+
+    <a class="nav-item" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/>
+      </svg>
+      <span>خانه</span>
+    </a>
+
+    <a class="nav-item" href="guide.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/>
+        <path d="M4 17a2.5 2.5 0 0 1 2.5-2.5H20M8 7h8M8 10h6"/>
+      </svg>
+      <span>راهنما</span>
+    </a>
+
+    <a class="nav-item active" href="activation.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2 4 5v6c0 5.2 3.4 9.2 8 11 4.6-1.8 8-5.8 8-11V5l-8-3Z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+      <span>فعال‌سازی</span>
+    </a>
+
+    <a class="nav-item" href="tracking.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+        <circle cx="12" cy="10" r="2.5"/>
+      </svg>
+      <span>ردیابی</span>
+    </a>
+
+  </div>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const buyButton = document.getElementById('buyButton');
+const toast = document.getElementById('toast');
+
+let toastTimer;
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3500);
+}
+
+buyButton.addEventListener('click', function(){
+
+  /*
+    محل اتصال درگاه پرداخت:
+    پس از آماده‌شدن بک‌اند، آدرس درگاه را در این قسمت قرار دهید.
+    نمونه:
+    window.location.href = paymentUrl;
+
+    تا قبل از اتصال درگاه، هیچ پرداخت یا فعال‌سازی جعلی انجام نمی‌شود.
+  */
+
+  showToast('درگاه خرید اشتراک هنوز به سامانه متصل نشده است. لطفاً پس از راه‌اندازی پرداخت اقدام کنید.');
+});
+</script>
+
+</body>
+</html>
